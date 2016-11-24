@@ -1,0 +1,75 @@
+<h1>TASK INFORMATION</h1>
+  <form id="createTask_form">
+    <table>
+      <tr>
+        <td><label for="title">Title: </label
+        <td><input type="text" name="title"></td>
+      </tr>
+      <tr>
+        <td><label for="category">Task Category:</label></td>
+        <td>
+          <select name="category" id="category">
+            <option value="requesting">Requesting</option>
+            <option value="offering">Offering</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="requesting">What are you requesting?:</label></td>
+        <td><input type="text" name="requesting"></</td>
+      </tr>
+      <tr>
+        <td><label for="offering">What are you offering?:</label></td>
+        <td><input type="text" name="offering"></td>
+      </tr>
+      <tr>
+        <td><label for="description">Please expand on your request and offer:</td>
+        <td><input type="text" name="description"></td>
+      </tr>
+      <tr>
+        <td><label for="picture">Upload an image:</label></td>
+        <td><button type="imagUploadButton">Click Here to Upload an Image</button></td>
+      </tr>
+      <tr>
+        <td><em>Preview:</em></td>
+        <td><img src="http://twodaftyanks.com/wp-content/uploads/2015/08/preview-14.png" /></td>
+      </tr>
+    </table>
+    
+    <h1>LOCATION INFORMATION</h1>
+    <table>
+      <tr>
+        <td><label for="streetNumber">Street Number:</label></td>
+        <td><input type="text" name="streetNumber"></td>
+      </tr>
+      <tr>
+        <td><label for="streetName">Street Name:</label></td>
+        <td><input type="text" name="streetName"></td>
+      </tr>
+      <tr>
+        <td><label for="city">City:</label></td>
+        <td><input type="text" name="city"></td>
+      </tr>
+      <tr>
+        <td><label for="postalCode">Postal Code:</label></td>
+        <td><input type="text" name="postalCode"></td>
+      </tr>
+      <tr>
+        <td><label for="preferredContact: ">Peferred Mode of Contact:</td>
+        <td><input type="radio" name="preferredContact" value="email">E-mail</td>
+        <td><input type="radio" name="preferredContact" value="phone">Phone</td>
+      </tr>
+    </table>
+  </form>
+    <table>
+      <tr>
+        <td><button id="submit_button">Submit</button></td>
+      </tr>
+      <tr>
+        <td><button id="clearAll_button">Clear All</button></td>
+        <td><button id="exit_button">Exit</button></td>
+      </tr>  
+    </table> 
+    <h1>NEED HELP?</h1>
+    <a href="https://google.com">Click here to talk to an Operator to assist you :)</a>
+<script src="/javascripts/createTaskScript.js"></script>

@@ -1,17 +1,25 @@
 $(function(){
-	$('#submit_button').on('click',login);
+	$('#login_button').on('click',login);
+	$('#createNewAccount').on('click', signup);
 })
 
 var login = function(){
-	var userName = $('#userName').text();
-	var password = $('#password').text();
 
 	$.ajax({
 		url: 'login',
 		type: 'POST',
-		data: $('#login_form').serialize(),
+		data: $('#login').serialize(),
 		success: function(result){
-			console.log("test");
+			if(result === "success"){
+				window.location.replace("http://localhost:3000/home");
+			} else {
+				$('#userName_Error').text("Invalid Username or Password");
+				$('#password_Error').text("Invalid Username or Password");
+			}
 		}
 	})	
+}
+
+var signup = function(){
+	window.location.replace("http://localhost:3000/signup");
 }

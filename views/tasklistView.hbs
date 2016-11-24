@@ -1,0 +1,20 @@
+<h1> Task list page </h1>
+
+<table>
+	<tr>
+		<td>Task ID</td>
+		<td>Task title</td>
+		<td>Offering</td>
+		<td>Requesting</td>
+		<td>Description</td>
+	</tr>
+	{{#each taskList}}
+	<tr>
+		<td>{{this.task_id}}</td>
+		<td>Title</td>
+		<td>{{this.offering}}</td>
+		<td>{{this.requesting}}</td>
+		<td>{{this.description}}</td>
+	</tr>
+	{{/each}}
+</table>

@@ -17,7 +17,7 @@ var usersSchema = new Schema ({
 	email: {type: String},
 	contactNumber: {type: Number},
 	preferredContact: {type: Number, required: true},
-	userLoginID: {type: Schema.Types.ObjectId, required: true},
+	userLoginID: {type: String, required: true},
 	rating: {type: Number},
 	address: {
 		streetNumber: {type: Number},

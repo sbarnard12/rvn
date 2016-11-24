@@ -1,0 +1,91 @@
+<h1>Create a new account
+  </h1> 
+
+  <!-- Display a message with the phone line number in case the user wants to talk to a real operator instead -->
+  <h3>If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h3>
+
+  <!-- Create a form that will be used to enter the user information -->
+  <form name="signUp" id="signUp_form">
+    <div>
+    <h2>Personal Information</h2>
+    
+      <!-- Get the user's title -->
+      <label for="title">Title: </label> 
+      <select id="title" name="title">
+       <option id=Mr. value="Mr.">Mr.</option>
+       <option id=Mrs. value="Mrs.">Mrs.</option>
+       <option id=Miss value="Miss">Miss</option>
+       <option id=Dr. value="Dr.">Dr.</option>
+      </select>
+
+      <!-- Get the user's personal info -->
+      <label for="firstName">First Name:</label> 
+      <input id="firstName" type="text" name="firstName"><br>
+   
+      <label for="lastName">Last Name: </label>  
+      <input id="lastName" type="text" name="lastName"><br>
+
+      <label for="gender">Gender:</label>
+      <input id=male type="radio" name="gender" value="Male" checked> Male
+      <input id=female type="radio" name="gender" value="Female"> Female
+      <input id=preferNotToSay type="radio" name="gender" value="Prefer not to say."> Prefer not to say
+    </div>
+
+    <div>
+      <!-- Get the user's contact info -->
+      <h2>Contact Information</h2>
+
+      <label for="phoneNumber">Contact Phone Number:</label>
+      <input id=phoneNumber type="text" name="phoneNumber">
+    
+      <label for="apartmentNumber">Apartment Number: </label>  
+      <input id="aptNum" type="text" name="apartmentNumber">
+
+      <label for="streetAddress">Street Address: </label>
+      <input id=streetAddress type="text" name="streetAddress">
+
+      <label for="city">City: </label>
+      <input id=city type="text" name="city">
+
+      <label for="province"> Province: </label>
+      <input id="province" name="province">
+
+      <label for="postalCode">Postal Code: </label>
+      <input id=postalCode type="text" name="postalCode">
+
+      <label for="preferredContact: ">Preferred mode of contact: </label>
+      <input id=e-mail type="radio" name="preferredContact" value="e-mail" checked> E-mail
+      <input id="phone" type="radio" name="preferredContact" value="phone"> Phone
+      <input id=mail type="radio" name="preferredContact" value="mail"> Mail<br>
+    </div>
+    <div>
+      <!-- Get the user's login info -->
+      <h2>Login Information</h2>
+      
+      <label for="email"> E-mail Address: </label>
+      <input id="e-mail" type="text" name="email">
+
+      <label> Confirm E-mail Address: </label>
+      <input id="emailConfirm" type="text">
+
+      <label for="password">Password: </label>
+      <input id=password type="password" name="Password">
+
+      <label>Confirm Password: </label>
+      <input id="passwordConfirm" type="password">
+    </div>
+
+</form>
+    <div>
+      <button id="submit_button">Submit</button>
+      <button id="clearall_button">Clear All</>
+      <button id="exit_button">Exit</button>
+    </div>
+    <div id="exit_dialog">
+      <p>Are you sure you would like to Exit and return to the login page?</p>
+      <p>All information will be lost</p>
+    </div>
+    <div id="clear_dialog">
+    <p>Are you sure you would like to Clear all information?</p>
+    </div>
+<script src="/javascripts/signupScript.js"></script>

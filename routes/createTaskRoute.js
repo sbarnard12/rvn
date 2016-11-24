@@ -1,0 +1,14 @@
+var express = require('express');
+var router = express.Router();
+
+var tasks = require('../models/apis/taskListAPI');
+
+router.get('/', function(req, res, next){
+	res.render('createTaskView',{});
+});
+
+router.post('/', function(req, res, next){
+	tasks.createNewTask(req, res, next);
+})
+
+module.exports = router;

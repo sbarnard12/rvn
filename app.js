@@ -23,11 +23,16 @@ require('./models/models/userReviewsModel');
 require('./models/models/usersModel');
 
 //routes
-var index = require('./routes/index');
-var users = require('./routes/userRoute');
 var login = require('./routes/loginRoute');
+var users = require('./routes/userRoute');
 var taskList = require('./routes/taskListRoute');
 var userReviews = require('./routes/userReviewsRoute')
+var home = require('./routes/homeRoute');
+var search = require('./routes/searchTasksRoute');
+var details = require('./routes/taskDetailRoute');
+var signup = require('./routes/signUpRoute');
+var createTask = require('./routes/createTaskRoute');
+var thankyou = require('./routes/thankyouRoute.js');
 
 var app = express();
 
@@ -67,6 +72,18 @@ app.use(session({
   activeDuration: 5 * 60 * 1000,
 }));
 
+var loginAPI = require('./models/apis/loginAPI');
+app.use(function(req, res, next){
+    loginAPI.getUser(req, res, next)
+})
+function requireLogin(req, res, next){
+  if (req.user || req.path ==='/login' || req.path ==='/signup' || req.path === '/thankyou') {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+};
+
 
 
 // uncomment after placing your favicon in /public
@@ -77,12 +94,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/fonts', express.static(path.join(__dirname, 'node_modules/bootstrap-sass/assets/fonts')));
+app.use(requireLogin);
 
-app.use('/', index);
+app.use('/', login);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/taskList', taskList);
 app.use('/reviews', userReviews);
+app.use('/home', home);
+app.use('/search', search);
+app.use('/taskdetails', details);
+app.use('/signup',signup);
+app.use('/createTask', createTask);
+app.use('/thankyou', thankyou);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
