@@ -5,12 +5,14 @@ var users = require('../models/apis/usersAPI');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/')
+	.get(function(req, res, next) {
 	res.render('signUpView', {});
-});
-
-router.post('/', function(req, res, next){
+	})
+	.post(function(req, res, next){
 	users.createNewUser(req, res, next);
-});
+	})
+;
+
 
 module.exports = router;

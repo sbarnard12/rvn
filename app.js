@@ -28,7 +28,6 @@ var users = require('./routes/userRoute');
 var taskList = require('./routes/taskListRoute');
 var userReviews = require('./routes/userReviewsRoute')
 var home = require('./routes/homeRoute');
-var search = require('./routes/searchTasksRoute');
 var details = require('./routes/taskDetailRoute');
 var signup = require('./routes/signUpRoute');
 var createTask = require('./routes/createTaskRoute');
@@ -102,7 +101,6 @@ app.use('/login', login);
 app.use('/taskList', taskList);
 app.use('/reviews', userReviews);
 app.use('/home', home);
-app.use('/search', search);
 app.use('/taskdetails', details);
 app.use('/signup',signup);
 app.use('/createTask', createTask);

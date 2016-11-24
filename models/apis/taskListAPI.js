@@ -22,7 +22,7 @@ var search = function(req, res, next){
 }
 
 var defaultPage = function(req, res, next){
-	taskListModel.find({})
+	taskListModel.find({expired: false})
 	.then(function(taskList){
 		res.render('tasklistView', {taskList: taskList});
 	})
@@ -51,12 +51,13 @@ var createNewTask = function(req, res, next){
 	task.state = "Available";
 	task.usePosterAddress = false;
 
-	usersModel.findOne({_id: req.session.user._id})
+	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){
 
 		task.poster.id = user._id;
 		task.poster.firstName = user.firstName;
 		task.poster.lastName = user.lastName;
+		task.poster.rating = user.rating;
 
 		task.saveAsync()
 		.then(function(task){
@@ -65,24 +66,46 @@ var createNewTask = function(req, res, next){
 		})
 		.catch(function(e){
 			console.log("fail");
-			res.json({'status': 'error', 'error': e})
+			res.json({'status': 'error', 'error': e});
 		})
 		.error(console.error);
 	})
 };
 
+var searchTasks = function(req, res, next){
+	var search = new RegExp(req.params.searchterm, "i");
+	taskListModel.find(
+		{$and: 
+			[
+				{expired: false}, 
+				{$or: 
+					[
+						{title: search},
+						{description: search}
+					]}
+			] 
+		}
+	)
+	.then(function(taskList){
+		res.render('tasklistView', {taskList: taskList});
+	})
+};
+
+
+
 var castCategory = function(category){
 	return (category === "requesting")? 0: 1;
-}
+};
 
 var castModeofContact = function(mode){
 	return (mode === "email")? 0 : 1;
-}
+};
 
 module.exports = {
 	getAll: getAll,
 	search: search,
 	defaultPage: defaultPage,
 	getOne: getOne,
-	createNewTask: createNewTask
+	createNewTask: createNewTask,
+	searchTasks: searchTasks
 }

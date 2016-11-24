@@ -28,6 +28,7 @@ var TaskListSchema = new Schema({
 		id: {type: Schema.Types.ObjectId, required: true},
 		firstName: {type: String},
 		lastName: {type: String},
+		rating: {type: Number},
 	},
 	matchedUserID: {type: Schema.Types.ObjectId},
 	date: {type: Date, default: Date.now},
