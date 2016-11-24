@@ -1,0 +1,48 @@
+<h1>Welcome to V-Inverse!</h1> 
+<h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
+
+<div class="container-fluid">
+		<ul class="nav navbar-nav">
+        	<li><a id="reviews_nav">Reviews</a></li>
+        	<li><a id="taskHistory_nav">Task History</a></li>
+        	<li><a id="currentTasks_nav">Current Tasks</a></li>
+        	<li class="active"><a id="profile_nav">Profile</a></li>
+    	</ul>
+</div>
+<div id="partial_container">
+
+<h1><br><br>User Profile</h1>
+<p><button id=submit type="submit" formaction="https://en.wikipedia.org/wiki/Brown_bear">Edit Profile</button> <br><br>
+  <!-- Create a form that will be used to enter the user information -->
+<div class="tab-content">
+        <div id="taskHistory" class="tab active">
+
+  <h2>Personal Information</h2>
+    <label>First Name:</label> {{user.firstName}}
+    <br>
+    <label>Last Name: </label> {{user.lastName}}
+    <br>
+    <label>Gender: </label {{user.gender}}
+    <br><br>
+
+  <h2>Contact Information</h2>
+    <label>Phone Number: </label> {{user.phoneNumber}}
+    <br>
+    <label> Apartment Number: </label> {{user.address.apartmentNumber}}
+    <br>
+    <label> Street Address: </label> {{user.address.streetNumber}} {{user.address.streetName}}
+    <br>
+    <label>City: </label> {{user.address.city}}
+    <br>
+    <label> Postal Code: </label> {{user.address.postalCode}}
+    <br>
+    <label>Preferred Mode of Contact: </label> {{user.preferredContact}}
+    <br>
+
+  <h2>About Me</h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
+    <br>
+
+</div>
+<script src="/javascripts/userProfileScript.js"></script>
+

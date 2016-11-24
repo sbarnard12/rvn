@@ -4,6 +4,9 @@ usersModel = db4.model('User');
 var db = require('../dbs/loginDB'), 
 loginModel = db.model('Userlogin');
 
+var db1 = require('../dbs/taskListDB'), 
+taskListModel = db1.model('Tasklist');
+
 var getAllUsers = function(req, res, next){
 	usersModel.find({})
 	.then(function(userList){
@@ -50,6 +53,69 @@ var createNewUser = function(req, res, next){
 	.error(console.error);
 };
 
+var getCurrentUser = function(req, res, next){
+	usersModel.findOne({userLoginID: req.session.user._id})
+	.then(function(user){
+		res.render('userProfileView', {user: user})
+	})
+}
+
+var getUserProfile = function(req, res, next){
+	usersModel.findOne({userLoginID: req.session.user._id})
+	.then(function(user){
+		user.partial = "Profile";
+		res.render('userProfileView', {user: user})
+	})
+}
+
+var getUserCurrentTasks = function(req, res, next){
+	usersModel.findOne({userLoginID: req.session.user._id})
+	.then(function(user){
+		//get all tasks that are assigned to the current user
+		taskListModel.find( //only return active tasks
+			{$and:
+				[
+					{posterID: user._id},
+					{expired: false}
+				]
+			}
+		)//ensure that only active tasks are shown
+		.then(function(tasklist){
+			user.tasklist = tasklist;
+			user.partial = "CurrentTasks";
+			res.render('userCurrentTasksView', {user: user})
+		})
+	})
+}
+
+var getuserTaskHistory = function(req, res, next){
+	usersModel.findOne({userLoginID: req.session.user._id})
+	.then(function(user){
+		taskListModel.find( //only return old taks
+			{$and:
+				[
+					{posterID: user._id},
+					{expired: true}
+				]
+			}
+		)
+		.then(function(tasklist){
+			user.tasklist = tasklist;
+			user.partial = "TaskHistory";
+			res.render('userTaskHistoryView', {user: user})
+		})
+	})
+}
+
+var getUserReviews = function(req, res, next){
+    usersModel.findOne({userLoginID: req.session.user._id})
+        .then(function(user){
+        	user.partial = "Reviews";
+            res.render('userReviewsView', {user: user})
+        })
+}
+
+
 var castGender = function(gender){
 	switch(gender){
 		case "Male":
@@ -94,5 +160,10 @@ var castTitle = function(title){
 module.exports = {
 	getAllUsers: getAllUsers,
 	getOneCurrentUser: getOneCurrentUser,
-	createNewUser: createNewUser
+	createNewUser: createNewUser,
+	getCurrentUser: getCurrentUser,
+	getUserProfile: getUserProfile,
+	getUserCurrentTasks: getUserCurrentTasks,
+	getuserTaskHistory: getuserTaskHistory,
+	getUserReviews: getUserReviews,
 }

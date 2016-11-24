@@ -1,0 +1,41 @@
+<h1>Welcome to V-Inverse!</h1> 
+<h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
+
+<div class="container-fluid">
+		<ul class="nav navbar-nav">
+        	<li><a id="reviews_nav">Reviews</a></li>
+        	<li><a id="taskHistory_nav">Task History</a></li>
+        	<li><a id="currentTasks_nav">Current Tasks</a></li>
+        	<li class="active"><a id="profile_nav">Profile</a></li>
+    	</ul>
+</div>
+<div id="partial_container">
+
+<div id="taskHistory" class="tab active">
+      <br><br>
+			<h1>Task History</h1>
+
+			<table style="width:100%">
+  				<tr>
+    				<th>Task</th>
+    				<th>Owner</th> 
+    				<th>Rating</th>
+    				<th>Status</th>
+
+  				</tr>
+  				{{#each tasklist}}
+            <tr>
+              <td>{{this.title}}</td>
+              <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>
+              <td>{{this.state}}</td>
+              <td>Rating</td><!-- Need to get the review for the task if completed-->
+            </tr>
+          {{/each}}
+			</table>
+</div>
+
+</div>
+<br>
+<br>
+<script src="/javascripts/userProfileScript.js"></script>
+

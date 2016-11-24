@@ -31,7 +31,11 @@ var home = require('./routes/homeRoute');
 var details = require('./routes/taskDetailRoute');
 var signup = require('./routes/signUpRoute');
 var createTask = require('./routes/createTaskRoute');
-var thankyou = require('./routes/thankyouRoute.js');
+var thankyou = require('./routes/thankyouRoute');
+var userProfile = require('./routes/userProfileRoute');
+var userTaskHistory = require('./routes/userTaskHistoryRoute');
+var userCurrentTask = require('./routes/userCurrentTasksRoute');
+var userReviews = require('./routes/userReviewsRoute');
 
 var app = express();
 
@@ -96,7 +100,7 @@ app.use('/fonts', express.static(path.join(__dirname, 'node_modules/bootstrap-sa
 app.use(requireLogin);
 
 app.use('/', login);
-app.use('/users', users);
+app.use('/user', userProfile);
 app.use('/login', login);
 app.use('/taskList', taskList);
 app.use('/reviews', userReviews);
@@ -105,6 +109,11 @@ app.use('/taskdetails', details);
 app.use('/signup',signup);
 app.use('/createTask', createTask);
 app.use('/thankyou', thankyou);
+app.use('/user/profile', userProfile);
+app.use('/user/reviews', userReviews);
+app.use('/user/taskhistory', userTaskHistory);
+app.use('/user/currenttasks', userCurrentTask);
+
 
 
 // catch 404 and forward to error handler

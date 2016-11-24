@@ -1,0 +1,11 @@
+<div id="reviews" class="tab active">
+
+     <h1><br><br>Reviews</h1>
+
+     {{#each reviews}}
+          <h2 {{this.reviewee.firstName}} {{this.reviewee.lastName}} </h2>
+          <p> Review date: {{this.date}}</p>
+          <p> {{this.reviewDescription}} </p>
+
+     {{/each}}
+</div>
