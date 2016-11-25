@@ -35,7 +35,9 @@ var getOne = function(req, res, next){
 			if(task.poster.rating === null){
 				task.poster.rating = "No Rating";
 			}
-			res.render('taskDetailsView', {task: task});
+			
+			task.sameUser = (task.poster.id == req.session.user_id);
+			res.render('taskDetailsView', {task: task, helpers: {if_eq: if_eq}});
 		});
 };
 
@@ -77,25 +79,64 @@ var createNewTask = function(req, res, next){
 };
 
 var searchTasks = function(req, res, next){
-	var search = new RegExp(req.params.searchterm, "i");
-	taskListModel.find(
-		{$and: 
-			[
-				{expired: false}, 
-				{$or: 
-					[
-						{title: search},
-						{description: search}
-					]}
-			] 
-		}
-	)
-	.then(function(taskList){
+	
+	usersModel.findOne({userLoginID: req.session.user._id})
+	.then(function(user){		
+		var search = new RegExp(req.params.searchterm, "i");
+		taskListModel.find(
+			{$and: 
+				[
+					{'poster.id': {'$ne':user._id}},
+					{expired: false}, 
+					{$or: 
+						[
+							{title: search},
+							{description: search}
+						]}
+				] 
+			}
+		)
+		.then(function(taskList){
 		res.render('tasklistView', {taskList: taskList});
+		})
 	})
 };
 
 
+var setInterested = function(req, res, next){
+	taskListModel.findOne({_id: req.params.id})
+	.then(function(task){
+
+		usersModel.findOne({_id: req.session.user_id})
+		.then(function(user){
+
+			task.matchedUser.id = user._id;
+			task.matchedUser.firstName = user.firstName;
+			task.matchedUser.lastName = user.lastName;
+			task.matchedUser.rating = user.rating;
+			task.state = "Matched";
+
+			task.saveAsync()
+			.then(function(task){
+				console.log("success");
+				res.json({'status': 'success', 'task': task});
+			})
+			.catch(function(e){
+				console.log("fail");
+				res.json({'status': 'error', 'error': e})
+			})
+			.error(console.error);
+		})
+	})
+}
+
+
+var if_eq = function(a, b, opts) {
+    if(a == b) // Or === depending on your needs
+        return opts.fn(this);
+    else
+        return opts.inverse(this);
+};
 
 var castCategory = function(category){
 	return (category === "requesting")? 0: 1;
@@ -111,5 +152,6 @@ module.exports = {
 	defaultPage: defaultPage,
 	getOne: getOne,
 	createNewTask: createNewTask,
-	searchTasks: searchTasks
+	searchTasks: searchTasks,
+	setInterested: setInterested,
 }

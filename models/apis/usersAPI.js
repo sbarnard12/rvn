@@ -1,11 +1,15 @@
-var db4 = require('../dbs/usersDB'), 
+var db4 = require('../dbs/usersDB'),
 usersModel = db4.model('User');
 
-var db = require('../dbs/loginDB'), 
+var db = require('../dbs/loginDB'),
 loginModel = db.model('Userlogin');
 
-var db1 = require('../dbs/taskListDB'), 
+var db1 = require('../dbs/taskListDB'),
 taskListModel = db1.model('Tasklist');
+
+var db5 = require('../dbs/reviewsDB'), 
+reviewModel = db5.model('Review');
+
 
 var getAllUsers = function(req, res, next){
 	usersModel.find({})
@@ -86,18 +90,19 @@ var getUserCurrentTasks = function(req, res, next){
 	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
 	.then(function(user){
 		//get all tasks that are assigned to the current user
-		taskListModel.find( //only return active tasks
-			{$and:
-				[
-					{'poster.id': user._id},
-					{expired: false}
-				]
-			}
+		taskListModel.find( //only return active task
+			{
+				$and:
+            	[
+                	{$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
+                	{expired: false}
+            	]
+        	}
 		)//ensure that only active tasks are shown
 		.then(function(tasklist){
 			user.tasklist = tasklist;
 			user.partial = "CurrentTasks";
-			res.render('userCurrentTasksView', {user: user})
+			res.render('userCurrentTasksView', {user: user, helpers: {if_eq: if_eq}})
 		})
 	})
 }
@@ -114,11 +119,11 @@ var getuserTaskHistory = function(req, res, next){
 	.then(function(user){
 		taskListModel.find( //only return old taks
 			{$and:
-				[
-					{'poster.id': user._id},
-					{expired: true}
-				]
-			}
+            	[
+                	{$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
+                	{expired: true}
+            	]
+        	}
 		)
 		.then(function(tasklist){
 			user.tasklist = tasklist;
@@ -129,20 +134,30 @@ var getuserTaskHistory = function(req, res, next){
 }
 
 var getUserReviews = function(req, res, next){
-
 	if(typeof req.params.id === "undefined"){
 		var id = req.session.user._id;
 	} else {
 		var id = req.params.id;
 	}
 
-    usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
+	reviewModel.find({reviewedUser: id})
+	.then(function(reviews){
+		res.render('userReviewsView', {reviews: reviews})
+	})
+
+    /*usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
         .then(function(user){
         	user.partial = "Reviews";
             res.render('userReviewsView', {user: user})
-        })
+        }) */
 }
 
+var if_eq = function(a, b, opts) {
+    if(a == b) // Or === depending on your needs
+        return opts.fn(this);
+    else
+        return opts.inverse(this);
+};
 
 var castGender = function(gender){
 	switch(gender){

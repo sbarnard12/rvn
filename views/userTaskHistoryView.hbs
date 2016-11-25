@@ -11,12 +11,13 @@
 </div>
 <div id="partial_container">
 
-<div id="taskHistory" class="tab active">
+<div id="taskHistory" class="taskList_table">
       <br><br>
 			<h1>Task History</h1>
 
 			<table style="width:100%">
   				<tr>
+  					<td style="display:none;"></td>
     				<th>Task</th>
     				<th>Owner</th> 
     				<th>Rating</th>
@@ -24,13 +25,14 @@
 
   				</tr>
   				{{#each tasklist}}
-            <tr>
-              <td>{{this.title}}</td>
-              <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>
-              <td>{{this.state}}</td>
-              <td>Rating</td><!-- Need to get the review for the task if completed-->
-            </tr>
-          {{/each}}
+            	<tr>
+            		<td style="display:none;">{{this._id}}</td>
+            		<td>{{this.title}}</td>
+            		<td>{{this.poster.firstName}} {{this.poster.lastName}}</td>
+            		<td>{{this.state}}</td>
+            		<td>Rating</td><!-- Need to get the review for the task if completed-->
+            	</tr>
+          		{{/each}}
 			</table>
 </div>
 

@@ -19,8 +19,8 @@ var bodyParser = require('body-parser');
 //models
 require('./models/models/taskListModel');
 require('./models/models/loginModel');
-require('./models/models/userReviewsModel');
 require('./models/models/usersModel');
+require('./models/models/reviewsModel')
 
 //routes
 var login = require('./routes/loginRoute');
@@ -34,6 +34,9 @@ var userProfile = require('./routes/userProfileRoute');
 var userTaskHistory = require('./routes/userTaskHistoryRoute');
 var userCurrentTask = require('./routes/userCurrentTasksRoute');
 var userReviews = require('./routes/userReviewsRoute');
+var match = require('./routes/matchPageRoute');
+var review = require('./routes/reviewTaskRoute');
+
 
 var app = express();
 
@@ -110,7 +113,8 @@ app.use('/user/profile', userProfile);
 app.use('/user/reviews', userReviews);
 app.use('/user/taskhistory', userTaskHistory);
 app.use('/user/currenttasks', userCurrentTask);
-
+app.use('/match', match);
+app.use('/taskreview', review);
 
 
 // catch 404 and forward to error handler

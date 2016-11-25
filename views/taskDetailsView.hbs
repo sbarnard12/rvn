@@ -4,6 +4,8 @@
 <h1>Offering: {{task.offering}}</h1>
 <h1>Wanted: {{task.requesting}}</h1>
 
+<span id="poster_id" name={{task._id}} style="display:none;"></span>
+
 <table width="100%">
     <tr>
     <div class="container-fluid">
@@ -30,6 +32,8 @@
     </div>
 </table>
 <div class="col-md-4 col-md-offset-4">
-	<button>I'm interested</button>
+	{{#unless task.sameUser}}
+		<button id="interested_button">I'm interested</button>
+	{{/unless}}
 </div>
 <script src="/javascripts/taskDetailsScript.js"></script>

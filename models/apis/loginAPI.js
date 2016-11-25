@@ -1,21 +1,30 @@
 var db = require('../dbs/loginDB'), 
 loginModel = db.model('Userlogin');
 
+var db4 = require('../dbs/usersDB'), 
+usersModel = db4.model('User');
+
 var checkUser = function(req, res, next){
 	loginModel.findOne({ userName: req.body.userName })
-	.then(function(user) {
-    	if (!user) {
-    	  res.render('landingPageView', { error: 'Invalid email or password.' });
-    	} else {
-    	  if (req.body.password === user.password) {
-    	    // sets a cookie with the user's info
-    	   req.session.user = user;
-    	   res.send('success');
-    	} else {
-        	res.render('landingPageView', { error: 'Invalid email or password.' });
-      	}
-    	}
-  	});
+	.then(function(userLogin) {
+        usersModel.findOne({userLoginID: userLogin._id})
+    	.then(function(userModel){
+            if (!userLogin) {
+            res.render('landingPageView', { error: 'Invalid email or password.' });
+            } else {
+                if (req.body.password === userLogin.password) {
+                // sets a cookie with the user's info
+                req.session.user = userLogin;
+                req.session.user_id = userModel._id;
+
+                res.send('success');
+                } else {
+                res.render('landingPageView', { error: 'Invalid email or password.' });
+                }
+            }
+   
+        })
+          	});
 };
 
 var getUser = function(req, res, next){

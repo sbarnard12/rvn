@@ -2,27 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a9c9e7b-f2aa-4c32-8e3e-0ffd712593d0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/partials/userpartials/userCurrentTasksPartial.hbs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/partials/userpartials/userProfilePartial.hbs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/partials/userpartials/userReviewsPartial.hbs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/partials/userpartials/userTaskHistoryPartial.hbs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/models/apis/userReviewsAPI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/models/dbs/userReviewsDB.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/models/models/userReviewsModel.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/apis/loginAPI.js" afterPath="$PROJECT_DIR$/models/apis/loginAPI.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/apis/taskListAPI.js" afterPath="$PROJECT_DIR$/models/apis/taskListAPI.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/apis/usersAPI.js" afterPath="$PROJECT_DIR$/models/apis/usersAPI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/createTaskScript.js" afterPath="$PROJECT_DIR$/public/javascripts/createTaskScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/searchScript.js" afterPath="$PROJECT_DIR$/public/javascripts/searchScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/models/taskListModel.js" afterPath="$PROJECT_DIR$/models/models/taskListModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/taskDetailsScript.js" afterPath="$PROJECT_DIR$/public/javascripts/taskDetailsScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/taskListScript.js" afterPath="$PROJECT_DIR$/public/javascripts/taskListScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/userProfileScript.js" afterPath="$PROJECT_DIR$/public/javascripts/userProfileScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/userCurrentTasksRoute.js" afterPath="$PROJECT_DIR$/routes/userCurrentTasksRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/userProfileRoute.js" afterPath="$PROJECT_DIR$/routes/userProfileRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/userReviewsRoute.js" afterPath="$PROJECT_DIR$/routes/userReviewsRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/userTaskHistoryRoute.js" afterPath="$PROJECT_DIR$/routes/userTaskHistoryRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/createTaskView.hbs" afterPath="$PROJECT_DIR$/views/createTaskView.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/homeView.hbs" afterPath="$PROJECT_DIR$/views/homeView.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/header.hbs" afterPath="$PROJECT_DIR$/views/partials/header.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/taskDetailRoute.js" afterPath="$PROJECT_DIR$/routes/taskDetailRoute.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/taskListRoute.js" afterPath="$PROJECT_DIR$/routes/taskListRoute.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/layout.hbs" afterPath="$PROJECT_DIR$/views/layouts/layout.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/taskListTable.hbs" afterPath="$PROJECT_DIR$/views/partials/taskListTable.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/taskDetailsView.hbs" afterPath="$PROJECT_DIR$/views/taskDetailsView.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userCurrentTasksView.hbs" afterPath="$PROJECT_DIR$/views/userCurrentTasksView.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userProfileView.hbs" afterPath="$PROJECT_DIR$/views/userProfileView.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userReviewsView.hbs" afterPath="$PROJECT_DIR$/views/userReviewsView.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userTaskHistoryView.hbs" afterPath="$PROJECT_DIR$/views/userTaskHistoryView.hbs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -44,14 +41,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="usersAPI.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="usersAPI.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/apis/usersAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="73" column="4" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+            <state relative-caret-position="308">
+              <caret line="144" column="4" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="4" />
               <folding>
-                <element signature="e#3691#3823#0" expanded="false" />
-                <element signature="e#3856#4012#0" expanded="false" />
+                <marker date="1480062966274" expanded="false" signature="4260:4392" ph="{...}" />
+                <marker date="1480062966274" expanded="false" signature="4425:4581" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -70,8 +67,8 @@
       <file leaf-file-name="taskDetailRoute.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/taskDetailRoute.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="242">
+              <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -80,24 +77,39 @@
       <file leaf-file-name="taskListAPI.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/apis/taskListAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="58" column="25" lean-forward="true" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-              <folding>
-                <marker date="1480034908624" expanded="true" signature="757:999" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="826:995" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="1046:2129" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="1726:2126" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="1918:2000" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="2022:2097" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="2174:2463" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="2253:2375" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="2264:2370" ph="[...]" />
-                <marker date="1480034908624" expanded="true" signature="2293:2365" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="2305:2364" ph="[...]" />
-                <marker date="1480034908624" expanded="true" signature="2404:2460" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="2505:2551" ph="{...}" />
-                <marker date="1480034908624" expanded="true" signature="2592:2630" ph="{...}" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="127" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reviewsAPI.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/apis/reviewsAPI.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reviewTaskRoute.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/reviewTaskRoute.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reviewsModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/models/reviewsModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,9 +117,12 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
-              <caret line="81" column="11" lean-forward="true" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="693">
+              <caret line="84" column="11" lean-forward="false" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
+              <folding>
+                <marker date="1480059221506" expanded="true" signature="3864:3936" ph="{...}" />
+                <marker date="1480059221506" expanded="true" signature="3995:4241" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,28 +141,11 @@
         <entry file="file://$PROJECT_DIR$/routes/taskListRoute.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginAPI.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/apis/loginAPI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="usersModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/models/usersModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding />
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <marker date="1480050329528" expanded="true" signature="172:275" ph="{...}" />
+                <marker date="1480050329528" expanded="true" signature="339:386" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -173,12 +171,13 @@
         <option value="$PROJECT_DIR$/views/landingPageView.hbs" />
         <option value="$PROJECT_DIR$/models/models/taskListModel.js" />
         <option value="$PROJECT_DIR$/routes/taskListRoute.js" />
-        <option value="$PROJECT_DIR$/models/apis/taskListAPI.js" />
         <option value="$PROJECT_DIR$/views/partials/userpartials/userProfilePartial.hbs" />
         <option value="$PROJECT_DIR$/routes/signUpRoute.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/createTaskView.hbs" />
         <option value="$PROJECT_DIR$/models/apis/usersAPI.js" />
+        <option value="$PROJECT_DIR$/models/apis/taskListAPI.js" />
+        <option value="$PROJECT_DIR$/models/apis/reviewsAPI.js" />
       </list>
     </option>
   </component>
@@ -532,16 +531,16 @@
       <workItem from="1479860240906" duration="5659000" />
       <workItem from="1479937543439" duration="3610000" />
       <workItem from="1479950477383" duration="5282000" />
-      <workItem from="1480016094965" duration="9833000" />
+      <workItem from="1480016094965" duration="15887000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36071000" />
+    <option name="totallyTimeSpent" value="42125000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="683" height="728" extended-state="1" />
-    <editor active="false" />
+    <frame x="0" y="0" width="683" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3013493" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -552,7 +551,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47572815" sideWeight="0.49475262" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.407767" sideWeight="0.49475262" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -572,111 +571,106 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/models/apis/taskListAPI.js</url>
-          <line>8</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
-          <line>21</line>
+          <line>25</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/models/apis/taskListAPI.js</url>
-          <line>55</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/models/apis/taskListAPI.js</url>
-          <line>60</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/models/apis/taskListAPI.js</url>
-          <line>66</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/models/apis/taskListAPI.js</url>
-          <line>70</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/models/apis/taskListAPI.js</url>
-          <line>79</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/models/apis/taskListAPI.js</url>
-          <line>92</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
-          <line>64</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
-          <line>72</line>
+          <line>76</line>
           <properties />
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
-          <line>73</line>
+          <line>77</line>
           <properties />
           <option name="timeStamp" value="65" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
+          <line>92</line>
+          <properties />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
+          <line>103</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/reviewsAPI.js</url>
+          <line>22</line>
+          <properties />
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/routes/reviewTaskRoute.js</url>
+          <line>10</line>
+          <properties />
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/reviewsAPI.js</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/reviewsAPI.js</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/reviewsAPI.js</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/reviewsAPI.js</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/reviewsAPI.js</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
+          <line>136</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/models/apis/usersAPI.js</url>
+          <line>144</line>
+          <properties />
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="66" />
+      <option name="time" value="92" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/apis/taskListAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <marker date="1480034908624" expanded="true" signature="757:999" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="826:995" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1046:2129" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1726:2126" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1918:2000" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2022:2097" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2174:2463" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2253:2375" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2264:2370" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2293:2365" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2305:2364" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2404:2460" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2505:2551" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2592:2630" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/apis/usersAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#3691#3823#0" expanded="false" />
-            <element signature="e#3856#4012#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/models/usersModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/models/userReviewsModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -689,7 +683,7 @@
         <state relative-caret-position="170">
           <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
-            <marker date="1479969548060" expanded="true" signature="1110:1113" ph="{...}" />
+            <marker date="1480057817132" expanded="true" signature="1173:1176" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -721,22 +715,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <marker date="1480034908624" expanded="true" signature="757:999" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="826:995" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1046:2129" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1726:2126" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1918:2000" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2022:2097" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2174:2463" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2253:2375" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2264:2370" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2293:2365" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2305:2364" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2404:2460" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2505:2551" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2592:2630" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -745,8 +724,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3691#3823#0" expanded="false" />
-            <element signature="e#3856#4012#0" expanded="false" />
+            <marker date="1480062966274" expanded="false" signature="4260:4392" ph="{...}" />
+            <marker date="1480062966274" expanded="false" signature="4425:4581" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -771,7 +750,7 @@
         <state relative-caret-position="170">
           <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
-            <marker date="1479969548060" expanded="true" signature="1110:1113" ph="{...}" />
+            <marker date="1480057817132" expanded="true" signature="1173:1176" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -811,22 +790,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1480034908624" expanded="true" signature="757:999" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="826:995" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1046:2129" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1726:2126" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1918:2000" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2022:2097" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2174:2463" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2253:2375" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2264:2370" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2293:2365" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2305:2364" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2404:2460" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2505:2551" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2592:2630" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -912,7 +876,7 @@
         <state relative-caret-position="187">
           <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
           <folding>
-            <marker date="1479969548060" expanded="true" signature="1110:1113" ph="{...}" />
+            <marker date="1480057817132" expanded="true" signature="1173:1176" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -927,47 +891,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/apis/loginAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/taskDetailRoute.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="238">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <marker date="1480051257011" expanded="true" signature="916:920" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="916:924" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="965:1366" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="1006:1335" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="1102:1325" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="1124:1295" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="1341:1364" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="1407:1611" ph="{...}" />
+            <marker date="1480051257011" expanded="true" signature="1570:1608" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/taskListRoute.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/apis/taskListAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="58" column="25" lean-forward="true" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding>
-            <marker date="1480034908624" expanded="true" signature="757:999" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="826:995" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1046:2129" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1726:2126" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="1918:2000" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2022:2097" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2174:2463" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2253:2375" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2264:2370" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2293:2365" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2305:2364" ph="[...]" />
-            <marker date="1480034908624" expanded="true" signature="2404:2460" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2505:2551" ph="{...}" />
-            <marker date="1480034908624" expanded="true" signature="2592:2630" ph="{...}" />
+            <marker date="1480050329528" expanded="true" signature="172:275" ph="{...}" />
+            <marker date="1480050329528" expanded="true" signature="339:386" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1006,20 +952,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="81" column="11" lean-forward="true" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
+        <state relative-caret-position="693">
+          <caret line="84" column="11" lean-forward="false" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
+          <folding>
+            <marker date="1480059221506" expanded="true" signature="3864:3936" ph="{...}" />
+            <marker date="1480059221506" expanded="true" signature="3995:4241" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/taskDetailRoute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/models/reviewsModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/apis/taskListAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="127" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/reviewTaskRoute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/apis/usersAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="73" column="4" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+        <state relative-caret-position="308">
+          <caret line="144" column="4" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="4" />
           <folding>
-            <element signature="e#3691#3823#0" expanded="false" />
-            <element signature="e#3856#4012#0" expanded="false" />
+            <marker date="1480062966274" expanded="false" signature="4260:4392" ph="{...}" />
+            <marker date="1480062966274" expanded="false" signature="4425:4581" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/apis/reviewsAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -16,6 +16,9 @@ router.route('/:id')
 	.get(function(req, res, next){
 		taskListApi.getOne(req, res, next);
 	})
+	.post(function(req, res, next){
+		taskListApi.setInterested(req, res, next);
+	})
 ;
 
 //router.post('/', function(req, res, next){

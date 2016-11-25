@@ -1,5 +1,5 @@
 $(function(){
-	$('td:first-child').not(':first').each(taskDetailLink)
+	$('td:first-child').each(taskDetailLink)
 })
 
 var taskDetailLink = function(){
