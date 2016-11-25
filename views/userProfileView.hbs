@@ -3,10 +3,10 @@
 
 <div class="container-fluid">
 		<ul class="nav navbar-nav">
-        	<li><a id="reviews_nav">Reviews</a></li>
-        	<li><a id="taskHistory_nav">Task History</a></li>
-        	<li><a id="currentTasks_nav">Current Tasks</a></li>
-        	<li class="active"><a id="profile_nav">Profile</a></li>
+        	<li><a id="reviews_nav" name={{user._id}}>Reviews</a></li>
+        	<li><a id="taskHistory_nav" name={{user._id}}>Task History</a></li>
+        	<li><a id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
+        	<li class="active"><a id="profile_nav" name={{user._id}}>Profile</a></li>
     	</ul>
 </div>
 <div id="partial_container">

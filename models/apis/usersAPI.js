@@ -61,7 +61,14 @@ var getCurrentUser = function(req, res, next){
 }
 
 var getUserProfile = function(req, res, next){
-	usersModel.findOne({userLoginID: req.session.user._id})
+	
+	if(typeof req.params.id === "undefined"){
+		var id = req.session.user._id;
+	} else {
+		var id = req.params.id;
+	}
+
+	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
 	.then(function(user){
 		user.partial = "Profile";
 		res.render('userProfileView', {user: user})
@@ -69,13 +76,20 @@ var getUserProfile = function(req, res, next){
 }
 
 var getUserCurrentTasks = function(req, res, next){
-	usersModel.findOne({userLoginID: req.session.user._id})
+
+	if(typeof req.params.id === "undefined"){
+		var id = req.session.user._id;
+	} else {
+		var id = req.params.id;
+	}
+
+	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
 	.then(function(user){
 		//get all tasks that are assigned to the current user
 		taskListModel.find( //only return active tasks
 			{$and:
 				[
-					{posterID: user._id},
+					{'poster.id': user._id},
 					{expired: false}
 				]
 			}
@@ -89,12 +103,19 @@ var getUserCurrentTasks = function(req, res, next){
 }
 
 var getuserTaskHistory = function(req, res, next){
-	usersModel.findOne({userLoginID: req.session.user._id})
+
+	if(typeof req.params.id === "undefined"){
+		var id = req.session.user._id;
+	} else {
+		var id = req.params.id;
+	}
+
+	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
 	.then(function(user){
 		taskListModel.find( //only return old taks
 			{$and:
 				[
-					{posterID: user._id},
+					{'poster.id': user._id},
 					{expired: true}
 				]
 			}
@@ -108,7 +129,14 @@ var getuserTaskHistory = function(req, res, next){
 }
 
 var getUserReviews = function(req, res, next){
-    usersModel.findOne({userLoginID: req.session.user._id})
+
+	if(typeof req.params.id === "undefined"){
+		var id = req.session.user._id;
+	} else {
+		var id = req.params.id;
+	}
+
+    usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
         .then(function(user){
         	user.partial = "Reviews";
             res.render('userReviewsView', {user: user})
