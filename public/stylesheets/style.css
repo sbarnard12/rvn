@@ -5815,8 +5815,6 @@ button.close {
     display: none !important; } }
 
 body {
-  padding: 50px;
-  padding-top: 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
   body a {
     color: #00B7FF; }
@@ -5824,6 +5822,9 @@ body {
     list-style-type: none; }
     body ul .checked span {
       text-decoration: line-through; }
+
+p.padding2 {
+  text-align: center; }
 
 @media screen and (max-width: 768px) {
   body {

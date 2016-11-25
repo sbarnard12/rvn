@@ -4,8 +4,8 @@
   $primary-link-color: #00B7FF;
   
   body {
-    padding: 50px;
-    padding-top: 40px;
+
+  
     font: 14px $font-stack;
     a {
       color: $primary-link-color;
@@ -19,7 +19,10 @@
       }
     }
   }
-
+p.padding2 {
+        
+    text-align: center;
+}
 @media screen and (max-width: 768px) {
     body { padding-top: 100px; }
 }
