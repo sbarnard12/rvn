@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a9c9e7b-f2aa-4c32-8e3e-0ffd712593d0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/apis/userReviewsAPI.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/dbs/userReviewsDB.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/models/userReviewsModel.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/apis/loginAPI.js" afterPath="$PROJECT_DIR$/models/apis/loginAPI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/apis/taskListAPI.js" afterPath="$PROJECT_DIR$/models/apis/taskListAPI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/apis/usersAPI.js" afterPath="$PROJECT_DIR$/models/apis/usersAPI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/models/taskListModel.js" afterPath="$PROJECT_DIR$/models/models/taskListModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/taskDetailsScript.js" afterPath="$PROJECT_DIR$/public/javascripts/taskDetailsScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/taskListScript.js" afterPath="$PROJECT_DIR$/public/javascripts/taskListScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/userProfileScript.js" afterPath="$PROJECT_DIR$/public/javascripts/userProfileScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/taskDetailRoute.js" afterPath="$PROJECT_DIR$/routes/taskDetailRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/taskListRoute.js" afterPath="$PROJECT_DIR$/routes/taskListRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/layout.hbs" afterPath="$PROJECT_DIR$/views/layouts/layout.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/taskListTable.hbs" afterPath="$PROJECT_DIR$/views/partials/taskListTable.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/taskDetailsView.hbs" afterPath="$PROJECT_DIR$/views/taskDetailsView.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userCurrentTasksView.hbs" afterPath="$PROJECT_DIR$/views/userCurrentTasksView.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userTaskHistoryView.hbs" afterPath="$PROJECT_DIR$/views/userTaskHistoryView.hbs" />
-    </list>
+    <list default="true" id="2a9c9e7b-f2aa-4c32-8e3e-0ffd712593d0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -120,8 +100,8 @@
             <state relative-caret-position="693">
               <caret line="84" column="11" lean-forward="false" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
               <folding>
-                <marker date="1480059221506" expanded="true" signature="3864:3936" ph="{...}" />
-                <marker date="1480059221506" expanded="true" signature="3995:4241" ph="{...}" />
+                <marker date="1480065640592" expanded="true" signature="3866:3938" ph="{...}" />
+                <marker date="1480065640592" expanded="true" signature="3997:4243" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -531,15 +511,15 @@
       <workItem from="1479860240906" duration="5659000" />
       <workItem from="1479937543439" duration="3610000" />
       <workItem from="1479950477383" duration="5282000" />
-      <workItem from="1480016094965" duration="15887000" />
+      <workItem from="1480016094965" duration="16485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42125000" />
+    <option name="totallyTimeSpent" value="42723000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="683" height="728" extended-state="0" />
+    <frame x="0" y="0" width="683" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3013493" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -860,6 +840,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -955,8 +936,8 @@
         <state relative-caret-position="693">
           <caret line="84" column="11" lean-forward="false" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
           <folding>
-            <marker date="1480059221506" expanded="true" signature="3864:3936" ph="{...}" />
-            <marker date="1480059221506" expanded="true" signature="3995:4241" ph="{...}" />
+            <marker date="1480065640592" expanded="true" signature="3866:3938" ph="{...}" />
+            <marker date="1480065640592" expanded="true" signature="3997:4243" ph="{...}" />
           </folding>
         </state>
       </provider>
