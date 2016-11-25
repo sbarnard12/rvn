@@ -31,6 +31,10 @@ var defaultPage = function(req, res, next){
 var getOne = function(req, res, next){
 	taskListModel.findOne({_id: req.params.id})
 		.then(function(task){
+			var date = Date.parse(task.date);
+			if(task.poster.rating === null){
+				task.poster.rating = "No Rating";
+			}
 			res.render('taskDetailsView', {task: task});
 		});
 };
