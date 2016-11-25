@@ -6,7 +6,7 @@ var loginAPI = require('../models/apis/loginAPI');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('landingPageView');
+	res.render('landingPageView', {layout: false});
 });
 
 router.post('/', function(req, res, next){
