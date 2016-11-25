@@ -1,33 +1,38 @@
-<h1>Welcome to V-Inverse!</h1> 
+<div class="container-fluid" style="background: #D5EDB6;" >
+ <h1 id="title">Welcome to V-Inverse!</h1>
+ </div>
  
 <!-- Display a message with the phone line number in case the user wants to talk to a real operator instead -->
 
 <h2> If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
 
-<a id=aboutUs href="https://en.wikipedia.org/wiki/Brown_bear">About V-Inverse </a>
-<style>
-body{
-background-color:#90EE90;
-}
-</style>
+
 <!-- Create a form that will be used to enter the username and password of the user -->
 <form name="login" id="login">
-	<p>Other sample text will go here.</p>
+	
+    
   
-    <img id=handsImage src="https://scontent.xx.fbcdn.net/t31.0-8/15129414_10206849785117217_2284293189350513066_o.jpg" style="width:304px;height:228px;" />
     <!-- Username text box -->
+    <p class="padding2">
+
 	<label for="userName">Username: </label>  
-	<input id="userName" type="text" name="userName">
-	<label class="error" id="userName_Error" for="userName"></label>
+	
+	<input id="userName" type="text" name="userName"> <br>
+	
+	<label class="error" id="userName_Error" for="userName"></label> <br>
 
     <!--Password text box -->
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password">
-    <label class="error" id="password_Error" for="password"></label>
+    <label for="password">Password</label> 
+    <input id="password" type="password" name="password"><br>
+    <label class="error" id="password_Error" for="password"></label><br>
 
 	<!-- The login and create a new account buttons will each point to a different page once clicked on-->
-	<button id="login_button" type="button">Login</button>
-	<button id="createNewAccount" type="button">Create a New Account</button>
+	<button id="login_button" type="button">Login</button><br> <br>
+	<button id="createNewAccount" type="button">Create a New Account</button><br>
+	<br>
+	<img id=handsImage src="https://scontent.xx.fbcdn.net/t31.0-8/15129414_10206849785117217_2284293189350513066_o.jpg" style="width:304px;height:228px;" />
+	</p>
+	
 </form>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

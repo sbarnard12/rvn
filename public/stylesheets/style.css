@@ -5815,15 +5815,22 @@ button.close {
     display: none !important; } }
 
 body {
+<<<<<<< HEAD
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
   body .col-lg-2 {
     background-color: #f5f3f3; }
+=======
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+>>>>>>> origin/danyal
   body a {
     color: #00B7FF; }
   body ul {
     list-style-type: none; }
     body ul .checked span {
       text-decoration: line-through; }
+
+p.padding2 {
+  text-align: center; }
 
 @media screen and (max-width: 768px) {
   body {
