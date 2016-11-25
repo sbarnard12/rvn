@@ -24,12 +24,10 @@ require('./models/models/usersModel');
 
 //routes
 var login = require('./routes/loginRoute');
-var users = require('./routes/userRoute');
+var newUser = require('./routes/newUserRoute');
 var taskList = require('./routes/taskListRoute');
-var userReviews = require('./routes/userReviewsRoute')
 var home = require('./routes/homeRoute');
 var details = require('./routes/taskDetailRoute');
-var signup = require('./routes/signUpRoute');
 var createTask = require('./routes/createTaskRoute');
 var thankyou = require('./routes/thankyouRoute');
 var userProfile = require('./routes/userProfileRoute');
@@ -102,11 +100,10 @@ app.use(requireLogin);
 app.use('/', login);
 app.use('/user', userProfile);
 app.use('/login', login);
+app.use('/signup', newUser);
 app.use('/taskList', taskList);
-app.use('/reviews', userReviews);
 app.use('/home', home);
 app.use('/taskdetails', details);
-app.use('/signup',signup);
 app.use('/createTask', createTask);
 app.use('/thankyou', thankyou);
 app.use('/user/profile', userProfile);
