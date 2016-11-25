@@ -1,22 +1,32 @@
 	<!-- Display a message with the phone line number in case the user wants to talk to a real operator instead -->
-	<h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
-	<a id=aboutUs href="https://en.wikipedia.org/wiki/Brown_bear">About V-Inverse </a>
+<div class="container-fluid" style = "text-center">     
+  <div class="row">
+  	<div class="col-lg-12">
+	<h2 class="text-center">If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
+	</div>
+    </div>
+</div>
     <!-- Create a form that will be used search for a task or create a new task -->
-			<button id="createNewTask">Create a new task</button>
-	
-<<<<<<< HEAD
-	<form id="search_form">
-=======
-	<button id="createNewTask">Create a new task</button>
-	<form id="search_form">			
->>>>>>> fbd319b0463e4eeb12209df53187190f69308be3
-			<br>
-			<br>
-      		<label for="searchterm">Search for a task: </label>
-    		<input type="text" id="searchterm" name="searchterm" placeholder="Search for a task..">
-	</form>
-			<button id="submit_search">Search</button>
+<div class="container-fluid">     
+  <div class="row">
+  	<div class="col-lg-12">
+		<div class="input-group">
+   			<input type="text" class="form-control" id="searchterm" name="searchterm" placeholder="Search for a task..">
+   			<span class="input-group-btn">
+        		<button class="btn btn-default" type="button" id="submit_search">Search</button>
+   			</span>
+		</div>
+    </div>
+</div>
 
-<img id=handsImage src="https://scontent.xx.fbcdn.net/t31.0-8/15129414_10206849785117217_2284293189350513066_o.jpg" style="width:304px;height:228px;" />
+<div class="form-actions">
+    <button type="submit" class="btn-lg" id="createNewTask">Create New Task</button>
+    <Style>
+    .form-actions {
+    text-align: center;
+	}
+	</style>
+</div>	
+
 
 <script src="/javascripts/searchScript.js"></script>
