@@ -27,8 +27,7 @@
         <td><input type="text" name="description"></td>
       </tr>
       <tr>
-        <td><label for="picture">Upload an image:</label></td>
-        <td><button type="imagUploadButton">Click Here to Upload an Image</button></td>
+        Upload an image here
       </tr>
       <tr>
         <td><em>Preview:</em></td>
@@ -61,6 +60,14 @@
       </tr>
     </table>
   </form>
+    <form id        =  "uploadForm"
+      enctype   =  "multipart/form-data"
+      action    =  "/createtask/photo"
+      method    =  "post"
+    >
+    <input type="file" name="userPhoto" />
+    <input type="submit" value="Upload Image" name="submit">
+</form>
     <table>
       <tr>
         <td><button id="submit_button">Submit</button></td>

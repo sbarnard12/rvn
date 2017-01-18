@@ -9,6 +9,12 @@ router.get('/', function(req, res, next){
 
 router.post('/', function(req, res, next){
 	tasks.createNewTask(req, res, next);
-})
+});
+
+router.route('/photo')
+	.post(function(req, res, next){
+		tasks.uploadPicture(req, res, next);
+	})
+;
 
 module.exports = router;

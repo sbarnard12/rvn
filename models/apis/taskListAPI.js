@@ -1,9 +1,26 @@
 var db1 = require('../dbs/taskListDB'), 
 taskListModel = db1.model('Tasklist');
 var ObjectID = require('mongodb').ObjectID;
-
 var db4 = require('../dbs/usersDB'), 
 usersModel = db4.model('User');
+var multer = require('multer');
+
+var formidable = require('formidable');
+var fs = require('fs');
+
+//file upload things -- https://codeforgeek.com/2014/11/file-uploads-using-node-js/
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) { //should do something here to better organize files
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) { //different names should be used -- need to add a file extension
+    callback(null, file.fieldname + '-' + Date.now());
+  }
+});
+var upload = multer({ storage : storage}).single('userPhoto');
+
+
+//functions
 
 var getAll = function(req, res, next){
 	taskListModel.findAsync({})
@@ -42,6 +59,8 @@ var getOne = function(req, res, next){
 };
 
 var createNewTask = function(req, res, next){
+
+
 	var task = new taskListModel();
 	task.title = req.body.title;
 	task.category = castCategory(req.body.category);
@@ -56,6 +75,8 @@ var createNewTask = function(req, res, next){
 	task.expired = false;
 	task.state = "Available";
 	task.usePosterAddress = false;
+
+	//image upload code
 
 	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){
@@ -76,6 +97,15 @@ var createNewTask = function(req, res, next){
 		})
 		.error(console.error);
 	})
+};
+
+var uploadPicture = function(req, res, next){
+	upload(req, res, function(err){
+		if(err){
+			return res.end("Error uploading file");
+		}
+		res.end("File is uploaded");
+	});
 };
 
 var searchTasks = function(req, res, next){
@@ -154,4 +184,5 @@ module.exports = {
 	createNewTask: createNewTask,
 	searchTasks: searchTasks,
 	setInterested: setInterested,
+	uploadPicture: uploadPicture,
 }
