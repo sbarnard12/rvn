@@ -5824,6 +5824,7 @@ body {
       text-decoration: line-through; }
 
 p.padding2 {
+  padding: 70px 0;
   text-align: center; }
 
 @media screen and (max-width: 768px) {
