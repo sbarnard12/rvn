@@ -45,13 +45,23 @@ var getUser = function(req, res, next){
 }
 
 var newLogin = function(req, res, next){
-    var login = new loginModel();
-    login.userName = req.body.userName;
-    login.password = req.body.password;
-    login.saveAsync()
-    .then(function(login){
-        console.log("success")
-    })
+    //first check if the user already exists
+    loginModel.findOne({userName: req.body.userName})
+        .then(function(user){
+            if(user){
+                res.send('User Already Exists');
+            } else {
+                var login = new loginModel();
+                login.userName = req.body.userName;
+                login.password = req.body.password;
+                login.saveAsync()
+                    .then(function(login){
+                        console.log("user successfully created")
+                    })
+            }
+        });
+
+
 }
 
 var logoutUser = function(req, res, next){

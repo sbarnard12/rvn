@@ -23,38 +23,47 @@ var getOneCurrentUser = function(req, res, next){
 };
 
 var createNewUser = function(req, res, next){
-	var user = new usersModel();
-	user.title = castTitle(req.body.title);
-	user.firstName = req.body.firstName;
-	user.lastName = req.body.lastName;
-	user.gender = castGender(req.body.gender);
-	user.birthDate = Date.now();
-	user.email = req.body.email;
-	user.contactNumber = req.body.contactNumber;
-	user.preferredContact = castPreferredContact(req.body.preferredContact);
-	user.address.streetNumber = req.body.streetNumber;
-	user.address.streetName = req.body.streetName;
-	user.address.city = req.body.city;
-	user.address.province = req.body.province;
-	user.address.postalCode = req.body.postalCode;
+    //first check if username already exists
+    usersModel.findOne({email: req.body.email})
+        .then(function(user){
+           if(user){ //user already exists, don't make another
+               res.send("User Already Exists");
+           } else {
+               //create new user
+               var user = new usersModel();
+               user.title = castTitle(req.body.title);
+               user.firstName = req.body.firstName;
+               user.lastName = req.body.lastName;
+               user.gender = castGender(req.body.gender);
+               user.birthDate = Date.now();
+               user.email = req.body.email;
+               user.contactNumber = req.body.contactNumber;
+               user.preferredContact = castPreferredContact(req.body.preferredContact);
+               user.address.streetNumber = req.body.streetNumber;
+               user.address.streetName = req.body.streetName;
+               user.address.city = req.body.city;
+               user.address.province = req.body.province;
+               user.address.postalCode = req.body.postalCode;
 
-	var login = new loginModel();
-	login.userName = req.body.email;
-	login.password = req.body.Password;
+               var login = new loginModel();
+               login.userName = req.body.email;
+               login.password = req.body.Password;
 
-	login.saveAsync()
-	.then(function(login){
-		user.userLoginID = login._id;
-		user.save()
-		.then(function(user){
-			res.send("success");
-		})
-	})
-	.catch(function(e){
-		console.log("fail");
-		res.send("fail");
-	})
-	.error(console.error);
+               login.saveAsync()
+                   .then(function(login){
+                       user.userLoginID = login._id;
+                       user.save()
+                           .then(function(user){
+                               res.send("success");
+                           })
+                   })
+                   .catch(function(e){
+                       console.log("fail");
+                       res.send("fail");
+                   })
+                   .error(console.error);
+           }
+        });
 };
 
 var getCurrentUser = function(req, res, next){
