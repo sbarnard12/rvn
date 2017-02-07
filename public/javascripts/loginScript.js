@@ -13,8 +13,7 @@ var login = function(){
 			if(result === "success"){
 				window.location.replace("http://localhost:3000/home");
 			} else {
-				$('#userName_Error').text("Invalid Username or Password");
-				$('#password_Error').text("Invalid Username or Password");
+				$('#login_Error').text("Invalid Username or Password");
 			}
 		}
 	})	
