@@ -10,7 +10,7 @@
     <h2>Personal Information</h2>
     
       <!-- Get the user's title -->
-      <label for="title">Title: </label> 
+      <label for="title">Title: </label>*
       <select id="title" name="title">
        <option id=Mr. value="Mr.">Mr.</option>
        <option id=Mrs. value="Mrs.">Mrs.</option>
@@ -19,13 +19,13 @@
       </select>
 
       <!-- Get the user's personal info -->
-      <label for="firstName">First Name:</label> 
-      <input id="firstName" type="text" name="firstName"><br>
+      <label for="firstName">First Name:</label> *
+      <input id="firstName" type="text" name="firstName" required><br>
    
-      <label for="lastName">Last Name: </label>  
-      <input id="lastName" type="text" name="lastName"><br>
+      <label for="lastName">Last Name: </label>  *
+      <input id="lastName" type="text" name="lastName" required><br>
 
-      <label for="gender">Gender:</label>
+      <label for="gender">Gender:</label> *
       <input id=male type="radio" name="gender" value="Male" checked> Male
       <input id=female type="radio" name="gender" value="Female"> Female
       <input id=preferNotToSay type="radio" name="gender" value="Prefer not to say."> Prefer not to say
@@ -34,6 +34,7 @@
     <div>
       <!-- Get the user's contact info -->
       <h2>Contact Information</h2>
+      <p>*This information will not be made visible unless requested</p>
 
       <label for="phoneNumber">Contact Phone Number:</label>
       <input id=phoneNumber type="text" name="phoneNumber">
@@ -62,24 +63,25 @@
       <!-- Get the user's login info -->
       <h2>Login Information</h2>
       
-      <label for="email"> E-mail Address: </label>
-      <input id="e-mail" type="text" name="email">
+      <label for="email"> E-mail Address: </label> *
+      <input id="e-mail" type="text" name="email" required>
 
-      <label> Confirm E-mail Address: </label>
-      <input id="emailConfirm" type="text">
+      <label> Confirm E-mail Address: </label> *
+      <input id="emailConfirm" type="text" required>
 
-      <label for="password">Password: </label>
-      <input id=password type="password" name="Password">
+      <label for="password">Password: </label> *
+      <input id=password type="password" name="Password" required>
 
-      <label>Confirm Password: </label>
-      <input id="passwordConfirm" type="password">
+      <label>Confirm Password: </label> *
+      <input id="passwordConfirm" type="password" required>
     </div>
 
 </form>
     <div>
       <button id="submit_button">Submit</button>
-      <button id="clearall_button">Clear All</>
+      <button id="clearall_button">Clear All</button>
       <button id="exit_button">Exit</button>
+      <p>* Required Fields</p>
     </div>
     <div id="exit_dialog">
       <p>Are you sure you would like to Exit and return to the login page?</p>

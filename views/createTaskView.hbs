@@ -1,8 +1,12 @@
 <h1>TASK INFORMATION</h1>
-  <form id="createTask_form">
-    <table>
+  <!--<form id="createTask_form"> -->
+      <form id =  "createTask_form"
+            enctype   =  "multipart/form-data"
+            action    =  "/createtask/photo"
+            method    =  "post" >
+      <table>
       <tr>
-        <td><label for="title">Title: </label
+        <td><label for="title">Title: </label>
         <td><input type="text" name="title"></td>
       </tr>
       <tr>
@@ -54,23 +58,25 @@
         <td><input type="text" name="postalCode"></td>
       </tr>
       <tr>
-        <td><label for="preferredContact: ">Peferred Mode of Contact:</td>
+        <td><label for="preferredContact: " > Peferred Mode of Contact: </td>
         <td><input type="radio" name="preferredContact" value="email">E-mail</td>
         <td><input type="radio" name="preferredContact" value="phone">Phone</td>
       </tr>
     </table>
+    <input type="file" name="userPhoto" />
+    <input id="upload-file" type="button" value="Upload Image" name="submit">
   </form>
-    <form id        =  "uploadForm"
+     <form id =  "uploadForm"
       enctype   =  "multipart/form-data"
-      action    =  "/createtask/photo"
-      method    =  "post"
-    >
+      action    =  "/createtask/file"
+      method    =  "post" >
+
     <input type="file" name="userPhoto" />
     <input type="submit" value="Upload Image" name="submit">
 </form>
     <table>
       <tr>
-        <td><button id="submit_button">Submit</button></td>
+       <!-- <td><button id="submit_button">Submit</button></td> -->
       </tr>
       <tr>
         <td><button id="clearAll_button">Clear All</button></td>

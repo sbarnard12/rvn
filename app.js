@@ -3,11 +3,8 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 //sass css editor
 var sassMiddleware = require('node-sass-middleware');
-//browserify - javascript something or other
-//var browserify = require('browserify-middleware');
 //mongoose ODM to connect to a mongoDB database
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/todos');
 var session = require('client-sessions');
 
 var path = require('path');
@@ -15,6 +12,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fileUpload = require('express-fileupload');
 
 //models
 require('./models/models/taskListModel');
@@ -98,7 +96,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/fonts', express.static(path.join(__dirname, 'node_modules/bootstrap-sass/assets/fonts')));
-//app.use(requireLogin);
+app.use(requireLogin);
+app.use(fileUpload());
 
 app.use('/', login);
 app.use('/user', userProfile);

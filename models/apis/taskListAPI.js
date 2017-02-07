@@ -8,17 +8,7 @@ var multer = require('multer');
 var formidable = require('formidable');
 var fs = require('fs');
 
-//file upload things -- https://codeforgeek.com/2014/11/file-uploads-using-node-js/
-var storage =   multer.diskStorage({
-  destination: function (req, file, callback) { //should do something here to better organize files
-    callback(null, './uploads');
-  },
-  filename: function (req, file, callback) { //different names should be used -- need to add a file extension
-    callback(null, file.fieldname + '-' + Date.now());
-  }
-});
-var upload = multer({ storage : storage}).single('userPhoto');
-
+var fileUpload = require('express-fileupload');
 
 //functions
 
@@ -100,13 +90,48 @@ var createNewTask = function(req, res, next){
 };
 
 var uploadPicture = function(req, res, next){
-	upload(req, res, function(err){
+    //file upload things -- https://codeforgeek.com/2014/11/file-uploads-using-node-js/
+    var storage =   multer.diskStorage({
+        destination: function (req, file, callback) { //should do something here to better organize files
+            callback(null, "./uploads");
+        },
+        filename: function (req, file, callback) { //different names should be used -- need to add a file extension
+            callback(null, file.originalname);
+        }
+    });
+    var upload = multer({ storage : storage}).single('userPhoto');
+
+    upload(req, res, function(err){
 		if(err){
-			return res.end("Error uploading file");
+            res.json({'status': 'error', 'error': err});
 		}
-		res.end("File is uploaded");
+        res.json({'status': 'success'});
 	});
 };
+
+
+var uploadFile = function(req, res, next){
+    var sampleFile;
+
+    if(!req.files){
+        res.send('No files were found');
+        return;
+    }
+    sampleFile = req.files.userPhoto;
+
+    sampleFile.mv('./uploads/test.jpg', function(err){
+        if(err){
+            res.status(500).send(err);
+        }
+        else {
+            res.send('File Uploaded');
+        }
+    })
+
+
+}
+
+
 
 var searchTasks = function(req, res, next){
 	
@@ -185,4 +210,5 @@ module.exports = {
 	searchTasks: searchTasks,
 	setInterested: setInterested,
 	uploadPicture: uploadPicture,
+    uploadFile: uploadFile,
 }

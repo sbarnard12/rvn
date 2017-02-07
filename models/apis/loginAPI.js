@@ -54,9 +54,15 @@ var newLogin = function(req, res, next){
     })
 }
 
+var logoutUser = function(req, res, next){
+    req.session.destroy();
+    res.render('landingPageView', {layout: false});
+}
+
 
 module.exports = {
 	checkUser: checkUser,
     getUser: getUser,
-    newLogin: newLogin
+    newLogin: newLogin,
+    logoutUser: logoutUser
 }

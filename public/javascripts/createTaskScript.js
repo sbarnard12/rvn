@@ -2,7 +2,9 @@ $(function(){
 	$('#submit_button').on('click', submit);
 	$('#clearAll_button').on('click', clearAll);
 	$('#exit_button').on('click', exit);
-//	$('#upload-file').on('click', uploadFile);	
+	$('#upload-file').on('click', submit);
+    //$('#upload-file').submit(uploadFile);
+
 	$('#exit_dialog').dialog({
 		resizable: false,
 		height: "auto",
@@ -39,38 +41,33 @@ $(function(){
 })
 
 var submit = function(){
-
-	var files = $('#upload_file').get(0).files;
-	if (files.length > 0){
-		// create a FormData object which will be sent as the data payload in the
-		// AJAX request
-		var formData = new FormData();
-
-		// loop through all the selected files and add them to the formData object
-		for (var i = 0; i < files.length; i++) {
-			var file = files[i];
-
-			// add the files to formData object for the data payload
-			formData.append('uploads[]', file, file.name);
-		}
-	}
-
-
-
+    var formData = new FormData($('#createTask_form'));
 	$.ajax({
-		url: 'createtask',
+		url: 'createtask/photo',
 		type: 'POST',
-		data: $('#createTask_form').serialize(),
+		data: formData,
+        contentType: false,
+        processData: false,
 		success: function(result){
 			//redirect to the task details page
-			var redirect = "http://localhost:3000/taskdetails/" + result.task._id;
-			window.location.replace(redirect);
+            //upload the file
+            console.log("test");
 		}
 	})
 }
 
 var uploadFile = function(){
-	var files = $(this).get(0).files; //this will get file info
+    console.log("test");
+    $(this).ajaxSubmit({
+       error: function(xhr){
+           status('Error: ' + xhr.status);
+       },
+        success: function(response){
+            var redirect = "http://localhost:3000/taskdetails/";
+            //window.location.replace(redirect);
+        }
+    });
+    return false;
 }
 
 var clearAll = function(){

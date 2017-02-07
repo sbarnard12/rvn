@@ -13,4 +13,11 @@ router.post('/', function(req, res, next){
 	loginAPI.checkUser(req, res, next);
 });
 
+router.route('/logout')
+    .get(function(req,res, next){
+        loginAPI.logoutUser(req,res,next);
+    })
+
+;
+
 module.exports = router;
