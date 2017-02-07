@@ -1,6 +1,11 @@
 $(function(){
 	$('#submit_search').on('click', search);
 	$('#createNewTask').on('click', newTask);
+    $('#searchterm').on('keyup', function(e){
+        if(e.keyCode == 13){
+            search();
+        }
+    });
 })
 
 

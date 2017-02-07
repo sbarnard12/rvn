@@ -49,8 +49,7 @@ var getOne = function(req, res, next){
 };
 
 var createNewTask = function(req, res, next){
-
-
+    
 	var task = new taskListModel();
 	task.title = req.body.title;
 	task.category = castCategory(req.body.category);

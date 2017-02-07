@@ -1,6 +1,16 @@
 $(function(){
 	$('#login_button').on('click',login);
 	$('#createNewAccount').on('click', signup);
+    $('#password').on('keyup', function(e){
+        if(e.keyCode == 13){
+            login();
+        }
+    });
+    $('#userName').on('keyup', function(e){
+        if(e.keyCode == 13){
+            login();
+        }
+    });
 })
 
 var login = function(){

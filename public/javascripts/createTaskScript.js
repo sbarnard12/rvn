@@ -41,17 +41,14 @@ $(function(){
 })
 
 var submit = function(){
-    var formData = new FormData($('#createTask_form'));
+   // var formData = new FormData($('#createTask_form'));
 	$.ajax({
-		url: 'createtask/photo',
+		url: 'createtask',
 		type: 'POST',
-		data: formData,
-        contentType: false,
-        processData: false,
+		data: $('#createTask_form').serialize(),
 		success: function(result){
-			//redirect to the task details page
-            //upload the file
-            console.log("test");
+            var redirect = "http://localhost:3000/taskdetails/" + result.task._id;
+            window.location.replace(redirect);
 		}
 	})
 }
