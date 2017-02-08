@@ -18,7 +18,8 @@ var fileUpload = require('express-fileupload');
 require('./models/models/taskListModel');
 require('./models/models/loginModel');
 require('./models/models/usersModel');
-require('./models/models/reviewsModel')
+require('./models/models/reviewsModel');
+require('./models/models/potentialMatchesModel');
 
 //routes
 var login = require('./routes/loginRoute');

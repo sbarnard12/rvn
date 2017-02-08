@@ -1,10 +1,16 @@
-var db1 = require('../dbs/taskListDB'), 
-taskListModel = db1.model('Tasklist');
 var ObjectID = require('mongodb').ObjectID;
-var db4 = require('../dbs/usersDB'), 
-usersModel = db4.model('User');
-var multer = require('multer');
 
+//db objects
+var db1 = require('../dbs/taskListDB'), 
+    taskListModel = db1.model('Tasklist');
+
+var db4 = require('../dbs/usersDB'), 
+    usersModel = db4.model('User');
+var db5 = require('../dbs/potentialMatchesDB'),
+    potentialMatchesModel = db5.model('PotentialMatches');
+    
+//upload image objects
+var multer = require('multer');
 var formidable = require('formidable');
 var fs = require('fs');
 
@@ -141,9 +147,9 @@ var searchTasks = function(req, res, next){
 			{$and: 
 				[
 					{'poster.id': {'$ne':user._id}},
-					{expired: false}, 
-					{$or: 
-						[
+					{expired: false},
+                    {$or:
+                        [
 							{title: search},
 							{description: search}
 						]}
@@ -160,17 +166,21 @@ var searchTasks = function(req, res, next){
 var setInterested = function(req, res, next){
 	taskListModel.findOne({_id: req.params.id})
 	.then(function(task){
-
 		usersModel.findOne({_id: req.session.user_id})
 		.then(function(user){
-
-			task.matchedUser.id = user._id;
+            //this automatically matches
+			/*task.matchedUser.id = user._id;
 			task.matchedUser.firstName = user.firstName;
 			task.matchedUser.lastName = user.lastName;
 			task.matchedUser.rating = user.rating;
-			task.state = "Matched";
+			task.state = "Matched"; */
+            var potentialMatch = new potentialMatchesModel();
+            potentialMatch.taskID = task._id;
+            potentialMatch.ownerID = task.poster.id;
+            potentialMatch.interestedUserID = user._id;
+            potentialMatch.description = req.body.interested_description;
 
-			task.saveAsync()
+            potentialMatch.saveAsync()
 			.then(function(task){
 				console.log("success");
 				res.json({'status': 'success', 'task': task});
