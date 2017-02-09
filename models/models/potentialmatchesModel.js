@@ -9,7 +9,10 @@ Promise.promisifyAll(mongoose);
 var potentialMatchesSchema = new Schema ({
     taskID: {type: Schema.Types.ObjectId, required:true},
     ownerID: {type: Schema.Types.ObjectId, required:true},
-    interestedUserID: {type: Schema.Types.ObjectId, required:true},
+    interestedUser:{
+        id: {type: Schema.Types.ObjectId, required:true},
+        name: {type: String, required: true},
+    },
     description: {type: String},
 });
 

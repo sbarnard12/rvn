@@ -2,6 +2,7 @@ $(function(){
 	$('#posterName').on('click', goToProfile)
 	$('#interested_button').on('click', interested_dialog)
 	$('#backToHome_button').on('click', directToHome)
+    $('#show_interested').on('click', showInterested)
     $('#interested_dialog').dialog({
         resizable: false,
         height: "auto",
@@ -47,6 +48,21 @@ var directToHome = function(){
 
 var interested_dialog = function(){
     $('#interested_dialog').dialog("open");
+}
+
+var showInterested = function(){
+    var id = $('#poster_id').attr('name');
+    var url = "http://localhost:3000/interestedUsers/" + id;
+    window.location.replace(url);
+    /* $.ajax({
+        url: url,
+        type: 'GET',
+        success: function(result){
+            //render the interested users page/popup something
+            console.log(result);
+        }
+
+    }) */
 }
 
 

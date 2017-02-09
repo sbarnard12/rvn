@@ -35,6 +35,7 @@ var userCurrentTask = require('./routes/userCurrentTasksRoute');
 var userReviews = require('./routes/userReviewsRoute');
 var match = require('./routes/matchPageRoute');
 var review = require('./routes/reviewTaskRoute');
+var potentialMatches = require('./routes/potentialMatchesRoute');
 
 
 var app = express();
@@ -115,6 +116,7 @@ app.use('/user/taskhistory', userTaskHistory);
 app.use('/user/currenttasks', userCurrentTask);
 app.use('/match', match);
 app.use('/taskreview', review);
+app.use('/interestedUsers', potentialMatches);
 
 
 // catch 404 and forward to error handler

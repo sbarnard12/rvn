@@ -1,11 +1,16 @@
 var db = require('../dbs/potentialMatchesDB'),
-    loginModel = db.model('PotentialMatches');
+    potentialMatchesModel = db.model('PotentialMatches');
+var db2 = require('../dbs/usersDB'),
+    usersModel = db2.model('User');
 
 
-var setInterested = function(req, res, next){
-    
+var getAllInterested = function(req, res, next){
+    potentialMatchesModel.find({taskID: req.params.id})
+        .then(function(potentialMatches){
+            res.render('potentialMatchesView', {potentialMatches: potentialMatches});
+        })
 }
 
 module.exports = {
-    setInterested: setInterested,
+    getAllInterested: getAllInterested,
 }

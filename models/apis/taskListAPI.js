@@ -35,7 +35,11 @@ var search = function(req, res, next){
 }
 
 var defaultPage = function(req, res, next){
-	taskListModel.find({expired: false})
+	taskListModel.find(
+        {$and: [{expired: false},
+            {'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
+        }
+    )
 	.then(function(taskList){
 		res.render('tasklistView', {taskList: taskList});
 	})
@@ -50,7 +54,12 @@ var getOne = function(req, res, next){
 			}
 			
 			task.sameUser = (task.poster.id == req.session.user_id);
-			res.render('taskDetailsView', {task: task, helpers: {if_eq: if_eq}});
+
+            potentialMatchesModel.findOne({$and: [{interestedUserID: req.session.user_id}, {taskID: task._id}]})
+                .then(function(match){
+                    task.alreadyMatched = (match != null);
+                    res.render('taskDetailsView', {task: task, helpers: {if_eq: if_eq}});
+                });
 		});
 };
 
@@ -157,7 +166,7 @@ var searchTasks = function(req, res, next){
 			}
 		)
 		.then(function(taskList){
-		res.render('tasklistView', {taskList: taskList});
+		    res.render('tasklistView', {taskList: taskList});
 		})
 	})
 };
@@ -177,7 +186,8 @@ var setInterested = function(req, res, next){
             var potentialMatch = new potentialMatchesModel();
             potentialMatch.taskID = task._id;
             potentialMatch.ownerID = task.poster.id;
-            potentialMatch.interestedUserID = user._id;
+            potentialMatch.interestedUser.id = user._id;
+            potentialMatch.interestedUser.name = user.firstName + " " + user.lastName;
             potentialMatch.description = req.body.interested_description;
 
             potentialMatch.saveAsync()
@@ -195,7 +205,9 @@ var setInterested = function(req, res, next){
 }
 
 
+//helpers
 var if_eq = function(a, b, opts) {
+    //send this file into the view, in order to be able to use if clauses in the view file
     if(a == b) // Or === depending on your needs
         return opts.fn(this);
     else
