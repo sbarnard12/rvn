@@ -10,6 +10,10 @@ taskListModel = db1.model('Tasklist');
 var db5 = require('../dbs/reviewsDB'), 
 reviewModel = db5.model('Review');
 
+var db6 = require('../dbs/potentialMatchesDB'),
+    potentialMatchesModel = db6.model('PotentialMatches');
+
+var ObjectID = require('mongodb').ObjectID;
 
 var getAllUsers = function(req, res, next){
 	usersModel.find({})
@@ -90,30 +94,43 @@ var getUserProfile = function(req, res, next){
 
 var getUserCurrentTasks = function(req, res, next){
 
-	if(typeof req.params.id === "undefined"){
-		var id = req.session.user._id;
-	} else {
-		var id = req.params.id;
-	}
+    if(typeof req.params.id === "undefined"){
+        var id = req.session.user._id;
+    } else {
+        var id = req.params.id;
+    }
 
-	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
-	.then(function(user){
-		//get all tasks that are assigned to the current user
-		taskListModel.find( //only return active task
-			{
-				$and:
-            	[
-                	{$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
-                	{expired: false}
-            	]
-        	}
-		)//ensure that only active tasks are shown
-		.then(function(tasklist){
-			user.tasklist = tasklist;
-			user.partial = "CurrentTasks";
-			res.render('userCurrentTasksView', {user: user, helpers: {if_eq: if_eq}})
-		})
-	})
+    potentialMatchesModel.find({$or: [{ownerID: id}, {'interestedUser.id': id}]})
+        .then(function(models){
+            var interestedList = models.map(function(a){return a.taskID});
+
+            usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
+                .then(function(user){
+                    //get all tasks that are assigned to the current user
+                    taskListModel.find( //only return active task
+                        { $or: [
+                            {$and:
+                                [
+                                    {$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
+                                    {expired: false}
+                                ]
+                            },
+                            {_id: {$in: interestedList}}
+                        ]
+
+                        }
+                    )
+                        .then(function(tasklist){
+                            //also get tasks that user is interested in
+                            potentialMatchesModel.find()
+                            user.tasklist = tasklist;
+                            user.partial = "CurrentTasks";
+                            res.render('userCurrentTasksView', {user: user, helpers: {if_eq: if_eq}})
+                        })
+                })
+        })
+
+
 }
 
 var getuserTaskHistory = function(req, res, next){
