@@ -11,7 +11,7 @@ $(function(){
 		buttons: {
 			"Exit": function(){
 				$(this).dialog("close");
-				window.location.replace("http://localhost:3000/login");
+				window.location = ("http://localhost:3000/login");
 
 			},
 			Cancel: function(){
@@ -65,7 +65,7 @@ var exit = function(){
 }
 
 var goToThankyou = function(){
-	window.location.replace("http://localhost:3000/thankyou");
+	window.location = ("http://localhost:3000/thankyou");
 }
 
 var noEmptyFields = function(){

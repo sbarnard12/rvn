@@ -39,8 +39,10 @@
         <!--This is your task, so show a button that will navigate to a list of users who showed they are interested-->
         <button id="show_interested">Show interested users</button>
     {{else if task.alreadyMatched}}
-        <!-- Show no button for being interestes-->
+        <!-- Show no button for being interested-->
         <label>You Have Already replied to this!</label>
+        <label>Send another message?</label>
+        <button id="interested_button">I'm interested</button>
     {{else}}
         <!--Show the I'm interested button-->
         <button id="interested_button">I'm interested</button>

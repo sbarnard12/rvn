@@ -14,7 +14,7 @@ $(function(){
 		buttons: {
 			"Exit": function(){
 				$(this).dialog("close");
-				window.location.replace("http://localhost:3000/home");
+				window.location = ("http://localhost:3000/home");
 
 			},
 			Cancel: function(){
@@ -48,7 +48,7 @@ var submit = function(){
 		data: $('#createTask_form').serialize(),
 		success: function(result){
             var redirect = "http://localhost:3000/taskdetails/" + result.task._id;
-            window.location.replace(redirect);
+            window.location = (redirect);
 		}
 	})
 }

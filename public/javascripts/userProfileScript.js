@@ -14,14 +14,14 @@ var getPartial = function(){
 	var url = 'profile/' + id;
 	var redirect = "http://localhost:3000/user/" + tabString + "/" + id;
 
-	window.location.replace(redirect);
+	window.location = (redirect);
 }
 
 var taskDetailLink = function(){
 	$(this).parent().on('click', function(){
 		var id = this.firstElementChild.innerText; 
 		var redirect = "http://localhost:3000/taskDetails/" + id;
-		window.location.replace(redirect);
+		window.location = (redirect);
 	})
 }
 
@@ -30,6 +30,6 @@ var completeButton = function(){
 		event.stopPropagation();
 		var id = this.id;
 		var url = "http://localhost:3000/taskreview/" + id;
-		window.location.replace(url);
+		window.location = (url);
 	})
 }

@@ -10,7 +10,7 @@ var potentialMatchesSchema = new Schema ({
     taskID: {type: Schema.Types.ObjectId, required:true},
     ownerID: {type: Schema.Types.ObjectId, required:true},
     interestedUser:{
-        id: {type: Schema.Types.ObjectId, required:true},
+        id: {type: String, required:true},
         name: {type: String, required: true},
     },
     description: {type: String},

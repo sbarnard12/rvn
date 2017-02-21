@@ -21,7 +21,7 @@ var login = function(){
 		data: $('#login').serialize(),
 		success: function(result){
 			if(result === "success"){
-				window.location.replace("http://localhost:3000/home");
+				window.location = ("http://localhost:3000/home");
 			} else {
 				$('#login_Error').text("Invalid Username or Password");
 			}
@@ -30,5 +30,5 @@ var login = function(){
 }
 
 var signup = function(){
-	window.location.replace("http://localhost:3000/signup");
+	window.location = ("http://localhost:3000/signup");
 }

@@ -9,7 +9,7 @@ $(function(){
 		buttons: {
 			"OK": function(){
 				$(this).dialog("close");
-				window.location.replace("http://localhost:3000/user/profile");
+				window.location = ("http://localhost:3000/user/profile");
 			},
 		}
 	})

@@ -55,7 +55,8 @@ var getOne = function(req, res, next){
 			
 			task.sameUser = (task.poster.id == req.session.user_id);
 
-            potentialMatchesModel.findOne({$and: [{interestedUserID: req.session.user_id}, {taskID: task._id}]})
+            var userid = new ObjectID(req.session.user_id);
+            potentialMatchesModel.findOne({$and: [{'interestedUser.id': req.session.user_id}, {taskID: task._id}]})
                 .then(function(match){
                     task.alreadyMatched = (match != null);
                     res.render('taskDetailsView', {task: task, helpers: {if_eq: if_eq}});
@@ -157,6 +158,7 @@ var searchTasks = function(req, res, next){
 				[
 					{'poster.id': {'$ne':user._id}},
 					{expired: false},
+                    {state: {'$ne': "Matched"}},
                     {$or:
                         [
 							{title: search},
@@ -204,6 +206,22 @@ var setInterested = function(req, res, next){
 	})
 }
 
+var setMatched = function(req, res, next){
+    taskListModel.findOne({_id: req.body.task_id})
+        .then(function(task){
+            usersModel.findOne({_id: req.body.user_id})
+                .then(function(user){
+                    task.matchedUser.id = user._id;
+                    task.matchedUser.firstName = user.firstName;
+                    task.matchedUser.lastName = user.lastName;
+                    task.state = "Matched";
+
+                    res.send("success");
+                })
+        })
+
+};
+
 
 //helpers
 var if_eq = function(a, b, opts) {
@@ -232,4 +250,5 @@ module.exports = {
 	setInterested: setInterested,
 	uploadPicture: uploadPicture,
     uploadFile: uploadFile,
+    setMatched: setMatched
 }

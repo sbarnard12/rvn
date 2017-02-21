@@ -23,7 +23,7 @@ $(function(){
 var goToProfile = function(){
 	var id = $('#posterName').attr('name');
 	var redirect = "http://localhost:3000/user/profile/" + id;
-	window.location.replace(redirect);
+	window.location = (redirect);
 }
 
 var setInterested = function(){
@@ -37,13 +37,13 @@ var setInterested = function(){
 		success: function(result){
 			console.log("test");
             $('#interested_dialog').dialog("close");
-			window.location.replace("http://localhost:3000/match");
+			window.location = ("http://localhost:3000/match");
 		}
 	})
 }
 
 var directToHome = function(){
-	window.location.replace("http://localhost:3000/home")
+	window.location = ("http://localhost:3000/home")
 }
 
 var interested_dialog = function(){
@@ -53,7 +53,7 @@ var interested_dialog = function(){
 var showInterested = function(){
     var id = $('#poster_id').attr('name');
     var url = "http://localhost:3000/interestedUsers/" + id;
-    window.location.replace(url);
+    window.location = (url);
     /* $.ajax({
         url: url,
         type: 'GET',
