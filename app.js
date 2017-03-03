@@ -3,11 +3,8 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 //sass css editor
 var sassMiddleware = require('node-sass-middleware');
-//browserify - javascript something or other
-//var browserify = require('browserify-middleware');
 //mongoose ODM to connect to a mongoDB database
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/todos');
 var session = require('client-sessions');
 
 var path = require('path');
@@ -15,12 +12,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fileUpload = require('express-fileupload');
 
 //models
 require('./models/models/taskListModel');
 require('./models/models/loginModel');
-require('./models/models/userReviewsModel');
 require('./models/models/usersModel');
+require('./models/models/reviewsModel');
+require('./models/models/potentialMatchesModel');
 
 //routes
 var login = require('./routes/loginRoute');
@@ -34,6 +33,10 @@ var userProfile = require('./routes/userProfileRoute');
 var userTaskHistory = require('./routes/userTaskHistoryRoute');
 var userCurrentTask = require('./routes/userCurrentTasksRoute');
 var userReviews = require('./routes/userReviewsRoute');
+var match = require('./routes/matchPageRoute');
+var review = require('./routes/reviewTaskRoute');
+var potentialMatches = require('./routes/potentialMatchesRoute');
+
 
 var app = express();
 
@@ -95,7 +98,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/fonts', express.static(path.join(__dirname, 'node_modules/bootstrap-sass/assets/fonts')));
-//app.use(requireLogin);
+app.use(requireLogin);
+app.use(fileUpload());
 
 app.use('/', login);
 app.use('/user', userProfile);
@@ -110,7 +114,9 @@ app.use('/user/profile', userProfile);
 app.use('/user/reviews', userReviews);
 app.use('/user/taskhistory', userTaskHistory);
 app.use('/user/currenttasks', userCurrentTask);
-
+app.use('/match', match);
+app.use('/taskreview', review);
+app.use('/interestedUsers', potentialMatches);
 
 
 // catch 404 and forward to error handler

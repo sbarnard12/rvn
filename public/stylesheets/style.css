@@ -5815,7 +5815,9 @@ button.close {
     display: none !important; } }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  body .col-lg-2 {
+    background-color: #f5f3f3; }
   body a {
     color: #00B7FF; }
   body ul {

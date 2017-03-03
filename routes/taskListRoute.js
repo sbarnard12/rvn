@@ -6,7 +6,7 @@ var taskListApi = require('../models/apis/taskListAPI');
 router.route('/')
 	.get(function(req, res, next){
 	//change results based on where request is coming from
-	taskListApi.defaultPage(req, res, next);
+		taskListApi.defaultPage(req, res, next);
 	})
 ;
 

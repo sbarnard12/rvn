@@ -1,11 +1,19 @@
-var db4 = require('../dbs/usersDB'), 
+var db4 = require('../dbs/usersDB'),
 usersModel = db4.model('User');
 
-var db = require('../dbs/loginDB'), 
+var db = require('../dbs/loginDB'),
 loginModel = db.model('Userlogin');
 
-var db1 = require('../dbs/taskListDB'), 
+var db1 = require('../dbs/taskListDB'),
 taskListModel = db1.model('Tasklist');
+
+var db5 = require('../dbs/reviewsDB'), 
+reviewModel = db5.model('Review');
+
+var db6 = require('../dbs/potentialMatchesDB'),
+    potentialMatchesModel = db6.model('PotentialMatches');
+
+var ObjectID = require('mongodb').ObjectID;
 
 var getAllUsers = function(req, res, next){
 	usersModel.find({})
@@ -19,38 +27,47 @@ var getOneCurrentUser = function(req, res, next){
 };
 
 var createNewUser = function(req, res, next){
-	var user = new usersModel();
-	user.title = castTitle(req.body.title);
-	user.firstName = req.body.firstName;
-	user.lastName = req.body.lastName;
-	user.gender = castGender(req.body.gender);
-	user.birthDate = Date.now();
-	user.email = req.body.email;
-	user.contactNumber = req.body.contactNumber;
-	user.preferredContact = castPreferredContact(req.body.preferredContact);
-	user.address.streetNumber = req.body.streetNumber;
-	user.address.streetName = req.body.streetName;
-	user.address.city = req.body.city;
-	user.address.province = req.body.province;
-	user.address.postalCode = req.body.postalCode;
+    //first check if username already exists
+    usersModel.findOne({email: req.body.email})
+        .then(function(user){
+           if(user){ //user already exists, don't make another
+               res.send("User Already Exists");
+           } else {
+               //create new user
+               var user = new usersModel();
+               user.title = castTitle(req.body.title);
+               user.firstName = req.body.firstName;
+               user.lastName = req.body.lastName;
+               user.gender = castGender(req.body.gender);
+               user.birthDate = Date.now();
+               user.email = req.body.email;
+               user.contactNumber = req.body.contactNumber;
+               user.preferredContact = castPreferredContact(req.body.preferredContact);
+               user.address.streetNumber = req.body.streetNumber;
+               user.address.streetName = req.body.streetName;
+               user.address.city = req.body.city;
+               user.address.province = req.body.province;
+               user.address.postalCode = req.body.postalCode;
 
-	var login = new loginModel();
-	login.userName = req.body.email;
-	login.password = req.body.Password;
+               var login = new loginModel();
+               login.userName = req.body.email;
+               login.password = req.body.Password;
 
-	login.saveAsync()
-	.then(function(login){
-		user.userLoginID = login._id;
-		user.save()
-		.then(function(user){
-			res.send("success");
-		})
-	})
-	.catch(function(e){
-		console.log("fail");
-		res.send("fail");
-	})
-	.error(console.error);
+               login.saveAsync()
+                   .then(function(login){
+                       user.userLoginID = login._id;
+                       user.save()
+                           .then(function(user){
+                               res.send("success");
+                           })
+                   })
+                   .catch(function(e){
+                       console.log("fail");
+                       res.send("fail");
+                   })
+                   .error(console.error);
+           }
+        });
 };
 
 var getCurrentUser = function(req, res, next){
@@ -77,29 +94,43 @@ var getUserProfile = function(req, res, next){
 
 var getUserCurrentTasks = function(req, res, next){
 
-	if(typeof req.params.id === "undefined"){
-		var id = req.session.user._id;
-	} else {
-		var id = req.params.id;
-	}
+    if(typeof req.params.id === "undefined"){
+        var id = req.session.user._id;
+    } else {
+        var id = req.params.id;
+    }
 
-	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
-	.then(function(user){
-		//get all tasks that are assigned to the current user
-		taskListModel.find( //only return active tasks
-			{$and:
-				[
-					{'poster.id': user._id},
-					{expired: false}
-				]
-			}
-		)//ensure that only active tasks are shown
-		.then(function(tasklist){
-			user.tasklist = tasklist;
-			user.partial = "CurrentTasks";
-			res.render('userCurrentTasksView', {user: user})
-		})
-	})
+    potentialMatchesModel.find({$or: [{ownerID: id}, {'interestedUser.id': id}]})
+        .then(function(models){
+            var interestedList = models.map(function(a){return a.taskID});
+
+            usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
+                .then(function(user){
+                    //get all tasks that are assigned to the current user
+                    taskListModel.find( //only return active task
+                        { $or: [
+                            {$and:
+                                [
+                                    {$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
+                                    {expired: false}
+                                ]
+                            },
+                            {_id: {$in: interestedList}}
+                        ]
+
+                        }
+                    )
+                        .then(function(tasklist){
+                            //also get tasks that user is interested in
+                            potentialMatchesModel.find()
+                            user.tasklist = tasklist;
+                            user.partial = "CurrentTasks";
+                            res.render('userCurrentTasksView', {user: user, helpers: {if_eq: if_eq}})
+                        })
+                })
+        })
+
+
 }
 
 var getuserTaskHistory = function(req, res, next){
@@ -114,11 +145,11 @@ var getuserTaskHistory = function(req, res, next){
 	.then(function(user){
 		taskListModel.find( //only return old taks
 			{$and:
-				[
-					{'poster.id': user._id},
-					{expired: true}
-				]
-			}
+            	[
+                	{$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
+                	{expired: true}
+            	]
+        	}
 		)
 		.then(function(tasklist){
 			user.tasklist = tasklist;
@@ -129,20 +160,30 @@ var getuserTaskHistory = function(req, res, next){
 }
 
 var getUserReviews = function(req, res, next){
-
 	if(typeof req.params.id === "undefined"){
 		var id = req.session.user._id;
 	} else {
 		var id = req.params.id;
 	}
 
-    usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
+	reviewModel.find({reviewedUser: id})
+	.then(function(reviews){
+		res.render('userReviewsView', {reviews: reviews})
+	})
+
+    /*usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
         .then(function(user){
         	user.partial = "Reviews";
             res.render('userReviewsView', {user: user})
-        })
+        }) */
 }
 
+var if_eq = function(a, b, opts) {
+    if(a == b) // Or === depending on your needs
+        return opts.fn(this);
+    else
+        return opts.inverse(this);
+};
 
 var castGender = function(gender){
 	switch(gender){

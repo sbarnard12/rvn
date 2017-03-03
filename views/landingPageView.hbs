@@ -18,13 +18,11 @@
 	<label for="userName">Email: </label>  
 	
 	<input id="userName" type="text" name="userName"> <br>
-	
-	<label class="error" id="userName_Error" for="userName"></label> <br>
 
     <!--Password text box -->
     <label for="password">Password: </label> 
     <input id="password" type="password" name="password"><br>
-    <label class="error" id="password_Error" for="password"></label><br>
+    <label class="error" id="login_Error" for="password"></label><br>
 
 	<!-- The login and create a new account buttons will each point to a different page once clicked on-->
 	<button id="login_button" type="button">Login</button><br> <br>
@@ -34,4 +32,9 @@
 	</p>
 	
 </form>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="/javascripts/loginScript.js"></script>

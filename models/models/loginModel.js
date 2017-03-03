@@ -3,7 +3,6 @@
 
 //initialize mongoose ODM
 var mongoose = require('mongoose');
-//mongoose.createConnection('mongodb://localhost/users');
 var Schema = mongoose.Schema;
 var Promise = require('bluebird'); 
 Promise.promisifyAll(mongoose);

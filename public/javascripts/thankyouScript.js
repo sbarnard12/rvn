@@ -3,5 +3,5 @@ $(function(){
 })
 
 var goToLogin = function(){
-	window.location.replace("http://localhost:3000/login");
+	window.location = ("http://localhost:3000/login");
 }
