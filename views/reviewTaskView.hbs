@@ -1,0 +1,36 @@
+<h1>Please review your experience with the completed task </h1>
+
+<span id="task_id" name={{task._id}} style="display:none;"></span>
+{{#if_eq task.currentUser task.matchedUser.id}}
+	<span id="other_user" name={{task.poster.id}} style="display:none;"></span>
+{{else}}
+	<span id="other_user" name={{task.matchedUser.id}} style="display:none;"></span>
+{{/if_eq}}
+
+<form id="review_form" name="review_form">
+
+	<label for="userName">Task Performed By: </label>
+	<!-- Need to check which user gets put here -->
+	{{#if_eq task.currentUser task.matchedUser.id}}
+		<input type="text" value="{{task.poster.firstName}} {{task.poster.lastName}}" readonly="readonly"></input>
+	{{else}}
+		<input type="text" value="{{task.matchedUser.firstName}} {{task.matchedUser.lastName}}" readonly="readonly"></input>
+	{{/if_eq}}
+
+	<p><label for="rating">Rating: </label>
+	<input type="radio" name="rating" value="1">1</input>
+	<input type="radio" name="rating" value="2">2</input>
+	<input type="radio" name="rating" value="3" checked>3</input>
+	<input type="radio" name="rating" value="4">4</input>
+	<input type="radio" name="rating" value="5">5</input>
+	</p>
+
+	<label for="description">Describe your experience: </label>
+	<input id="description" name="description"></input>
+</form>
+<button id="submit_review">Submit Review</button>
+<div id="submit_dialog">
+	<p>Thank you for submitting this review!</p>
+    <p>You will now be returned to your profile</p>
+</div>
+<script src="/javascripts/reviewTaskScript.js"></script>

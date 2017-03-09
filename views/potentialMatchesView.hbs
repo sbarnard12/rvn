@@ -1,0 +1,22 @@
+<h1>Here are some users who claim they are interested</h1>
+
+<table>
+    <tr>
+        <th>User</th>
+        <th>Description</th>
+    </tr>
+    {{#each potentialMatches}}
+    <tr>
+        <td style="display:none;">{{this.interestedUser.id}}</td>
+        <td>{{this.interestedUser.name}}</td>
+        <td>{{this.description}}</td>
+        <td><button>Match me with this user</button></td>
+    </tr>
+    {{/each}}
+</table>
+<div id="matched_dialog">
+    <p>Thank you for matching with this user!</p>
+    <p>Please make sure to contact this user</p>
+    <p>You will now be taken back to the current task page of your profile</p>
+</div>
+<script src="/javascripts/potentialMatchesScript.js"></script>

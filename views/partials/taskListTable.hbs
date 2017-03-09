@@ -1,0 +1,25 @@
+<div class="taskList_table" style="overflow-x:auto;">
+<table style="width:100%" name="searchResults" id="searchResults">
+	<tr align="center">
+		<th style="display:none" id="test"></th>
+		<th style="display:none;">ID</th>
+		<th>Picture</th>
+		<th>Task</th>
+		<th>Description</th>
+		<th>Category</th>
+		<th>Location</th>
+		<th>Date</th>
+	</tr>
+    {{#each taskList}}
+	<tr>
+	<td style="display:none;">{{this._id}}</td>
+    <td>{{this.pictureUrl}}</td>
+    <td>{{this.title}}</td>
+    <td>{{this.description}}</td>
+    <td>{{this.category}}</td>
+    <td>{{this.address.city}}</td>
+    <td>{{this.date.day}}</td>
+	</tr>
+	{{/each}}
+</table>
+</div>

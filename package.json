@@ -1,21 +1,42 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.5",
+  "name": "reciprocal volunteer net",
+  "version": "0.0.1",
   "description": "A sample Node.js app using Express 4",
   "engines": {
-    "node": "5.9.1"
+    "node": "5.9.1",
+    "npm": "3.10.8"
   },
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
-    "ejs": "2.4.1",
-    "express": "4.13.3"
+    "bluebird": "^3.4.6",
+    "body-parser": "~1.15.2",
+    "bootstrap-sass": "^3.3.7",
+    "browserify-middleware": "^7.1.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "formidable": "^1.1.1",
+    "handlebars": "^4.0.6",
+    "hbsfy": "^2.7.0",
+    "jade": "~1.11.0",
+    "jquery": "^3.1.1",
+    "mongoose": "^4.6.6",
+    "morgan": "~1.7.0",
+    "node-sass-middleware": "^0.9.8",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "connect-browser-sync": "^2.0.1",
+    "nodemon": "^1.11.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/sbarnard12/rvn"
   },
   "keywords": [
     "node",
