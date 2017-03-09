@@ -5,7 +5,8 @@ $(function(){
 	$('#profile_nav').on('click', getPartial);
 	$('td:first-child').each(taskDetailLink);
 	$('.complete_button').each(completeButton);
-})
+    $('.delete_button').each(deleteButton);
+});
 
 var getPartial = function(){
 	console.log("test");
@@ -15,7 +16,7 @@ var getPartial = function(){
 	var redirect = "http://localhost:3000/user/" + tabString + "/" + id;
 
 	window.location = (redirect);
-}
+};
 
 var taskDetailLink = function(){
 	$(this).parent().on('click', function(){
@@ -23,7 +24,7 @@ var taskDetailLink = function(){
 		var redirect = "http://localhost:3000/taskDetails/" + id;
 		window.location = (redirect);
 	})
-}
+};
 
 var completeButton = function(){
 	$(this).on('click', function(){
@@ -32,4 +33,11 @@ var completeButton = function(){
 		var url = "http://localhost:3000/taskreview/" + id;
 		window.location = (url);
 	})
-}
+};
+
+var deleteButton = function(){
+    $(this).on('click', function(){
+        event.stopPropagation();
+
+    })
+};
