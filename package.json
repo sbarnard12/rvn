@@ -1,7 +1,11 @@
 {
-  "name": "todos",
-  "version": "0.0.0",
-  "private": true,
+  "name": "reciprocal volunteer net",
+  "version": "0.0.1",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "5.9.1",
+    "npm": "3.10.8"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
@@ -29,5 +33,15 @@
     "browser-sync": "^2.17.5",
     "connect-browser-sync": "^2.0.1",
     "nodemon": "^1.11.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbarnard12/rvn"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
