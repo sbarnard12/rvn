@@ -1,5 +1,5 @@
+var host = "https://" +  window.location.host;
 $(function(){
-	var host = "https://" +  window.location.host;
 	$('#submit_button').on('click', submit);
 	$('#clearAll_button').on('click', clearAll);
 	$('#exit_button').on('click', exit);

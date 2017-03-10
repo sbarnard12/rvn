@@ -1,5 +1,5 @@
+var host = "https://" +  window.location.host;
 $(function(){
-	var host = "https://" + window.location.host;
 	$('#login_button').on('click',login);
 	$('#createNewAccount').on('click', signup);
     $('#password').on('keyup', function(e){

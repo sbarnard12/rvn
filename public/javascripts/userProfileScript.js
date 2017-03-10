@@ -1,5 +1,5 @@
+var host = "https://" +  window.location.host;
 $(function(){
-	var host = "https://" + window.location.host;
 	$('#reviews_nav').on('click', getPartial);
 	$('#taskHistory_nav').on('click', getPartial);
 	$('#currentTasks_nav').on('click', getPartial);

@@ -1,5 +1,5 @@
+var host = "https://" +  window.location.host;
 $(function(){
-	var host = "https://" + window.location.host;
 	$('#submit_search').on('click', search);
 	$('#createNewTask').on('click', newTask);
     $('#searchterm').on('keyup', function(e){

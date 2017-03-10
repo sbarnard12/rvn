@@ -1,5 +1,5 @@
+var host = "https://" +  window.location.host;
 $(function(){
-    var host = "https://" + window.location.host;
 	$('#posterName').on('click', goToProfile)
 	$('#interested_button').on('click', interested_dialog)
 	$('#backToHome_button').on('click', directToHome)

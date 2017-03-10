@@ -1,5 +1,5 @@
+var host = "https://" +  window.location.host;
 $(function(){
-	var host = "https://" + window.location.host;
 	$('#continue').on('click', goToLogin);
 })
 

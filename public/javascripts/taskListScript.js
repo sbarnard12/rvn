@@ -1,5 +1,5 @@
+var host = "https://" +  window.location.host;
 $(function(){
-	var host = "https://" + window.location.host;
 	$('td:first-child').each(taskDetailLink)
 })
 
