@@ -20,7 +20,7 @@ require('./models/models/taskListModel');
 require('./models/models/loginModel');
 require('./models/models/usersModel');
 require('./models/models/reviewsModel');
-require('./models/models/potentialMatchesModel');
+require('./models/models/potentialmatchesModel');
 
 //routes
 var login = require('./routes/loginRoute');
@@ -136,10 +136,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
 module.exports = app;
