@@ -11,4 +11,5 @@ db.once('open', function callback () {
     console.info('Mongo db connected successfully');
 });
 
+
 module.exports = db;

@@ -18,4 +18,5 @@ var potentialMatchesSchema = new Schema ({
 
 var PotentialMatches = mongoose.model('PotentialMatches', potentialMatchesSchema);
 
+
 module.exports = PotentialMatches;
