@@ -1,4 +1,5 @@
 $(function(){
+	var host = "https://" + window.location.host;
 	$('#login_button').on('click',login);
 	$('#createNewAccount').on('click', signup);
     $('#password').on('keyup', function(e){
@@ -21,7 +22,7 @@ var login = function(){
 		data: $('#login').serialize(),
 		success: function(result){
 			if(result === "success"){
-				window.location = ("http://localhost:3000/home");
+				window.location = (host + "/home");
 			} else {
 				$('#login_Error').text("Invalid Username or Password");
 			}
@@ -30,5 +31,5 @@ var login = function(){
 }
 
 var signup = function(){
-	window.location = ("http://localhost:3000/signup");
+	window.location = (host + "/signup");
 }

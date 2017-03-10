@@ -1,7 +1,8 @@
 $(function(){
+	var host = "https://" + window.location.host;
 	$('#continue').on('click', goToLogin);
 })
 
 var goToLogin = function(){
-	window.location = ("http://localhost:3000/login");
+	window.location = (host + "/login");
 }

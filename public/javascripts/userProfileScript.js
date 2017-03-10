@@ -1,4 +1,5 @@
 $(function(){
+	var host = "https://" + window.location.host;
 	$('#reviews_nav').on('click', getPartial);
 	$('#taskHistory_nav').on('click', getPartial);
 	$('#currentTasks_nav').on('click', getPartial);
@@ -13,7 +14,7 @@ var getPartial = function(){
 	var tabString = this.id.split("_")[0];
 	var id = this.name;
 	var url = 'profile/' + id;
-	var redirect = "http://localhost:3000/user/" + tabString + "/" + id;
+	var redirect = host + "/user/" + tabString + "/" + id;
 
 	window.location = (redirect);
 };
@@ -21,7 +22,7 @@ var getPartial = function(){
 var taskDetailLink = function(){
 	$(this).parent().on('click', function(){
 		var id = this.firstElementChild.innerText; 
-		var redirect = "http://localhost:3000/taskDetails/" + id;
+		var redirect = host + "/taskDetails/" + id;
 		window.location = (redirect);
 	})
 };
@@ -30,7 +31,7 @@ var completeButton = function(){
 	$(this).on('click', function(){
 		event.stopPropagation();
 		var id = this.id;
-		var url = "http://localhost:3000/taskreview/" + id;
+		var url = host + "/taskreview/" + id;
 		window.location = (url);
 	})
 };

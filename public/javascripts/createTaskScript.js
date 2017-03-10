@@ -1,10 +1,10 @@
 $(function(){
+	var host = "https://" +  window.location.host;
 	$('#submit_button').on('click', submit);
 	$('#clearAll_button').on('click', clearAll);
 	$('#exit_button').on('click', exit);
 	$('#upload-file').on('click', submit);
-    //$('#upload-file').submit(uploadFile);
-
+    //$('#upload-file').submit(uploadFile); 
 	$('#exit_dialog').dialog({
 		resizable: false,
 		height: "auto",
@@ -14,7 +14,7 @@ $(function(){
 		buttons: {
 			"Exit": function(){
 				$(this).dialog("close");
-				window.location = ("http://localhost:3000/home");
+				window.location = (host + "/home");
 
 			},
 			Cancel: function(){
@@ -47,7 +47,7 @@ var submit = function(){
 		type: 'POST',
 		data: $('#createTask_form').serialize(),
 		success: function(result){
-            var redirect = "http://localhost:3000/taskdetails/" + result.task._id;
+            var redirect = host + "/taskdetails/" + result.task._id;
             window.location = (redirect);
 		}
 	})
@@ -60,7 +60,7 @@ var uploadFile = function(){
            status('Error: ' + xhr.status);
        },
         success: function(response){
-            var redirect = "http://localhost:3000/taskdetails/";
+            var redirect = host + "/taskdetails/";
             //window.location.replace(redirect);
         }
     });

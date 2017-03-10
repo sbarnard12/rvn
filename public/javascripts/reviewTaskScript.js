@@ -1,4 +1,5 @@
 $(function(){
+	var host = "https://" + window.location.host;
 	$('#submit_review').on('click', submitReview);
 	$('#submit_dialog').dialog({
 		resizable: false,
@@ -9,7 +10,7 @@ $(function(){
 		buttons: {
 			"OK": function(){
 				$(this).dialog("close");
-				window.location = ("http://localhost:3000/user/profile");
+				window.location = (host + "/user/profile");
 			},
 		}
 	})
@@ -18,7 +19,7 @@ $(function(){
 
 var submitReview = function(){
 	var id = $('#task_id').attr('name');
-	var url = "http://localhost:3000/taskreview/" + id; 
+	var url = host + "/taskreview/" + id; 
 	var data = $('#review_form').serialize() + "&userID=" + $('#other_user').attr('name');
 	$('#review_form').serialize() + "&userID=5837db472c258119e8b0857c"
 

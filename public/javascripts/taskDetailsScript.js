@@ -1,4 +1,5 @@
 $(function(){
+    var host = "https://" + window.location.host;
 	$('#posterName').on('click', goToProfile)
 	$('#interested_button').on('click', interested_dialog)
 	$('#backToHome_button').on('click', directToHome)
@@ -22,13 +23,13 @@ $(function(){
 
 var goToProfile = function(){
 	var id = $('#posterName').attr('name');
-	var redirect = "http://localhost:3000/user/profile/" + id;
+	var redirect = host + "/user/profile/" + id;
 	window.location = (redirect);
 }
 
 var setInterested = function(){
 	var id = $('#poster_id').attr('name');
-	var url = "http://localhost:3000/taskDetails/" + id; 
+	var url = host + "/taskDetails/" + id; 
 
 	$.ajax({
 		url: url,
@@ -37,13 +38,13 @@ var setInterested = function(){
 		success: function(result){
 			console.log("test");
             $('#interested_dialog').dialog("close");
-			window.location = ("http://localhost:3000/match");
+			window.location = (host + "/match");
 		}
 	})
 }
 
 var directToHome = function(){
-	window.location = ("http://localhost:3000/home")
+	window.location = (host + "/home")
 }
 
 var interested_dialog = function(){
@@ -52,7 +53,7 @@ var interested_dialog = function(){
 
 var showInterested = function(){
     var id = $('#poster_id').attr('name');
-    var url = "http://localhost:3000/interestedUsers/" + id;
+    var url = host + "/interestedUsers/" + id;
     window.location = (url);
     /* $.ajax({
         url: url,

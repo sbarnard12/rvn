@@ -1,4 +1,5 @@
 $(function(){
+	var host = "https://" + window.location.host;
 	$('#submit_search').on('click', search);
 	$('#createNewTask').on('click', newTask);
     $('#searchterm').on('keyup', function(e){
@@ -11,11 +12,11 @@ $(function(){
 
 var search = function(){
 	var searchterm = $('#searchterm').val();
-	var redirect = "http://localhost:3000/tasklist/" + searchterm;
+	var redirect = host + "/tasklist/" + searchterm;
 	window.location = (redirect);
 }
 
 var newTask = function(){
-	var redirect = "http://localhost:3000/createtask"
+	var redirect = host + "/createtask"
 	window.location = (redirect);
 }

@@ -1,4 +1,5 @@
 $(function(){
+	var host = "https://" + window.location.host;
 	$('#submit_button').on('click', submit);
 	$('#clearall_button').on('click', clearAll);
 	$('#exit_button').on('click', exit);
@@ -11,7 +12,7 @@ $(function(){
 		buttons: {
 			"Exit": function(){
 				$(this).dialog("close");
-				window.location = ("http://localhost:3000/login");
+				window.location = (host + "/login");
 
 			},
 			Cancel: function(){
@@ -65,7 +66,7 @@ var exit = function(){
 }
 
 var goToThankyou = function(){
-	window.location = ("http://localhost:3000/thankyou");
+	window.location = (host + "/thankyou");
 }
 
 var noEmptyFields = function(){
