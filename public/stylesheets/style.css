@@ -175,12 +175,13 @@ optgroup {
   font-weight: bold; }
 
 table {
+
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 50; }
 
 td,
 th {
-  padding: 0; }
+  padding: 300; }
 
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -5815,6 +5816,7 @@ button.close {
     display: none !important; } }
 
 body {
+  margin: 2em;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
   body .col-lg-2 {
     background-color: #f5f3f3; }
