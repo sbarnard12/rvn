@@ -1,4 +1,4 @@
-<h1> tasklist page</h1>
+<!--<h1> tasklist page</h1>
 <form>
       <table align="center" name="searchQuery" id="searchQuery">
         <tr>
@@ -18,9 +18,115 @@
             <td><input type="checkbox" name="filter04" value="04"/>Filter 04</td>
             <td><input type="checkbox" name="filter05" value="05"/>Filter 04</td>
         </tr>
-      </table> -->
+      </table>
 </form>
 <br>
 <br>
- {{> taskListTable taskList=taskList}} 
+ {{> taskListTable taskList=taskList}}-->
+
+
+<div class="container-fluid">
+  <table class="searchResults">
+    <thead>
+      <th>
+        <tr>
+          <td class="tableHeader searchResults" colspan="9" style="border: solid 1px #000000; width: 100%">
+            <b>Search Results</b>
+          </td>
+        </tr>
+      </th>
+    </thead>
+    <tbody>
+      <table class="searchResults">
+        <tr class="row1">
+          <td class="r1col1">
+            Display:
+          </td>
+          <td class="r1col2">
+            <select class="filterDropdown">
+              <option value="five">05</option>
+              <option value="ten">10</option>
+              <option value="fifteen">15</option>
+              <option value="twenty">20</option>
+            </select>
+          </td>
+          <td class="r1col3">
+            Sort by:
+          </td>
+          <td class="r1col4">
+            <select class="sortByDropdown">
+              <option value="all">All</option>
+              <option value="type">Type</option>
+              <option value="location">Location</option>
+              <option value="date">Date</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <table class="searchResults">
+        <tr class="row2">
+          <td class="r2col1">First Page</td>
+          <td class="r2col2">Prev</td>
+          <td class="r2col3">1</td>
+          <td class="r2col4">2</td>
+          <td class="r2col5">3</td>
+          <td class="r2col6">4</td>
+          <td class="r2col7">5</td>
+          <td class="r2col8">Next</td>
+          <td class="r2col9">Last Page</td>
+        </tr>
+      </table>
+      
+
+      <table class="searchResults">
+        <tr class="row3" style="border-style: solid 1px #000000; background: #c7e6b5; border-color: #000000">
+          <td class="col1">
+            <table>
+              <tr class="r3c1row1">
+                <td>
+                  <p><img src="profilePic.jpg" alt="Profile Picture"></p>
+                </td>
+              </tr>
+              <tr>
+                <td class="r3c1row2">
+                  <p><a href="taskOwner">Owner</a></p>
+                </td>
+              </tr>
+              <tr>
+                <td class="r3c1row3">
+                  <p><a href="taskLocation">Location</a></p>
+                </td>
+              </tr>
+            </table>
+          </td>  
+          <td class="col2">
+            <table>
+              <tr class="r3c2row1">
+                <td >
+                  <p><a href="taskName">Task Name</a></p>
+                </td>
+              </tr>
+              <tr class="r3c2row2">
+                <td>
+                  <p>Description goes here...</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="col3">
+            <table>
+              <tr class="r3c3row1">
+                <td>
+                  <p><button type="button" class="viewDetails col3" id="viewDetails">View Details</button></p>
+                </td>
+              </tr>
+            </table>
+          </td>      
+        </tr>
+      </table>
+
+    </tbody>
+  </table>
+</div>
+
 <script src="/javascripts/taskListScript.js"></script>
