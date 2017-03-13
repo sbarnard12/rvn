@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a9c9e7b-f2aa-4c32-8e3e-0ffd712593d0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/newUserRoute.js" afterPath="$PROJECT_DIR$/routes/newUserRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/signUpView.hbs" afterPath="$PROJECT_DIR$/views/signUpView.hbs" />
-    </list>
+    <list default="true" id="2a9c9e7b-f2aa-4c32-8e3e-0ffd712593d0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -78,16 +74,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="taskDetailsScript.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/taskDetailsScript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,7 +94,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newUserRoute.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="socketHandler.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/socketHandler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newUserRoute.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/newUserRoute.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
@@ -484,12 +480,12 @@
       <workItem from="1489416513010" duration="8062000" />
       <workItem from="1489425004827" duration="38000" />
       <workItem from="1489425069463" duration="14913000" />
-      <workItem from="1489444002964" duration="1881000" />
+      <workItem from="1489444002964" duration="1973000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131138000" />
+    <option name="totallyTimeSpent" value="131230000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -775,8 +771,8 @@
         <state relative-caret-position="187">
           <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
           <folding>
-            <marker date="1489443813770" expanded="true" signature="172:174" ph="{...}" />
-            <marker date="1489443813770" expanded="true" signature="214:228" ph="{...}" />
+            <marker date="1489445945468" expanded="true" signature="172:174" ph="{...}" />
+            <marker date="1489445945468" expanded="true" signature="214:228" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -939,6 +935,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="6" selection-start-line="9" selection-start-column="0" selection-end-line="17" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,21 +1003,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socketHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/messengerRoute.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding>
-            <marker date="1489443813770" expanded="true" signature="172:174" ph="{...}" />
-            <marker date="1489443813770" expanded="true" signature="214:228" ph="{...}" />
+            <marker date="1489445945468" expanded="true" signature="172:174" ph="{...}" />
+            <marker date="1489445945468" expanded="true" signature="214:228" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1103,6 +1092,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socketHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding />
         </state>
       </provider>
