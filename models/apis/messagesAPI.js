@@ -25,7 +25,7 @@ var getUserList = function(req, res, next){
                         var push2 = true;
 
                         for (var i = 0; i < array.length; i++) {
-                            if (((array[i]).use rname == user1.name && array[i].userid == user1.id)) { //user1 is already in the array
+                            if (((array[i]).username == user1.name && array[i].userid == user1.id)) { //user1 is already in the array
                                 //don't add
                                 push1 = false;
                             }

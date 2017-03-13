@@ -5815,6 +5815,7 @@ button.close {
     display: none !important; } }
 
 body {
+  margin: 2em;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
   body .col-lg-2 {
     background-color: #f5f3f3; }
@@ -5826,6 +5827,7 @@ body {
       text-decoration: line-through; }
 
 p.padding2 {
+  padding: 70px 0;
   text-align: center; }
 
 @media screen and (max-width: 768px) {

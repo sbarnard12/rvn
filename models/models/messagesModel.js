@@ -10,7 +10,7 @@ Promise.promisifyAll(mongoose);
 var messagesSchema = new Schema ({
 	user1: {
 		id: {type: String, required: true},
-		name: {type: String, required: true} 
+		name: {type: String, required: true}
 	},
 	user2: {
 		id: {type: String, required: true},

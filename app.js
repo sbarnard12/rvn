@@ -21,7 +21,6 @@ require('./models/models/usersModel');
 require('./models/models/reviewsModel');
 require('./models/models/messagesModel');
 require('./models/models/potentialMatchesModel');
-require('./models/models/testModel');
 
 //routes
 var login = require('./routes/loginRoute');
