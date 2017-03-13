@@ -1,14 +1,14 @@
 var mongoose = require('mongoose'),
   db;
 
-db = mongoose.createConnection('mongodb://db_admin:DBAdmin1@ds127260.mlab.com:27260/userlogins');
+db = mongoose.createConnection('mongodb://localhost/test');
 
 db.on('error', function(err){
   if(err) throw err;
 });
 
 db.once('open', function callback () {
-  console.info('Mongo db login connected successfully');
+  console.info('Mongo db test connected successfully');
 });
 
 module.exports = db;

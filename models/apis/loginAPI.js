@@ -16,6 +16,8 @@ var checkUser = function(req, res, next){
                             // sets a cookie with the user's info
                             req.session.user = userLogin;
                             req.session.user_id = userModel._id;
+                            req.session.user.password = "";
+                            req.session.user_name = userModel.firstName + " " + userModel.lastName;
 
                             res.send('success');
                         } else {
