@@ -1,7 +1,7 @@
   @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
   $font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
-  $primary-link-color: #00B7FF;
+  $primary-link-color: black;
   
 
 
@@ -38,3 +38,86 @@ p.padding2 {
     background-color: #f5f5f4
   }
 }
+
+.arrows { white-space: nowrap; }
+.arrows li {
+    display: inline-block;
+    line-height: 26px;
+    margin: 0 9px 0 -10px;
+    padding: 0 20px;
+    position: relative;
+}
+.arrows li::before,
+.arrows li::after {
+    border-right: 1px solid #666666;
+    content: '';
+    display: block;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transform: skewX(45deg);   
+}
+.arrows li::after {
+    bottom: 0;
+    top: auto;
+    transform: skewX(-45deg);
+}
+
+.arrows li:last-of-type::before, 
+.arrows li:last-of-type::after { 
+    display: none; 
+}
+
+.arrows li a { 
+   font: bold 24px Sans-Serif;  
+   letter-spacing: -1px; 
+   text-decoration: none;
+}
+
+.arrows li:nth-of-type(1) a { color: hsl(0, 0%, 70%); } 
+.arrows li:nth-of-type(2) a { color: hsl(0, 0%, 65%); } 
+.arrows li:nth-of-type(3) a { color: hsl(0, 0%, 50%); } 
+.arrows li:nth-of-type(4) a { color: hsl(0, 0%, 45%); } 
+
+.col1 {
+    width: 200px;
+    padding: 0;
+
+
+    .c1row1 {
+              height: 169px;
+            }
+
+    .c1row2 {
+              height:29px;
+            }
+    
+    .c1row3 {
+              height:28px;
+            }
+  }
+
+.col2 {
+    width: 500px;
+    padding: 0;
+
+    .c2row1 {
+              height: 50px;
+            }
+
+    .c2row2 {
+              height: 180px;
+            }
+  }
+
+.col3 {
+    width: 200px;
+    padding: 0;
+
+    .c3row1 {
+              height: 230px;
+            }
+  }

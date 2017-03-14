@@ -1,3 +1,48 @@
+var General_Information = document.getElementById('General_Information');
+var Work_and_Education = document.getElementById('Work_and_Education');
+var Contact_Information = document.getElementById('Contact_Information');
+var Interests = document.getElementById('Interests');
+
+$(function page_start() {
+		General_Information.setAttribute('class', 'visible');
+		Work_and_Education.setAttribute('class', 'hidden');
+		Contact_Information.setAttribute('class', 'hidden');
+		Interests.setAttribute('class', 'hidden');
+		setColor(0);
+})
+
+function displayGeneralInformation() {
+        General_Information.setAttribute('class', 'visible');
+        Work_and_Education.setAttribute('class', 'hidden');
+        Contact_Information.setAttribute('class', 'hidden');
+        Interests.setAttribute('class', 'hidden');
+        setColor(0);
+}
+
+function displayWorkEducation() {
+        General_Information.setAttribute('class', 'hidden');
+        Work_and_Education.setAttribute('class', 'visible');
+        Contact_Information.setAttribute('class', 'hidden');
+        Interests.setAttribute('class', 'hidden');
+        setColor(1);
+}
+
+function displayContactInformation() {
+        General_Information.setAttribute('class', 'hidden');
+        Work_and_Education.setAttribute('class', 'hidden');
+        Contact_Information.setAttribute('class', 'visible');
+        Interests.setAttribute('class', 'hidden');
+        setColor(2);
+}
+
+function displayInterests() {
+        General_Information.setAttribute('class', 'hidden');
+        Work_and_Education.setAttribute('class', 'hidden');
+        Contact_Information.setAttribute('class', 'hidden');
+        Interests.setAttribute('class', 'visible');
+        setColor(3);
+}
+
 $(function(){
 	$('#reviews_nav').on('click', getPartial);
 	$('#taskHistory_nav').on('click', getPartial);
@@ -32,4 +77,17 @@ var completeButton = function(){
 		var url = "http://localhost:3000/taskreview/" + id;
 		window.location = (url);
 	})
+}
+
+var setColor = function(pagenum){
+	var nav = [ $('#navGeneralInformation'), $('#navWorkEducation'), $('#navContactInformation'), $('#navInterests')] ;
+	var i = 0;
+	for (i=0; i < 5; i++){
+		if(i == pagenum){
+			nav[i].css('color', 'blue');
+		} else {
+			nav[i].css('color', 'grey');
+		}
+	}
+
 }
