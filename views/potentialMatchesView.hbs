@@ -1,4 +1,4 @@
-<h1>Here are some users who claim they are interested</h1>
+<!--<h1>Here are some users who claim they are interested</h1>
 
 <table>
     <tr>
@@ -14,85 +14,117 @@
     </tr>
     {{/each}}
 </table>
+-->
 
-<html lang="en"><head>
-<title>Current Page Navbar Demo</title>
+
+
+
+
+<div id="interestedUsersBanner">
+    <br><br>
+        <div class= "container" style="max-width: 100%; height: 90px; background: #9bd17d">
+        <table>
+            <tr>
+                
+                <td>
+                    <h3><strong>Here are some users interested in your task:</h3></strong>
+                </td>
+            </tr>
+
+        </table>
+        </div>
+</div>
+<br>
+<br>
+<div>
+   
+    {{#each potentialMatches}}
+        <div class= "container" style="max-width: 100%; height: 90px; background: #9bd17d">
+        <table>
+            <tr>
+                <th>User</th>
+                
+            </tr>
+            <tr>
+                <td style="display:none;">
+
+                {{this.interestedUser.id}}</td>
+                <col width="840">
+                <td>{{this.interestedUser.name}}</td>
+                <td><button>Match me with this user</button></td>
+            </tr>
+            <tr>  
+            <th>Description</th>  
+            </tr>
+            <tr>
+                <td>{{this.description}}</td>
+               
+            </tr>
+        </table>
+        </div>
+        <br><br>
     
-    <style type="text/css">
+    {{/each}}
+</div>
 
-    html,body {
-        margin:0;
-        padding:0;
-        color:#222;
-        background:#FFF;
-    }
-    body {
-        padding:10px;
-        font:76%/150%  Arial, Helvetica, sans-serif;
-    }
-    a {
-        text-decoration: none;
-        outline: 0; /* removes dotted border around a:active from Firefox */
-    }
-    #nav {
-        margin:0;
-        padding:0;
-        background:#708090 url(nav_bg.jpg) 0 0 repeat-x;
-        width:100%;
-        float:left;
-        border:1px solid #191970;
-        border-width:1px 1px 1px 0;
-    }
-    #nav li {
-        display:inline;
-        padding:0;
-        margin:0;
-    }
-    #nav a:link,
-    #nav a:visited {
-        color:#000;
-        background:#708090;
-        padding:20px 40px 4px 10px;
-        float:left;
-        width:auto;
-        border-right:1px solid #191970;
-        text-decoration:none;
-        font:bold 1em/1em Arial, Helvetica, sans-serif;
-        text-transform:uppercase;
-        text-shadow: 2px 2px 2px #555;
-    }
-    #nav a:hover {
-        color:#fff;
-        background:#191970;
-    }
-    #nav li:first-child a {
-        border-left:1px solid #191970;
-    }
-<font color='Blue'>    #home #nav-home a,
-    #about #nav-about a,
-    #contact #nav-contact a {
-        background:#00FFFF; <font color='DarkGreen'>/* Active Page Color */</font>
-        color:#000;
-        text-shadow:none;
-    }</font>
-    #home #nav-home a:hover,
-    #about #nav-about a:hover,
-    #contact #nav-contact a:hover {
-        background:#FFF;
-        color:#000;
-    }
-<font color='Blue'>    #nav a:active {
-        background:#7FFF00; </font><font color='Blue'><font color='DarkGreen'>/*turns this color briefly when link is selected*/</font>
-        color:#000;
-    }</font>
-</style>
-</head>
-<body id="about">
-<ul id="nav">
-    <li id="nav-home"><a href="#">Home</a></li>
-    <li id="nav-about"><a href="#">About</a></li>
-    <li id="nav-contact"><a href="#">Contact</a></li>
-</ul>
-</body>
-</html>
+
+
+
+<div class= "container-fluid" style="max-width: 80%;">
+
+    <h2 style="background: #c7e6b5; max-width: 100%;">About</h2>
+
+    <div style= "width: 80% overflow: hidden;">
+        <div id='left_div' style="max-width: 50%; float: left;">
+            <ul class="nav navbar-nav">            
+                <li><a id="navGeneralInformation" onclick="displayGeneralInformation()">General Information</a></li>
+                <br>
+                <li><a id="navWorkEducation" onclick="displayWorkEducation()">Work and Education</a></li>
+                <br>
+                <li><a id="navContactInformation" onclick="displayContactInformation()">Contact Information</a></li>
+                <br>
+                <li><a id="navInterests" onclick="displayInterests()">Interests</a></li>
+
+            </ul>        
+        </div>
+        <br>
+        <div id='right_div' style="margin-left: 50%;">
+            <div id="General_Information" class="hidden">
+                <label>First Name:</label> {{user.firstName}}
+                <br><br>
+                <label>Last Name: </label> {{user.lastName}}
+                <br><br>
+                <label>Gender: </label {{user.gender}}
+                <br><br>
+            </div>
+            <div id="Work_and_Education" class="hidden">
+                <label>Education Level: </label>
+                <br><br>
+                <label>Workplace: </label>
+                <br><br>
+            </div>
+            <div id="Contact_Information" class="hidden">
+                <label>Phone Number: </label> {{user.phoneNumber}}
+                <br><br>
+                <label> Apartment Number: </label> {{user.address.apartmentNumber}}
+                <br><br>
+                <label> Street Address: </label> {{user.address.streetNumber}} {{user.address.streetName}}
+                <br><br>
+                <label>City: </label> {{user.address.city}}
+                <br><br>
+                <label> Postal Code: </label> {{user.address.postalCode}}
+                <br><br>
+                <label>Preferred Mode of Contact: </label> {{user.preferredContact}}
+                <br><br>
+            </div>
+            <div id="Interests" class="hidden">
+                <label>Interests: </label>
+                <br><br>
+                <label>Hobbies: </label>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="/javascripts/potentialMatchesScript.js"></script>
