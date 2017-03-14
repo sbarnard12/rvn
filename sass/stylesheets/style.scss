@@ -420,38 +420,139 @@ p.padding2 {
       }
                   
 
-.currentTaskHeader {  
+.interestTaskHeader {  
                       height: 50px;
                       background-color: #9bd17d;
+                      font-size: 24px;
+                      font-weight: bold;
+
+
                       
                       .col-lg-6 {
+
+                                  height: 50px;
                                   text-decoration: underline;
+                                  border: solid 1px #000000;
+
+
                                   
                                       
                       }
 
                       .col-lg-3 {
+                                  height: 50px;
                                   text-align: center;
+                                  border: solid 1px #000000;
+
                       }
 }
 
-.currentTaskContent {
+.interestTaskContent {
                       height: 150px;
                       background-color: #c7e6b5;
                       
                       .col-lg-6 {
-                                  text-align: justify;
-                                  background-color: #c7e6b5;
+                                  height: 150px;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;
                                       
                       }
 
                       .col-lg-3 {
+                                  height: 150px;
                                   text-align: center;
-                                  background-color: #c7e6b5;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                      
                       }
 }
 
+.completeButton {
+                width: 250px;
+                height: 40px;
+                background-color: #228B22;
+                border: none;
+                border-radius: 6px;
+                padding: 15px 10px 32px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                font-style: Helvetica;
+                color: white;
+              }
 
+.deleteButton {
+                width: 250px;
+                height: 40px;
+                background-color: #FF0000;
+                border: none;
+                border-radius: 6px;
+                padding: 15px 10px 32px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                font-style: Helvetica;
+                color: white;
+}
+
+.postTaskHeader {  
+                      height: 50px;
+                      background-color: #9bd17d;
+                      font-size: 24px;
+                      font-weight: bold;
+
+                      .col-lg-4 {
+
+                                  height: 50px;
+                                  text-decoration: underline;
+                                  border: solid 1px #000000;               
+                      }
+
+                      .col-lg-3 {
+                                  height: 50px;
+                                  text-align: center;
+                                  border: solid 1px #000000;
+                      }
+                      
+                      .col-lg-2 {
+                                  background-color: #9bd17d;
+                                  height: 50px;
+                                  text-align: center;
+                                  border: solid 1px #000000;
+                      }
+}
+
+.postTaskContent {
+                      height: 150px;
+                      background-color: #c7e6b5;
+                      
+                      .col-lg-4 {
+                                  height: 150px;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                                      
+                      }
+
+                      .col-lg-3 {
+                                  height: 150px;
+                                  text-align: center;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                      
+                      }
+
+                      .col-lg-2 {
+                                  height: 150px;
+                                  background-color: #c7e6b5;
+                                  text-align: center;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                      
+                      }
+}
 
 
 
