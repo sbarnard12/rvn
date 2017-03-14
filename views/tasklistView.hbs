@@ -1,4 +1,6 @@
+
 <!--<h1> tasklist page</h1>
+
 <form>
       <table align="center" name="searchQuery" id="searchQuery">
         <tr>
@@ -22,7 +24,10 @@
 </form>
 <br>
 <br>
- {{> taskListTable taskList=taskList}}-->
+{{!--  {{> taskListTable taskList=taskList}}--}}
+
+
+ -->
 
 
 <div class="container-fluid">
@@ -79,22 +84,23 @@
       
 
       <table class="searchResults">
-        <tr class="row3" style="border-style: solid 1px #000000; background: #c7e6b5; border-color: #000000">
+      {{#each taskList}}
+          <tr class="row3" style="border-style: solid;border-width:1px;background: #c7e6b5;border-color: #000000;">
           <td class="col1">
             <table>
               <tr class="r3c1row1">
                 <td>
-                  <p><img src="profilePic.jpg" alt="Profile Picture"></p>
+                  <p><img src="{{this.pictureUrl}}" alt="Profile Picture"></p>
                 </td>
               </tr>
               <tr>
                 <td class="r3c1row2">
-                  <p><a href="taskOwner">Owner</a></p>
+                  <p><a href="taskOwner">{{this.poster.firstName}} {{this.poster.lastName}}</a></p>
                 </td>
               </tr>
               <tr>
                 <td class="r3c1row3">
-                  <p><a href="taskLocation">Location</a></p>
+                  <p><a href="taskLocation">{{this.address.city}}</a></p>
                 </td>
               </tr>
             </table>
@@ -103,12 +109,12 @@
             <table>
               <tr class="r3c2row1">
                 <td >
-                  <p><a href="taskName">Task Name</a></p>
+                  <p><a href="taskName">{{this.title}}</a></p>
                 </td>
               </tr>
               <tr class="r3c2row2">
                 <td>
-                  <p>Description goes here...</p>
+                  <p>{{this.description}}</p>
                 </td>
               </tr>
             </table>
@@ -123,6 +129,7 @@
             </table>
           </td>      
         </tr>
+      {{/each}}
       </table>
 
     </tbody>

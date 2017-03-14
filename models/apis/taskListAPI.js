@@ -152,7 +152,7 @@ var searchTasks = function(req, res, next){
 	
 	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){		
-		var search = new RegExp(req.params.searchterm, "i");
+		var search =  new RegExp(req.params.searchterm, "i");
 		taskListModel.find(
 			{$and: 
 				[
@@ -161,8 +161,8 @@ var searchTasks = function(req, res, next){
                     {state: {'$ne': "Matched"}},
                     {$or:
                         [
-							{title: search},
-							{description: search}
+							{title: {$regex: ""}}, //changing this for quick testing, need to figure what is happening here
+							{description: {$regex: ""}}
 						]}
 				] 
 			}
@@ -179,12 +179,7 @@ var setInterested = function(req, res, next){
 	.then(function(task){
 		usersModel.findOne({_id: req.session.user_id})
 		.then(function(user){
-            //this automatically matches
-			/*task.matchedUser.id = user._id;
-			task.matchedUser.firstName = user.firstName;
-			task.matchedUser.lastName = user.lastName;
-			task.matchedUser.rating = user.rating;
-			task.state = "Matched"; */
+
             var potentialMatch = new potentialMatchesModel();
             potentialMatch.taskID = task._id;
             potentialMatch.ownerID = task.poster.id;
@@ -216,7 +211,17 @@ var setMatched = function(req, res, next){
                     task.matchedUser.lastName = user.lastName;
                     task.state = "Matched";
 
-                    res.send("success");
+                    task.saveAsync()
+                    .then(function(){
+                        //Should clear out the interested users for that task
+                        console.log("success");
+                        res.json({'status': 'success'});
+                    })
+                        .catch(function(e){
+                            console.log("fail");
+                            res.json({'status': 'error', 'error': e})
+                        })
+                        .error(console.error);
                 })
         })
 

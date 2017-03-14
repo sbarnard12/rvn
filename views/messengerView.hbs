@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	This is the page where the messenger will go eventually
+</head>
+
+<body>
+    <span id="current_id" style="display:none">{{curruser.userid}}</span>
+    <span id="current_name" style="display: none">{{curruser.username}}</span>
+    <span id="target_id" style="display:none"></span>
+    <span id="target_name" style="display:none"></span>
+	<div class="container">
+		<div id="usersList" class = "col-lg-4">
+            <table id="userListTable" style="width:100%">
+                <th id="user_name">Users</th>
+                <th id="user_id" style="display:none"></th>
+                {{#each userList}}
+                <tr>
+                    <td>{{this.username}}<td>
+                    <td style="display:none">{{this.userid}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        <div class = "col-lg-8">
+		    <div class="chat" id="chat"></div>
+			<form id="messageForm">
+				<div class="form-group row">
+					<textarea class="form-control col-lg-8" id="message"></textarea>
+					<input type = "submit" class="col-lg-4 btn btn-primary" value="Send Message">
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+
+</body>
+<script src = "/javascripts/messengerScript.js"></script>
+</html>

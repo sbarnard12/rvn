@@ -18,7 +18,7 @@ $(function(){
 				$(this).dialog("close")
 			}
 		}
-	})
+	});
 	$('#clear_dialog').dialog({
 		resizable: false,
 		height: "auto",
@@ -35,8 +35,39 @@ $(function(){
 			}
 		}
 	})
-
-})
+	$("#cbMusicHobby").on("change", function()
+	{
+    	if($('#cbMusicHobby').is(":checked"))   
+        	$("#tbMusicHobby").show();
+    	else
+        	$("#tbMusicHobby").hide();
+	})
+	$("#cbOtherHobby").on("change", function()
+	{
+    	if($('#cbOtherHobby').is(":checked"))   
+        	$("#tbOtherHobby").show();
+    	else
+        	$("#tbOtherHobby").hide();
+	})
+	$("#cbMusicInterest").on("change", function()
+	{
+    	if($('#cbMusicInterest').is(":checked"))   
+        	$("#tbMusicInterest").show();
+    	else
+        	$("#tbMusicInterest").hide();
+	})
+	$("#cbOtherInterest").on("change", function()
+	{
+    	if($('#cbOtherInterest').is(":checked"))   
+        	$("#tbOtherInterest").show();
+    	else
+        	$("#tbOtherInterest").hide();
+	})
+	$("#tbMusicHobby").hide();
+	$("#tbMusicInterest").hide();
+	$("#tbOtherInterest").hide();
+	$("#tbOtherHobby").hide();
+});
 
 var submit = function(){
     if (noEmptyFields()){

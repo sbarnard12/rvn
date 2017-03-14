@@ -51,6 +51,44 @@
     </div>
 </div>-->
 
+{{!--
+<!--
+<div id="partial_container">
+
+<div id="currentTasks" class="taskList_table">
+    <br><br>
+	<h1>Current Tasks</h1>
+
+	<table style="width:100%">
+  		<tr>
+  			<th style="display:none;"></th>
+    		<th>Task</th>
+    		<th>Owner</th> 
+    		<th>Status</th>
+    		<th>Rating</th>
+
+
+  		</tr>
+  		{{#each user.tasklist}}
+        <tr>
+        	<td style="display:none;">{{this._id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>                    
+            <td>{{this.state}}</td>
+            <td>Rating</td> <!-- Need to get the review for the task if completed -->
+            <td>
+            	{{#if_eq this.state "Matched"}}
+            	<button class="complete_button" id={{this._id}}>Complete</button>
+            	{{/if_eq}}
+            	<button class="delete_button">Delete</button>
+            </td>
+        </tr>
+	</table>
+</div>
+
+</div> -->
+--}}
+
 <div class="container-fluid">
     <div class="col-lg-6" style="text-align: right">
         Filter by status:
@@ -98,7 +136,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="/javascripts/userProfileScript.js"></script>
 
