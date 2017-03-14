@@ -8,7 +8,7 @@ db5.on('error', function(err){
 });
 
 db5.once('open', function callback () {
-  console.info('Mongo db connected successfully');
+  console.info('Mongo db reviews connected successfully');
 });
 
 module.exports = db5;

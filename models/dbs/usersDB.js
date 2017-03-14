@@ -8,7 +8,7 @@ db4.on('error', function(err){
 });
 
 db4.once('open', function callback () {
-  console.info('Mongo db connected successfully');
+  console.info('Mongo db user connected successfully');
 });
 
 module.exports = db4;

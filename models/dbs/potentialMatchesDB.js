@@ -8,7 +8,7 @@ db.on('error', function(err){
 });
 
 db.once('open', function callback () {
-    console.info('Mongo db connected successfully');
+    console.info('Mongo db matches connected successfully');
 });
 
 

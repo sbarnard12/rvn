@@ -1,32 +1,153 @@
-	<!-- Display a message with the phone line number in case the user wants to talk to a real operator instead -->
-<div class="container-fluid" style = "text-center">     
-  <div class="row">
-  	<div class="col-lg-12">
-	<h2 class="text-center">If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
-	</div>
-    </div>
-</div>
-    <!-- Create a form that will be used search for a task or create a new task -->
-<div class="container-fluid">     
-  <div class="row">
-  	<div class="col-lg-12">
-		<div class="input-group">
-   			<input type="text" class="form-control" id="searchterm" name="searchterm" placeholder="Search for a task..">
-   			<span class="input-group-btn">
-        		<button class="btn btn-default" type="button" id="submit_search">Search</button>
-   			</span>
-		</div>
-    </div>
-</div>
+<!--Recommended Tasks-->
+<div class="container-fluid">
+    <table class="recommendTask">
 
-<div class="form-actions">
-    <button type="submit" class="btn-lg" id="createNewTask">Create New Task</button>
-    <Style>
-    .form-actions {
-    text-align: center;
-	}
-	</style>
-</div>	
+        <thead>
+        <th><tr>
+            <td class="tableHeader recommendTask" colspan="3" style="border-style:solid; border-color: #000000" ><b>Recommended Tasks</b></td>
+        </tr></th>
+        </thead>
 
+        <tbody>
+        <tr style="border-style: solid; background: #c7e6b5; border-color: #000000">
+            <td>
+                <table class="col1">
+                    <tr>
+                        <td class="c1row1 col1">
+                            <p><img src="profilePic.jpg" alt="Profile Picture"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c1row2 col1">
+                            <p><a href="taskOwner">Owner</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c1row3 col1">
+                            <p><a href="taskLocation">Location</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td>
+                <table class="col2">
+                    <tr>
+                        <td class="c2row1 col2">
+                            <p><a href="taskName">Task Name</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c2row2 col2">
+                            <p>Description goes here...</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="col3">
+                    <tr>
+                        <td class="c3row1 col3">
+                            <p><button type="button" class="viewDetails col3" id="viewDetails">View Details</button></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr style="border-style: solid; background: #c7e6b5; border-color: #000000">
+            <td>
+                <table class="col1">
+                    <tr>
+                        <td class="c1row1 col1">
+                            <p><img src="profilePic.jpg" alt="Profile Picture"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c1row2 col1">
+                            <p><a href="taskOwner">Owner</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c1row3 col1">
+                            <p><a href="taskLocation">Location</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td>
+                <table class="col2">
+                    <tr>
+                        <td class="c2row1 col2">
+                            <p><a href="taskName">Task Name</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c2row2 col2">
+                            <p>Description goes here...</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="col3">
+                    <tr>
+                        <td class="c3row1 col3">
+                            <p><button type="button" class="viewDetails c3row1 col3" id="viewDetails">View Details</button></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr style="border-style: solid; background: #c7e6b5; border-color: #000000">
+            <td>
+                <table class="col1">
+                    <tr>
+                        <td class="c1row1 col1">
+                            <p><img src="profilePic.jpg" alt="Profile Picture"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c1row2 col1">
+                            <p><a href="taskOwner">Owner</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c1row3 col1">
+                            <p><a href="taskLocation">Location</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td>
+                <table class="col2">
+                    <tr>
+                        <td class="c2row1 col2">
+                            <p><a href="taskName">Task Name</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="c2row2 col2">
+                            <p>Description goes here...</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="col3">
+                    <tr>
+                        <td class="c3row1 col3">
+                            <p><button type="button" class="viewDetails c3row1 col3" id="viewDetails">View Details</button></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 <script src="/javascripts/searchScript.js"></script>

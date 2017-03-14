@@ -14,12 +14,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
  
- 
+
 //models
 require('./models/models/taskListModel');
 require('./models/models/loginModel');
 require('./models/models/usersModel');
 require('./models/models/reviewsModel');
+require('./models/models/messagesModel');
 require('./models/models/potentialMatchesModel');
 
 //routes
@@ -37,6 +38,7 @@ var userReviews = require('./routes/userReviewsRoute');
 var match = require('./routes/matchPageRoute');
 var review = require('./routes/reviewTaskRoute');
 var potentialMatches = require('./routes/potentialMatchesRoute');
+var messenger = require('./routes/messengerRoute');
 
 
 var app = express();
@@ -118,6 +120,7 @@ app.use('/user/currenttasks', userCurrentTask);
 app.use('/match', match);
 app.use('/taskreview', review);
 app.use('/interestedUsers', potentialMatches);
+app.use('/messenger', messenger);
 
 
 // catch 404 and forward to error handler

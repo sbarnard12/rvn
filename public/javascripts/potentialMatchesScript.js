@@ -12,7 +12,6 @@ $(function(){
             "OK": function(){
                 $(this).dialog("close");
                 window.location = (host + "user/currentTasks");
-
             }
         }
     });
@@ -33,8 +32,13 @@ var setMatchedButton = function(){
         var split = window.location.href.split("/");
         var task_id = split[4];
 
+<<<<<<< HEAD
          $.ajax({
             url: host + '/interestedUsers',
+=======
+        $.ajax({
+            url: 'http://localhost:3000/interestedUsers',
+>>>>>>> Sam
             type: 'POST',
             data: {task_id: task_id, user_id: user_id},
             success: function(result){
@@ -50,13 +54,3 @@ var setMatchedButton = function(){
         })
     })
 };
-
-
-
-
-
-
-
-
-
-

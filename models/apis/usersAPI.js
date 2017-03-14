@@ -13,6 +13,9 @@ reviewModel = db5.model('Review');
 var db6 = require('../dbs/potentialMatchesDB'),
     potentialMatchesModel = db6.model('PotentialMatches');
 
+var db7 = require('../dbs/messagesDB'),
+  messagesModel = db7.model('Message');
+
 var ObjectID = require('mongodb').ObjectID;
 
 var getAllUsers = function(req, res, next){

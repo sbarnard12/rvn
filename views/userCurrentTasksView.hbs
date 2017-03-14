@@ -1,6 +1,4 @@
 
-<h1>Welcome to V-Inverse!</h1> 
-<h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
 
 <div class="container-fluid">
 		<ul class="nav navbar-nav">
@@ -10,6 +8,8 @@
         	<li class="active"><a id="profile_nav" name={{user._id}}>Profile</a></li>
     	</ul>
 </div>
+{{!--
+<!--
 <div id="partial_container">
 
 <div id="currentTasks" class="taskList_table">
@@ -32,7 +32,7 @@
             <td>{{this.title}}</td>
             <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>                    
             <td>{{this.state}}</td>
-            <td>Rating</td><!-- Need to get the review for the task if completed-->
+            <td>Rating</td> <!-- Need to get the review for the task if completed -->
             <td>
             	{{#if_eq this.state "Matched"}}
             	<button class="complete_button" id={{this._id}}>Complete</button>
@@ -44,6 +44,55 @@
 	</table>
 </div>
 
+</div> -->
+--}}
+
+<div class="container-fluid">
+    <div class="col-lg-6" style="text-align: right">
+        Filter by status:
+    </div> 
+    <div class="col-lg-6">
+        <select>
+            <option value="all">All</option>
+            <option value="matched">Matched</option>
+            <option value="pending">Pending</option>
+        </select>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="currentTaskHeader">
+        <div class="col-lg-6">
+            Task Name
+        </div>
+        <div class="col-lg-3">
+            Status
+        </div>
+        <div class="col-lg-3">
+            Action
+        </div>
+    </div>
+    {{#each user.tasklist}}
+    <div class="currentTaskContent">
+        <span style="display:none">{{this._id}}</span>
+        <div class="col-lg-6">
+            {{this.title}}
+        </div>
+        <div class="col-lg-3">
+            {{this.state}}
+        </div>
+        <div class="col-lg-3">
+            <td>
+                {{#if_eq this.state "Matched"}}
+                    <button type="button" class="createButton" id={{this._id}}>Complete</button>
+                {{/if_eq}}
+                <button type="button" class="createButton" id="deleteTask">Delete</button>
+            </td>
+        </div>
+    </div>
+    {{/each}}
 </div>
+
 <script src="/javascripts/userProfileScript.js"></script>
 

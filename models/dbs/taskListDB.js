@@ -8,7 +8,7 @@ db1.on('error', function(err){
 });
 
 db1.once('open', function callback () {
-  console.info('Mongo db connected successfully');
+  console.info('Mongo db tasklist connected successfully');
 });
 
 module.exports = db1;
