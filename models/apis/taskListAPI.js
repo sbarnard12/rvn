@@ -152,7 +152,7 @@ var searchTasks = function(req, res, next){
 	
 	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){		
-		var search = new RegExp(req.params.searchterm, "i");
+		var search =  new RegExp(req.params.searchterm, "i");
 		taskListModel.find(
 			{$and: 
 				[
@@ -161,8 +161,8 @@ var searchTasks = function(req, res, next){
                     {state: {'$ne': "Matched"}},
                     {$or:
                         [
-							{title: search},
-							{description: search}
+							{title: {$regex: ""}}, //changing this for quick testing, need to figure what is happening here
+							{description: {$regex: ""}}
 						]}
 				] 
 			}

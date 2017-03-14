@@ -1,81 +1,247 @@
-<h1>TASK INFORMATION</h1>
-      <form id =  "createTask_form">
-      <table>
-      <tr>
-        <td><label for="title">Title: *</label>
-        <td><input type="text" name="title"></td>
-      </tr>
-      <tr>
-        <td><label for="category">Task Category: *</label></td>
-        <td>
-          <select name="category" id="category">
-            <option value="requesting">Requesting</option>
-            <option value="offering">Offering</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="requesting">What are you requesting?: *</label></td>
-        <td><input type="text" name="requesting"></td>
-      </tr>
-      <tr>
-        <td><label for="offering">What are you offering?:</label></td>
-        <td><input type="text" name="offering"></td>
-      </tr>
-      <tr>
-        <td><label for="description">Please expand on your request and offer: *</label></td>
-        <td><input type="text" name="description"></td>
-      </tr>
-      <tr>
-      </tr>
-      <!--<tr>
-        <td><em>Preview:</em></td>
-        <td><img src="http://twodaftyanks.com/wp-content/uploads/2015/08/preview-14.png" /></td>
-      </tr> -->
-    </table>
-    
-    <h1>LOCATION INFORMATION</h1>
-    <table>
-      <tr>
-        <td><label for="streetNumber">Street Number:</label></td>
-        <td><input type="text" name="streetNumber"></td>
-      </tr>
-      <tr>
-        <td><label for="streetName">Street Name:</label></td>
-        <td><input type="text" name="streetName"></td>
-      </tr>
-      <tr>
-        <td><label for="city">City:</label></td>
-        <td><input type="text" name="city"></td>
-      </tr>
-      <tr>
-        <td><label for="postalCode">Postal Code:</label></td>
-        <td><input type="text" name="postalCode"></td>
-      </tr>
-      <tr>
-        <td><label for="preferredContact: " > Peferred Mode of Contact: </label></td>
-        <td><input type="radio" name="preferredContact" value="email">E-mail</td>
-        <td><input type="radio" name="preferredContact" value="phone">Phone</td>
-      </tr>
-    </table>
-
-  </form>
-    <table>
-      <tr>
-       <td><button id="submit_button">Submit</button></td>
-      </tr>
-      <tr>
-        <td><button id="clearAll_button">Clear All</button></td>
-        <td><button id="exit_button">Exit</button></td>
-      </tr>  
-    </table> 
-    <h1>NEED HELP?</h1>
-    <a href="https://google.com">Click here to talk to an Operator to assist you :)</a>
-    <div id="exit_dialog">
-      <p>Are you sure you would like to Exit and return to the login page?</p>
-      <p>All information will be lost</p>
+<div class="container-fluid" style="background: #c7e6b5;" >
+    <ul class="nav navbar-nav">
+          <li><a href="#" id="homepage_nag" name={{user._id}}>Homepage</a></li>
+          <li><a href="#" id="aboutUs_nav" name={{user._id}}>About Us</a></li>
+      </ul>
+</div>
+<div>
+  <div class="container-fluid" style="background: #9bd17d;" >
+    <h2 style="font-weight: bold;">
+      Create a Task
+    </h2>
+  </div>
+  <br>
+  <div id="progressBar">
+    <ul class="arrows">
+      <li id="navTaskDetails" style="font-weight: bold; color: grey">1. Task Details</li>
+      <li id="navLocation" style="font-weight: bold; color: grey">2. Location</li>
+      <li id="navDateandDuration" style="font-weight: bold; color: grey">3. Date and Duration</li>
+      <li id="navPreviewAd" style="font-weight: bold; color: grey">4. Preview Ad</li>
+    </ul>
+  </div>
+  <div style="width: 80%;">
+    <div style="width: 100%;">
+      <div id="headingTaskDetails" class="container-fluid" style="background: #9bd17d;">
+        <h3 align="left" style="font-weight: bold;">
+          1. Task Details
+        </h3>
+      </div>
+      <div id="headingLocation" class="container-fluid" style="background: #9bd17d;" >
+        <h3 align="left" style="font-weight: bold;">
+          2. Location
+        </h3>
+      </div>
+      <div id="headingDateandDuration"class="container-fluid" style="background: #9bd17d;" >
+        <h3 align="left" style="font-weight: bold;">
+          3. Date and Duration
+        </h3>
+      </div>
+      <div id="headingPreviewAd"class="container-fluid" style="background: #9bd17d;" >
+        <h3 align="left" style="font-weight: bold;">
+          4. Preview Ad
+        </h3>
+      </div>
     </div>
-    <div id="clear_dialog">
-    <p>Are you sure you would like to Clear all information?</p>
+    <div class="container-fluid" style="width: 80%">
+      <div id="TaskDetails" class= "container-fluid">
+        <form id = "createTask_form">
+          <table style="max-width: 80%; height: 300px">
+            <tr>
+              <td class="col1" style="vertical-align: text-top;">
+              <label for="taskType">Task Type: *</label>
+              </td>
+              <td class="col2" style="vertical-align: text-top;">
+                <table>
+                  <tr>
+                    <td>
+                      <input type="radio" name="taskType" value="offering" checked> I am offering the following service<br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="radio" name="taskType" value="requesting"> I am requesting someone to help me with the following service<br>
+                      <br>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: text-top;">
+                <label for="taskCategory">Task Category: *</label>
+                <br><br>
+              </td>
+              <td class="col2" style="vertical-align: text-top;">
+                <select name="category" id="category">
+                  <option value="technical">Technical</option>
+                  <option value="basicLabor">Bask Labor</option>
+                  <option value="mechanical">Mechanical</option>
+                  <option value="academic">Academic</option>
+                  <option value="artistic">Artistic</option>
+                  <option value="other">other</option>
+                </select>
+                <br><br>
+              </td>
+            </tr>
+            <tr>
+              <td class="col1" style="vertical-align: text-top;">
+                <label for="taskTitle">Task Title: *</label>
+              </td>
+              <td class="col2" style="vertical-align: text-top;">
+                <input id="tbtaskTitle" type="text" name="taskTitle" style="width: 100%">
+                <br><br>
+              </td>
+            </tr>
+            <tr>
+              <td class="col1" style="vertical-align: text-top;">
+                <label for="taskDescription">Description: *</label>
+              </td>
+              <td class="col2" style="vertical-align: text-top;">
+                <input id="taskDescription" type="text" name="taskDescription" style="height: 100px; width: 100%";>
+                <br><br>
+              </td>
+            </tr>
+          </table>
+          <table style="max-width: 80%;">
+            <tr>
+              <td class="col1" >
+                <button type="button" name="previousButton" disabled="disabled" hidden="hide"> Previous</button>
+              </td>
+              <td class="col2" align="right">
+                <button type="button" name="nextButton" onclick="displayLocation()"> Next</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div id="Location" class= "container-fluid">
+        <table style="max-width: 80%; height: 300px">
+          <tr>
+            <td class="col1" style="vertical-align: text-top;">
+              <label for="Location">Location: *</label>
+            </td>
+            <td class="col2" style="vertical-align: text-top;">
+              <input id="taskTitle" type="text" name="taskTitle" style="width: 100%";>
+            </td>
+          </tr>
+        </table>
+        <table style="max-width: 80%;">
+          <tr>
+            <td class="col1">
+              <button type="button" name="previousButton" onclick="displayTaskDetails()"> Previous</button>
+            <td>
+            <td class="col2" align="right">
+              <button type="button" name="nextButton" onclick="displayDateandDuration()"> Next</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="DateandDuration" class= "container-fluid">
+        <table style="max-width: 80%; height: 20px">
+          <tr>
+            <td style="vertical-align: text-top;">
+              How many days are you requesting the service?
+            </td>
+            <td style="vertical-align: text-top;">
+              <input id="DaysRequestingService" type="number" min="1" max="30" step="1" value="1"/>
+            </td> 
+          </tr>
+        </table>
+        <br>
+        <table style="max-width: 80%; height: 260px">
+          <tr>
+            <td class="col1" style="vertical-align: top">
+              <label for="FromDate">From: *</label>
+            </td>
+            <td class="col2" style="vertical-align: top">
+              <input type="date" name="FromDate"/>
+              <br><br>
+            </td>
+          </tr>
+          <tr>
+            <td class="col1" style="vertical-align: top">
+              <label for="ToDate">To: *</label>
+            </td>
+            <td class="col2" style="vertical-align: top">
+              <input type="date" name="ToDate"/>
+            </td>
+          </tr>
+        </table>
+        <table style="max-width: 80%;">
+          <tr>
+            <td class="col1" style="vertical-align: text-top">
+              <button type="button" name="previousButton" onclick="displayLocation()"> Previous</button>
+            <td>
+            <td class="col2" align="right">
+              <button type="button" name="nextButton" onclick="displayPreviewAd()"> Next</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="PreviewAd" class= "container-fluid">
+        <div style="overflow: hidden;">
+          <h2 style="font-weight: bold;">
+            TaskTitle
+          </h2>
+          <div style="max-width: 50%; float: left;">
+            <table id="previewInformation1" style="max-width: 50%; height: 200px">
+              <tr>
+                <td>
+                  <img id= "taskImg" style="height: 10%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
+                </td>
+                <td>
+                  <img id="mapImg" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div style="margin-left: 60%;">
+            <table id="previewInformation2">
+              <tr>
+                <td>
+                  Date Posted:
+                </td>
+                <td>
+                  Current Date
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Owner:
+                </td>
+                <td>
+                  {{user.firstName}} {{user.lastName}}
+                </td>       
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div>
+            <table id="previewInformation3" style="max-width: 80%;">
+              <tr>
+                <td>
+                  <br>
+                  Description: lkkda lkjfldkaj;s jaf;lksjdlkajkf ja;skjfaljla ksjf;lakjsf; lajsdlkfajs dlkfjads ;lkjfas;dlfk ;jasldkjfa; lksdjfaksjflak sjdf;lk ajs;flasjfl kasjdflkj asdlkfja ;ldskfja ;dsjfk ;lajdsf lka jslkfjas lkdjfal kdsja;ksjfd ;asjfla ksjdfl kajsf; lakjsdf; lasjdfl k;ajsdflkj adslkfj a;fds
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div>
+            <table id="navButtons" style="max-width: 80%;">
+              <tr>
+                <td class="col1">
+                  <button type="button" name="previousButton" onclick="displayDateandDuration()"> Previous</button>
+                </td>
+                <td class="col2" align="right">
+                  <button type="button" name="nextButton"> Confirm Post</button>
+                </td>
+              </tr>
+            </table>
+          </div
+        </div>
+      </div>
     </div>
+  <div>
+</div>
 <script src="/javascripts/createTaskScript.js"></script>
