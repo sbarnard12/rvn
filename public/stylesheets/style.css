@@ -5815,19 +5815,17 @@ button.close {
     display: none !important; } }
 
 body {
-  margin: 2em;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
   body .col-lg-2 {
     background-color: #f5f3f3; }
   body a {
-    color: #00B7FF; }
+    color: black; }
   body ul {
     list-style-type: none; }
     body ul .checked span {
       text-decoration: line-through; }
 
 p.padding2 {
-  padding: 70px 0;
   text-align: center; }
 
 @media screen and (max-width: 768px) {
@@ -5840,3 +5838,365 @@ p.padding2 {
 
 .taskList_table tr:hover {
   background-color: #f5f5f4; }
+
+.titleBanner {
+  width: 100%;
+  height: 100px;
+  background-color: #9bd17d;
+  border-style: none; }
+
+.titleText {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 50px;
+  font-weight: bold; }
+
+.menuBar {
+  position: absolute;
+  top: 110px;
+  left: 50px;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.logOutBtn {
+  position: absolute;
+  top: 110px;
+  left: 1200px;
+  font-size: 20px; }
+
+.menuBanner {
+  width: 100%;
+  height: 40px;
+  background-color: #c7e6b5;
+  border-style: solid; }
+
+.createButton {
+  width: 250px;
+  height: 40px;
+  background-color: #000000;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 10px 32px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: Helvetica;
+  color: white;
+  margin-right: 30px; }
+
+.searchBar {
+  margin-left: 150px;
+  margin-right: 50px;
+  margin-top: 0; }
+  .searchBar .searchBox {
+    margin-left: 0;
+    margin-right: 0;
+    height: 60px;
+    width: 420px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000; }
+  .searchBar .typeDropdown {
+    margin-left: 0;
+    margin-right: 0;
+    height: 60px;
+    width: 140px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000; }
+    .searchBar .typeDropdown select {
+      background: transparent;
+      border-style: solid;
+      font-size: 14px;
+      padding: 0; }
+  .searchBar .catDropdown {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0px;
+    height: 60px;
+    width: 225px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000; }
+    .searchBar .catDropdown select {
+      background: transparent;
+      border-style: solid;
+      font-size: 14px; }
+  .searchBar .searchButton {
+    height: 65px;
+    width: 200px;
+    padding: 0;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #9bd17d;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000; }
+
+.recommendTask {
+  margin-left: 175px;
+  margin-right: 50px;
+  width: 900px;
+  padding: 0; }
+  .recommendTask .tableHeader {
+    width: 100%;
+    height: 60px;
+    text-indent: 25px;
+    background: #9bd17d;
+    font-size: 25px; }
+  .recommendTask .col1 {
+    width: 200px;
+    padding: 0; }
+    .recommendTask .col1 .c1row1 {
+      height: 169px; }
+    .recommendTask .col1 .c1row2 {
+      height: 29px; }
+    .recommendTask .col1 .c1row3 {
+      height: 28px; }
+  .recommendTask .col2 {
+    width: 500px;
+    padding: 0; }
+    .recommendTask .col2 .c2row1 {
+      height: 50px; }
+    .recommendTask .col2 .c2row2 {
+      height: 180px; }
+  .recommendTask .col3 {
+    width: 200px;
+    padding: 0; }
+    .recommendTask .col3 .c3row1 {
+      height: 230px; }
+    .recommendTask .col3 .viewDetails {
+      width: 150px;
+      height: 40px;
+      background-color: #000000;
+      border: none;
+      border-radius: 6px;
+      padding: 15px 10px 32px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      font-style: Helvetica;
+      color: white;
+      margin-right: 30px; }
+
+.searchResults {
+  margin-left: 175px;
+  margin-right: 50px;
+  width: 900px;
+  padding: 0;
+  border: solid 1px #000000; }
+  .searchResults .tableHeader {
+    width: 100%;
+    height: 60px;
+    text-indent: 25px;
+    background: #9bd17d;
+    font-size: 25px; }
+  .searchResults .viewDetails {
+    width: 150px;
+    height: 40px;
+    background-color: #000000;
+    border: none;
+    border-radius: 6px;
+    padding: 15px 10px 32px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-style: Helvetica;
+    color: white;
+    margin-right: 30px; }
+
+.row1 {
+  height: 20px;
+  padding: 0;
+  border: solid 1px #000000; }
+  .row1 .r1col1 {
+    width: 100px;
+    text-align: right; }
+  .row1 .r1col2 {
+    width: auto; }
+  .row1 .r1col3 {
+    width: 100px;
+    text-align: right; }
+  .row1 .r1col4 {
+    width: auto; }
+
+.row2 {
+  height: 20px;
+  padding: 0;
+  border: solid 1px #000000; }
+  .row2 .r2col1 {
+    width: 100px;
+    text-align: left;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col2 {
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col3 {
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col4 {
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col5 {
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col6 {
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col7 {
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col8 {
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+  .row2 .r2col9 {
+    width: 100px;
+    text-align: right;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000; }
+
+.row3 {
+  padding: 0; }
+  .row3 .col1 {
+    width: 200px;
+    padding: 0; }
+    .row3 .col1 .r3c1row1 {
+      height: 169px; }
+    .row3 .col1 .r3c1row2 {
+      height: 29px; }
+    .row3 .col1 .r3c1row3 {
+      height: 28px; }
+  .row3 .col2 {
+    width: 500px;
+    padding: 0; }
+    .row3 .col2 .r3c2row1 {
+      height: 50px; }
+    .row3 .col2 .r3c2row2 {
+      height: 180px; }
+  .row3 .col3 {
+    width: 200px;
+    padding: 0; }
+    .row3 .col3 .r3c3row1 {
+      height: 230px; }
+
+.currentTaskHeader {
+  height: 50px;
+  background-color: #9bd17d; }
+  .currentTaskHeader .col-lg-6 {
+    text-decoration: underline; }
+  .currentTaskHeader .col-lg-3 {
+    text-align: center; }
+
+.currentTaskContent {
+  height: 150px;
+  background-color: #c7e6b5; }
+  .currentTaskContent .col-lg-6 {
+    text-align: justify;
+    background-color: #c7e6b5; }
+  .currentTaskContent .col-lg-3 {
+    text-align: center;
+    background-color: #c7e6b5; }
+
+.taskList_table td {
+  padding: 15px;
+  text-align: left; }
+
+.taskList_table tr:hover {
+  background-color: #f5f5f4; }
+
+.arrows {
+  white-space: nowrap; }
+
+.arrows li {
+  display: inline-block;
+  line-height: 26px;
+  margin: 0 9px 0 -10px;
+  padding: 0 20px;
+  position: relative; }
+
+.arrows li::before,
+.arrows li::after {
+  border-right: 1px solid #666666;
+  content: '';
+  display: block;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transform: skewX(45deg); }
+
+.arrows li::after {
+  bottom: 0;
+  top: auto;
+  transform: skewX(-45deg); }
+
+.arrows li:last-of-type::before,
+.arrows li:last-of-type::after {
+  display: none; }
+
+.arrows li a {
+  font: bold 24px Sans-Serif;
+  letter-spacing: -1px;
+  text-decoration: none; }
+
+.arrows li:nth-of-type(1) a {
+  color: #b3b3b3; }
+
+.arrows li:nth-of-type(2) a {
+  color: #a6a6a6; }
+
+.arrows li:nth-of-type(3) a {
+  color: gray; }
+
+.arrows li:nth-of-type(4) a {
+  color: #737373; }
+
+.col1 {
+  width: 200px;
+  padding: 0; }
+  .col1 .c1row1 {
+    height: 169px; }
+  .col1 .c1row2 {
+    height: 29px; }
+  .col1 .c1row3 {
+    height: 28px; }
+
+.col2 {
+  width: 500px;
+  padding: 0; }
+  .col2 .c2row1 {
+    height: 50px; }
+  .col2 .c2row2 {
+    height: 180px; }
+
+.col3 {
+  width: 200px;
+  padding: 0; }
+  .col3 .c3row1 {
+    height: 230px; }

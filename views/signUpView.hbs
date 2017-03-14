@@ -1,3 +1,5 @@
+
+
 <h1>Create a new account
   </h1> 
 
@@ -66,10 +68,6 @@
       <input id=postalCode type="text" name="postalCode">
       <label class="error" id="postalCode_error" for="postalCode"></label><br><br>
 
-      <label for="email"> E-mail Address</label><br>
-      <input id="email" type="text" name="email">
-      <label class="error" id="email_error" for="email"></label><br><br>
-
       <label for="preferredContact">Preferred mode of contact:</label>
 
       <input id=e-mail type="radio" name="preferredContact" value="e-mail" checked> E-mail &nbsp;
@@ -81,6 +79,11 @@
       <h2>Login Information</h2>
       
       The e-mail you entered above will be your username. <br> <br>
+
+
+      <label for="email"> E-mail Address</label><br>
+      <input id="email" type="text" name="email">
+      <label class="error" id="email_error" for="email"></label><br><br>
 
       <label for="password">Password</label><br>
       <input id=password type="password" name="Password">
@@ -134,7 +137,7 @@
       <tr>
       <td>
      
-        <input id="cbMusicHobby" type="checkbox" name="Hobbies[]" value="Music"> Music. 
+        <input id="cbMusicHobby" type="checkbox" value="Music"> Music.
       
         Specify which instruments:
       
@@ -147,7 +150,7 @@
       <tr>
       <td>
      
-        <input id="cbOtherHobby" type="checkbox" name="Hobbies[]" value="Other"> Other. 
+        <input id="cbOtherHobby" type="checkbox" value="Other"> Other.
       
         Specify:
       
@@ -198,11 +201,11 @@
       <tr>
       <td>
      
-        <input id="cbMusicInterest" type="checkbox" name="Interests[]" value="Music"> Music. 
+        <input id="cbMusicInterest" type="checkbox" value="Music"> Music.
       
         Specify which instruments:
       
-        <input id="tbMusicInterest" type="text" name="Interests[]"> 
+        <input id="tbMusicInterest" type="text" >
      
       </td>
       </tr>
@@ -235,4 +238,9 @@
     <div id="clear_dialog">
         <p>Are you sure you would like to Clear all information?</p>
     </div>
+
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<script src="https://malsup.github.com/jquery.form.js"></script>
 <script src="/javascripts/signupScript.js"></script>

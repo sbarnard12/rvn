@@ -18,7 +18,7 @@ $(function(){
 				$(this).dialog("close")
 			}
 		}
-	})
+	});
 	$('#clear_dialog').dialog({
 		resizable: false,
 		height: "auto",
@@ -67,7 +67,7 @@ $(function(){
 	$("#tbMusicInterest").hide();
 	$("#tbOtherInterest").hide();
 	$("#tbOtherHobby").hide();
-})
+});
 
 var submit = function(){
     if (noEmptyFields()){
