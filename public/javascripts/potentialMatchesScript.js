@@ -1,3 +1,4 @@
+var host = "https://" +  window.location.host;
 $(function(){
     $('.profile_page').each(userProfileLink);
     $('.match_me').each(confirmMatch);

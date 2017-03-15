@@ -159,7 +159,7 @@ var loginFirstTime = function(){
         type: 'POST',
         data: data,
         success: function(){
-            window.location = ("http://localhost:3000/user/profile");
+            window.location = (host + "/user/profile");
         }
     })
 }
