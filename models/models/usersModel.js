@@ -8,14 +8,14 @@ var Promise = require('bluebird');
 Promise.promisifyAll(mongoose);
 
 var usersSchema = new Schema ({
-	title: {type: Number},
+	title: {type: String},
 	firstName: {type: String, required: true},
 	lastName: {type: String, required: true},
-	gender: {type: Number, required: true},
+	gender: {type: String, required: true},
 	birthDate: {type: Date, required: true},
 	email: {type: String},
 	contactNumber: {type: Number},
-	preferredContact: {type: Number, required: true},
+	preferredContact: {type: String, required: true},
 	userLoginID: {type: String, required: true},
 	rating: {type: Number},
 	address: {

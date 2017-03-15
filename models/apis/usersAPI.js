@@ -39,14 +39,14 @@ var createNewUser = function(req, res, next){
            } else {
                //create new user
                var user = new usersModel();
-               user.title = castTitle(req.body.title);
+               user.title = req.body.title;
                user.firstName = req.body.firstName;
                user.lastName = req.body.lastName;
-               user.gender = castGender(req.body.gender);
+               user.gender = req.body.gender;
                user.birthDate = Date.now();
                user.email = req.body.email;
                user.contactNumber = req.body.contactNumber;
-               user.preferredContact = castPreferredContact(req.body.preferredContact);
+               user.preferredContact = req.body.preferredContact;
                user.address.streetNumber = req.body.streetNumber;
                user.address.streetName = req.body.streetName;
                user.address.city = req.body.city;

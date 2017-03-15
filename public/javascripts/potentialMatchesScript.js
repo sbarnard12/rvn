@@ -2,7 +2,6 @@ var host = "https://" +  window.location.host;
 $(function(){
     $('.profile_page').each(userProfileLink);
     $('.match_me').each(confirmMatch);
-
     $('#confirmMatch_dialog').dialog({
         resizable: false,
         height: "auto",
@@ -13,7 +12,6 @@ $(function(){
             "Yes": function(){
                 $(this).dialog("close");
                 setMatched($(this).data('button'));
-
             },
             Cancel: function(){
                 $(this).dialog("close")

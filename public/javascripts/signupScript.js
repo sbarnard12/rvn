@@ -115,7 +115,6 @@ var noEmptyFields = function(){
         } else {
             $("#" + required_fields[index] + "_error").text("");
         }
-
     }
     return (i == 0);
 };
