@@ -1,4 +1,27 @@
 $(function(){
+    $('#matchWithUser_button').on('click', confirmMatch);
+    $('#potentialMatchProfile_button').on('click', userProfileLink);
+
+
+    $('#confirmMatch_dialog').dialog({
+        resizable: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        autoOpen: false,
+        buttons: {
+            "Yes": function(){
+                $(this).dialog("close");
+                setMatchedButton();
+
+            },
+            Cancel: function(){
+                $(this).dialog("close")
+            }
+        }
+    });
+})
+$(function(){
     $('td:first-child').each(userProfileLink);
     $('td:last-child').each(setMatchedButton);
     $('#matched_dialog').dialog({
@@ -15,7 +38,9 @@ $(function(){
         }
     });
 });
-
+var confirmMatch = function(){
+    $('#confirmMatch_dialog').dialog("open");
+}
 var userProfileLink = function(){
     $(this).parent().on('click', function(){
         var id = this.firstElementChild.innerText;

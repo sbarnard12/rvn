@@ -58,7 +58,7 @@
                     Pending
                 </td>
                 <td>
-                       <button id="match">Delete Task</button>
+                       <button id="deleteTask_button">Delete Task</button>
                 </td>
             </tr>
         </table>
@@ -112,7 +112,7 @@
                 </td>      
                 <td>
 
-                    <button id="match">Match me with this user</button>
+                    <button id="matchWithUser_button">Match me with this user</button>
                 </td>
            </tr>     
             <tr>
@@ -127,7 +127,7 @@
                   <b>Location:</b>
                   23 Forest Street, Waterloo, Ontario.  
                   <br>
-                  <button id="profile_page")">View Profile</button>
+                  <button id="potentialMatchProfile_button")">View Profile</button>
                 </td> 
             </tr>     
         </table>
@@ -151,11 +151,11 @@
                 {{this.interestedUser.id}}</td>
                 <col width="840">
                 <td>{{this.interestedUser.name}}</td>
-                <td><button>Match me with this user</button></td>
+                <td><button id="matchWithUser_button">Match me with this user</button></td>
             </tr>
             <tr>  
             <th>Description</th>  
-            </tr>
+            </tr>pop
             <tr>
                 <td>{{this.description}}</td>
                
@@ -166,10 +166,12 @@
     
     {{/each}}
 </div>
-
+    <div id="confirmMatch_dialog">
+        <p>Are you sure you would like to match with this user?</p>
+    </div>
 
 <!--
-<div id="matched_dialog">
+<div name="matched_dialog">
     <p>Thank you for matching with this user!</p>
     <p>Please make sure to contact this user</p>
     <p>You will now be taken back to the current task page of your profile</p>

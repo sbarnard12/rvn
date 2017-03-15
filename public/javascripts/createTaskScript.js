@@ -1,37 +1,18 @@
 $(function(){
-	$('#submit_button').on('click', submit);
-	$('#clearAll_button').on('click', clearAll);
-	$('#exit_button').on('click', exit);
-	$('#upload-file').on('click', submit);
-    //$('#upload-file').submit(uploadFile);
+	$('#confirmPost_button').on('click', confirm);
 
-	$('#exit_dialog').dialog({
+
+	$('#confirm_dialog').dialog({
 		resizable: false,
 		height: "auto",
 		width: "auto",
 		modal: true,
 		autoOpen: false,
 		buttons: {
-			"Exit": function(){
+			"Confirm": function(){
 				$(this).dialog("close");
-				window.location = ("http://localhost:3000/home");
+				submit();
 
-			},
-			Cancel: function(){
-				$(this).dialog("close")
-			}
-		}
-	});
-	$('#clear_dialog').dialog({
-		resizable: false,
-		height: "auto",
-		width: "auto",
-		modal: true,
-		autoOpen: false,
-		buttons: {
-			"Clear All": function(){
-				$(this).dialog("close");
-				$('#createTask_form').trigger("reset")
 			},
 			Cancel: function(){
 				$(this).dialog("close")
@@ -138,12 +119,8 @@ var uploadFile = function(){
     return false;
 }
 
-var clearAll = function(){
-	$('#clear_dialog').dialog("open");
-}
-
-var exit = function(){
-	$('#exit_dialog').dialog("open");
+var confirm = function(){
+	$('#confirm_dialog').dialog("open");
 }
 
 var setColor = function(pagenum){
