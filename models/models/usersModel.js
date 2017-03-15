@@ -4,7 +4,7 @@
 //initialize mongoose ODM
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Promise = require('bluebird'); 
+var Promise = require('bluebird');
 Promise.promisifyAll(mongoose);
 
 var usersSchema = new Schema ({
@@ -24,7 +24,9 @@ var usersSchema = new Schema ({
 		city: {type: String},
 		province: {type: String},
 		postalCode: {type: String},
-	}
+	},
+    hobbies: [String],
+    interests: [String]
 }); 
 
 var Users = mongoose.model('User', usersSchema);

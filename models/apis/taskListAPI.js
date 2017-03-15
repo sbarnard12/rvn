@@ -36,8 +36,8 @@ var search = function(req, res, next){
 
 var defaultPage = function(req, res, next){
 	taskListModel.find(
-        {$and: [{expired: false},
-            {'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
+        {expired: false
+            //{'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
         }
     )
 	.then(function(taskList){
@@ -67,19 +67,17 @@ var getOne = function(req, res, next){
 var createNewTask = function(req, res, next){
     
 	var task = new taskListModel();
-	task.title = req.body.title;
-	task.category = castCategory(req.body.category);
-	task.requesting = req.body.requesting;
-	task.offering = req.body.offering;
-	task.description = req.body.description;
-	task.address.streetNumber = isNaN(req.body.streetNumber)? 0: req.body.streetNumber;
-	task.address.streetName = req.body.streetName;
-	task.address.city = req.body.city;
-	task.address.postalCode = req.body.postalCode;
-	task.modeofContact  = castModeofContact(req.body.preferredContact);
+	task.title = req.body.taskTitle;
+	task.taskType = req.body.taskType;
+    task.category = req.body.category;
+	task.description = req.body.taskDescription;
+    task.location = req.body.Location;
+    task.duration = req.body.Duration;
+    task.fromDate = new Date(req.body.FromDate);
+    task.toDate = new Date(req.body.ToDate);
 	task.expired = false;
 	task.state = "Available";
-	task.usePosterAddress = false;
+    task.ageGroup = " ";
 
 	//image upload code
 
@@ -156,14 +154,15 @@ var searchTasks = function(req, res, next){
 		taskListModel.find(
 			{$and: 
 				[
-					{'poster.id': {'$ne':user._id}},
+					//{'poster.id': {'$ne':user._id}}, //Don't search for your own tasks
 					{expired: false},
                     {state: {'$ne': "Matched"}},
                     {$or:
                         [
-							{title: {$regex: ""}}, //changing this for quick testing, need to figure what is happening here
-							{description: {$regex: ""}}
-						]}
+							{title:  search}, //changing this for quick testing, need to figure what is happening here
+							{description: search}
+						]
+                    }
 				] 
 			}
 		)
@@ -186,7 +185,9 @@ var setInterested = function(req, res, next){
             potentialMatch.interestedUser.id = user._id;
             potentialMatch.interestedUser.name = user.firstName + " " + user.lastName;
             potentialMatch.description = req.body.interested_description;
-
+            potentialMatch.interests = user.interests;
+            potentialMatch.location = user.address.city;
+            
             potentialMatch.saveAsync()
 			.then(function(task){
 				console.log("success");

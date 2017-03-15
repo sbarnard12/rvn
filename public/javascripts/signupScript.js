@@ -71,15 +71,19 @@ $(function(){
 
 var submit = function(){
     if (noEmptyFields()){
+        var data = $('#signUp_form').serialize();
+        var Hobbies = checkHobby();
+        var Interests = checkInterest();
+        data = data + "&Hobbies=" + Hobbies + "&Interests=" + Interests;
         $.ajax({
             url: 'signup',
             type: 'POST',
-            data: $('#signUp_form').serialize(),
+            data: data,
             success: function(result){
                 if(result == "User Already Exists"){
                     $('#email_error').text("This Email is Already in Use");
                 } else if(result == "success") {
-                    goToThankyou();
+                    setTimeout(loginFirstTime(), 1000);
                 }
 
             }
@@ -112,6 +116,56 @@ var noEmptyFields = function(){
 
     }
     return (i == 0);
+};
+
+var  checkHobby = function(){
+    var HobbyArray = [];
+    $("input[name='Hobbies']").each(function(index,item) {
+            if(item.checked){
+                HobbyArray.push(item.value);
+            }
+    });
+    if($('#cbMusicHobby').is(':checked')){
+        HobbyArray.push($('#tbMusicHobby').val());
+    }
+    if($('#cbOtherHobby').is(':checked')){
+        HobbyArray.push($('#tbOtherHobby').val());
+    }
+    return(JSON.stringify(HobbyArray));
 }
 
 
+var  checkInterest = function(){
+    var InterestArray = [];
+    $("input[name='Interests']").each(function(index,item) {
+        if(item.checked){
+            InterestArray.push(item.value);
+        }
+    });
+    if($('#cbMusicInterest').is(':checked')){
+        InterestArray.push($('#tbMusicInterest').val());
+    }
+    if($('#cbOtherInterest').is(':checked')){
+        InterestArray.push($('#tbOtherInterest').val());
+    }
+   return(JSON.stringify(InterestArray));
+};
+
+var loginFirstTime = function(){
+    var data = getLoginInfo();
+    $.ajax({
+        url: 'login',
+        type: 'POST',
+        data: data,
+        success: function(){
+            window.location = ("http://localhost:3000/user/profile");
+        }
+    })
+}
+
+var getLoginInfo = function(){
+    var email = $('#email').val();
+    var login = $('#password').val();
+
+    return "userName=" + email + "&password=" + login;
+}

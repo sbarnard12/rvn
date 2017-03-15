@@ -1,22 +1,162 @@
-<h1>Here are some users who claim they are interested</h1>
+<div class="container-fluid" style="background: #c7e6b5;max-width: 100%; font-weight: bold" >
+        <ul class="nav navbar-nav">
+            <li><a href="#" id="reviews_nav" name={{user._id}}>Reviews</a></li>
+            <li><a href="#" id="taskHistory_nav" name={{user._id}}>Task History</a></li>
+            <li><a href="#" id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
+            <li><a href="#" id="profile_nav" name={{user._id}}>Profile</a></li>
+        </ul>
+</div>
+<br>
+<div id="taskName">
+    <div class= "container" style="max-width: 100%; height: 60px;border:2px solid black; background: #9bd17e" >
+        <table>
+            <tr>
+                
+                <td>
+                <br>
+                    <b>Task name:</b>
+                    {{task.title}}
+                </td>
+            </tr>
+        </table>
+        </div>
 
-<table>
-    <tr>
-        <th>User</th>
-        <th>Description</th>
-    </tr>
-    {{#each potentialMatches}}
-    <tr>
-        <td style="display:none;">{{this.interestedUser.id}}</td>
-        <td>{{this.interestedUser.name}}</td>
-        <td>{{this.description}}</td>
-        <td><button>Match me with this user</button></td>
-    </tr>
-    {{/each}}
-</table>
+</div>
+<div id="descriptionStatusActionHeading">
+        <div class= "container" style="max-width: 100%; height: 55px;border:2px solid black;background: #FFFFFF">
+        <table >
+        <col width="880">
+        <col width="150">
+            <tr>
+                <td>
+
+                <br>
+                    <b> Description</b>
+                </td>
+                <td>
+                <b> Status </b>
+                </td>
+                <td>
+                <b> Action </b>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+</div>
+<div id="descriptionStatusActionHeading">
+        <div class= "container" style="max-width: 100%; height: 55px;border:2px solid black;background: #e2fbd5">
+        <table >
+        <col width="880">
+        <col width="150">
+            <tr>
+                <td>
+                    <br>
+                    {{task.description}}
+                </td>
+                <td>
+                    {{task.state}}
+                </td>
+                <td>
+                       <button id="deleteTask_button">Delete Task</button>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+</div>
+
+
+<div id="interestedUsersBanner">
+    <br><br>
+        <div class= "container" style="max-width: 100%; height: 70px; background: #9bd17d">
+        <table>
+            <tr>
+                
+                <td>
+                    <h3><strong>Below are users interested in your task. </strong></h3>
+                </td>
+            </tr>
+        </table>
+        </div>
+</div>
+<br>
+<br>
+<div id="interestedUsers">
+   <!-- THIS IS WHERE THE CODE FOR TESTING BEGINS -->
+
+    {{#if potentialMatches}}
+        {{#each potentialMatches}}
+            <div class= "container" style="max-width: 100%; height: 350px; background: #9bd17d";>
+                <span style="display:none">{{this.interestedUser.id}}</span>
+                <table>
+                    <br>
+                    <col width="160">
+                    <col width="800">
+                    <tr>
+                        <td style="width: 150px;">
+                            Photo would go here
+                        </td>
+                        <td valign="top";>
+                            <b>Interests:</b> <br>
+                            <p style=background-color:white;">
+                                {{#each this.interests}}
+                                    {{this}}
+                                {{/each}}
+                                <br>
+                                &nbsp;
+                            </p>
+                            <b>Message from user:</b> <br>
+                            <p style=background-color:white;">
+                                {{this.description}}
+                            </p>
+                        </td>
+                        <td>
+
+                            <button class="match_me">Match me with this user</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>User:</b>
+                            {{this.interestedUser.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+
+                            <b>Location:</b>
+                            {{this.location}}
+                            <br>
+                            <button class="profile_page">View Profile</button>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <br><br>
+        {{/each}}
+    {{else}}
+        <div class="container">
+            Sorry, no interested users yet :(
+        </div>
+    {{/if}}
+
+    
+     <!-- THIS IS THE OLD CODE BUT IT WILL BE USED WHEN CREATE A TASK FUNCTIONALITY IS ADDED -->
+</div>
+
+<div id="match_me_dialog">
+    <div id="confirmMatch_dialog">
+        <p>Are you sure you would like to match with this user?</p>
+    </div>
+</div>
+
 <div id="matched_dialog">
     <p>Thank you for matching with this user!</p>
     <p>Please make sure to contact this user</p>
     <p>You will now be taken back to the current task page of your profile</p>
 </div>
+
 <script src="/javascripts/potentialMatchesScript.js"></script>
