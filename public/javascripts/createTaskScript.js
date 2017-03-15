@@ -2,7 +2,7 @@ $(function(){
 	$('#submit_button').on('click', submit);
 	$('#clearAll_button').on('click', clearAll);
 	$('#exit_button').on('click', exit);
-	$('#upload-file').on('click', submit);
+	$('#submit_task').on('click', submit);
     //$('#upload-file').submit(uploadFile);
 
 	$('#exit_dialog').dialog({

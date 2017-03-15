@@ -6103,23 +6103,81 @@ p.padding2 {
     .row3 .col3 .r3c3row1 {
       height: 230px; }
 
-.currentTaskHeader {
+.interestTaskHeader {
   height: 50px;
-  background-color: #9bd17d; }
-  .currentTaskHeader .col-lg-6 {
-    text-decoration: underline; }
-  .currentTaskHeader .col-lg-3 {
-    text-align: center; }
+  background-color: #9bd17d;
+  font-size: 24px;
+  font-weight: bold; }
+  .interestTaskHeader .col-lg-6 {
+    height: 50px;
+    text-decoration: underline;
+    border: solid 1px #000000; }
+  .interestTaskHeader .col-lg-3 {
+    height: 50px;
+    text-align: center;
+    border: solid 1px #000000; }
 
-.currentTaskContent {
+.interestTaskContent {
   height: 150px;
   background-color: #c7e6b5; }
-  .currentTaskContent .col-lg-6 {
-    text-align: justify;
-    background-color: #c7e6b5; }
-  .currentTaskContent .col-lg-3 {
+  .interestTaskContent .col-lg-6 {
+    height: 150px;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000; }
+  .interestTaskContent .col-lg-3 {
+    height: 150px;
     text-align: center;
-    background-color: #c7e6b5; }
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000; }
+
+.completeButton {
+  width: 250px;
+  height: 40px;
+  background-color: #228B22;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 10px 32px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: Helvetica;
+  color: white; }
+
+.deleteButton {
+  width: 250px;
+  height: 40px;
+  background-color: #FF0000;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 10px 32px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: Helvetica;
+  color: white; }
+
+.postTaskHeader {
+  height: 50px;
+  background-color: #9bd17d;
+  font-size: 24px;
+  font-weight: bold; }
+  .postTaskHeader .col-lg-4 {
+    height: 50px;
+    text-decoration: underline;
+    border: solid 1px #000000; }
+  .postTaskHeader .col-lg-3 {
+    height: 50px;
+    text-align: center;
+    border: solid 1px #000000; }
+  .postTaskHeader .col-lg-2 {
+    background-color: #9bd17d;
+    height: 50px;
+    text-align: center;
+    border: solid 1px #000000; }
 
 .taskList_table td {
   padding: 15px;
@@ -6159,6 +6217,28 @@ p.padding2 {
 .arrows li:last-of-type::before,
 .arrows li:last-of-type::after {
   display: none; }
+
+.postTaskContent {
+  height: 150px;
+  background-color: #c7e6b5; }
+  .postTaskContent .col-lg-4 {
+    height: 100%;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000; }
+  .postTaskContent .col-lg-3 {
+    height: 100%;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000; }
+  .postTaskContent .col-lg-2 {
+    height: 100%;
+    background-color: #c7e6b5;
+    text-align: center;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000; }
 
 .arrows li a {
   font: bold 24px Sans-Serif;

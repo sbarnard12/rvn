@@ -1,10 +1,10 @@
-<!--Posted Task-->
+<!--Interested Tasks-->
 
-<!--<h1>Welcome to V-Inverse!</h1>
+<!--<h1>Welcome to V-Inverse!</h1> 
 <h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>-->
 
 <div class="container-fluid">
-    <ul class="nav navbar-nav">
+	<ul class="nav navbar-nav">
         <li><a id="reviews_nav" name={{user._id}}>Reviews</a></li>
         <li><a id="taskHistory_nav" name={{user._id}}>Task History</a></li>
         <li><a id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
@@ -22,32 +22,32 @@
     <div id="currentTasks" class="taskList_table">
         <br>
         <br>
-        <h1>Current Tasks</h1>
+	    <h1>Current Tasks</h1>
 
-        <table style="width:100%">
-            <tr>
-                <th style="display:none;"></th>
-                <th>Task</th>
-                <th>Owner</th> 
-                <th>Status</th>
-                <th>Rating</th>
+	    <table style="width:100%">
+  		    <tr>
+      			<th style="display:none;"></th>
+        		<th>Task</th>
+        		<th>Owner</th> 
+        		<th>Status</th>
+        		<th>Rating</th>
             </tr>
-            {{#each user.tasklist}}
+      		{{#each user.tasklist}}
                 <tr>
-                    <td style="display:none;">{{this._id}}</td>
+                	<td style="display:none;">{{this._id}}</td>
                     <td>{{this.title}}</td>
                     <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>                    
                     <td>{{this.state}}</td>
                     <td>Rating</td>       --><!-- Need to get the review for the task if completed
                     <td>
-                        {{#if_eq this.state "Matched"}}
-                        <button class="complete_button" id={{this._id}}>Complete</button>
-                        {{/if_eq}}
-                        <button>Delete</button>
+                    	{{#if_eq this.state "Matched"}}
+                    	<button class="complete_button" id={{this._id}}>Complete</button>
+                    	{{/if_eq}}
+                    	<button>Delete</button>
                     </td>
                 </tr>
             {{/each}}
-       </table>
+	   </table>
     </div>
 </div>-->
 
@@ -66,40 +66,33 @@
     <br>
     <br>
 
-    <div class="postTaskHeader">
-        <div class="col-lg-4">
-            <p style="position: absolute; left: 10px; top: 10px">Task Name</p>
+    <div class="interestTaskHeader">
+        <div class="col-lg-6">
+            <p style="position: absolute; left: 10px; top: 10px">Task Name: <a href="www.google.ca">Actual task name</a></p>
         </div>
         <div class="col-lg-3">
-            <p style="position: relative; top: 10px">Interested Users</p>
-        </div>
-        <div class="col-lg-2">
             <p style="position: relative; top: 10px">Status</p>
         </div>
         <div class="col-lg-3">
             <p style="position: relative; top: 10px">Action</p>
         </div>
     </div>
-    {{#each user.tasklist}}
-    <div class="postTaskContent">
-        <span style="display:none">{{this._id}}</span>
-        <div class="col-lg-4">
-            <p style="position: relative; left: 10px; top: 10px">{{this.title}}</p>
+
+    <div class="interestTaskContent">
+        <div class="col-lg-6">
+            <p style="position: relative; left: 10px; top: 10px">Task Name</p>
         </div>
         <div class="col-lg-3">
-            <p style="position: relative; top: 10px">put number of interested users here</p>
-        </div>
-        <div class="col-lg-2">
-            <p style="position: relative; top: 10px">{{this.state}}</p>
+            <p style="position: relative; top: 10px">Status</p>
         </div>
         <div class="col-lg-3">
-            {{#if_eq this.state "Matched"}}
-                <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px">Complete</button>
-            {{/if_eq}}
-                <button type="button" class="deleteButton" id="deleteTask" style="margin: 15px">Delete</button>
+            <br>
+            <br>
+            <button type="button" class="deleteButton" id="deleteTask">Delete Task</button>
         </div>
     </div>
-    {{/each}}
 </div>
+
+
 <script src="/javascripts/userProfileScript.js"></script>
 
