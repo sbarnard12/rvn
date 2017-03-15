@@ -184,7 +184,9 @@ var setInterested = function(req, res, next){
             potentialMatch.interestedUser.id = user._id;
             potentialMatch.interestedUser.name = user.firstName + " " + user.lastName;
             potentialMatch.description = req.body.interested_description;
-
+            potentialMatch.interests = user.interests;
+            potentialMatch.location = user.address.city;
+            
             potentialMatch.saveAsync()
 			.then(function(task){
 				console.log("success");

@@ -11,9 +11,11 @@ var potentialMatchesSchema = new Schema ({
     ownerID: {type: Schema.Types.ObjectId, required:true},
     interestedUser:{
         id: {type: String, required:true},
-        name: {type: String, required: true},
+        name: {type: String, required: true}
     },
     description: {type: String},
+    interests: [String],
+    location: {type: String}
 });
 
 var PotentialMatches = mongoose.model('PotentialMatches', potentialMatchesSchema);
