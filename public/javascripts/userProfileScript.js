@@ -12,18 +12,11 @@ $(function(){
     $('.complete_button').each(completeButton);
 
     //if my profile, do the color things
-    if(window.location.href.split('/')[4] == "Profile") {
+    if(window.location.href.split('/')[4] == "profile") {
         initializeColors();
         displayGeneralInformation();
     }
 });
-
-$(function page_start(){
-    if(window.location.href.split('/')[4] == "Profile"){
-        initializeColors();
-        displayGeneralInformation();
-    }
-})
 
 var initializeColors = function() {
 		General_Information.setAttribute('class', 'visible');

@@ -86,6 +86,8 @@
       <table class="searchResults">
       {{#each taskList}}
           <tr class="row3" style="border-style: solid;border-width:1px;background: #c7e6b5;border-color: #000000;">
+              <td style="display:none">{{this._id}}</td>
+              <td style="display:none">{{this.poster.id}}</td>
           <td class="col1">
             <table>
               <tr class="r3c1row1">
@@ -95,12 +97,12 @@
               </tr>
               <tr>
                 <td class="r3c1row2">
-                  <p><a href="taskOwner">{{this.poster.firstName}} {{this.poster.lastName}}</a></p>
+                  <p><a class="poster_link">{{this.poster.firstName}} {{this.poster.lastName}}</a></p>
                 </td>
               </tr>
               <tr>
                 <td class="r3c1row3">
-                  <p><a href="taskLocation">{{this.address.city}}</a></p>
+                  <p>{{this.address.city}}</p>
                 </td>
               </tr>
             </table>
@@ -123,7 +125,7 @@
             <table>
               <tr class="r3c3row1">
                 <td>
-                  <p><button type="button" class="viewDetails col3" id="viewDetails">View Details</button></p>
+                  <p><button type="button" class="viewDetails col3" >View Details</button></p>
                 </td>
               </tr>
             </table>
