@@ -34,6 +34,7 @@ var createNewUser = function(req, res, next){
     usersModel.findOne({email: req.body.email})
         .then(function(user){
            if(user){ //user already exists, don't make another
+
                res.send("User Already Exists");
            } else {
                //create new user
@@ -51,6 +52,12 @@ var createNewUser = function(req, res, next){
                user.address.city = req.body.city;
                user.address.province = req.body.province;
                user.address.postalCode = req.body.postalCode;
+
+               //Need to parse Hobbies and Interests first
+               var Hobbies = JSON.parse(req.body.Hobbies);
+               var Interests = JSON.parse(req.body.Interests);
+               user.hobbies = Hobbies;
+               user.interests = Interests;
 
                var login = new loginModel();
                login.userName = req.body.email;
