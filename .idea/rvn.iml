@@ -8,6 +8,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" name="heroku node_modules" level="project" />
+=======
+    <orderEntry type="library" name="RVN node_modules" level="project" />
+>>>>>>> Sam
   </component>
 </module>

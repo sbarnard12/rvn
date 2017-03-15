@@ -58,7 +58,7 @@
                     {{task.state}}
                 </td>
                 <td>
-                       <button id="match">Delete Task</button>
+                       <button id="deleteTask_button">Delete Task</button>
                 </td>
             </tr>
         </table>
@@ -84,61 +84,73 @@
 <br>
 <div id="interestedUsers">
    <!-- THIS IS WHERE THE CODE FOR TESTING BEGINS -->
-   {{#each potentialMatches}}
-    <div class= "container" style="max-width: 100%; height: 350px; background: #9bd17d";>
-        <span style="display:none">{{this.interestedUser.id}}</span>
-        <table>
-        <br>
-        <col width="160">
-        <col width="800">
-            <tr>
-                <td style="width: 150px;">
-                    Photo would go here
-                </td>
-                <td valign="top";>
-                    <b>Interests:</b> <br>
-                    <p style=background-color:white;">
-                        {{#each this.interests}}
-                            {{this}}
-                        {{/each}}
-                        <br>
-                        &nbsp;
-                     </p>  
-                   
-                    
-                    <b>Message from user:</b> <br>
-                    <p style=background-color:white;">
-                        {{this.description}}
-                    </p>
-                </td>      
-                <td>
 
-                    <button class="match_me">Match me with this user</button>
-                </td>
-           </tr>     
-            <tr>
-                <td>
-                    <b>User:</b>
-                    {{this.interestedUser.name}}
-                </td>         
-            </tr>
-            <tr>
-                <td colspan="2">
-                
-                  <b>Location:</b>
-                  {{this.location}}
-                  <br>
-                  <button class="profile_page">View Profile</button>
-                </td> 
-            </tr>     
-        </table>
-          
-        
-    </div>
-        <br><br>
-    {{/each}}
+    {{#if potentialMatches}}
+        {{#each potentialMatches}}
+            <div class= "container" style="max-width: 100%; height: 350px; background: #9bd17d";>
+                <span style="display:none">{{this.interestedUser.id}}</span>
+                <table>
+                    <br>
+                    <col width="160">
+                    <col width="800">
+                    <tr>
+                        <td style="width: 150px;">
+                            Photo would go here
+                        </td>
+                        <td valign="top";>
+                            <b>Interests:</b> <br>
+                            <p style=background-color:white;">
+                                {{#each this.interests}}
+                                    {{this}}
+                                {{/each}}
+                                <br>
+                                &nbsp;
+                            </p>
+                            <b>Message from user:</b> <br>
+                            <p style=background-color:white;">
+                                {{this.description}}
+                            </p>
+                        </td>
+                        <td>
+
+                            <button class="match_me">Match me with this user</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>User:</b>
+                            {{this.interestedUser.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+
+                            <b>Location:</b>
+                            {{this.location}}
+                            <br>
+                            <button class="profile_page">View Profile</button>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <br><br>
+        {{/each}}
+    {{else}}
+        <div class="container">
+            Sorry, no interested users yet :(
+        </div>
+    {{/if}}
+
     
      <!-- THIS IS THE OLD CODE BUT IT WILL BE USED WHEN CREATE A TASK FUNCTIONALITY IS ADDED -->
+</div>
+
+<div id="match_me_dialog">
+    <div id="confirmMatch_dialog">
+        <p>Are you sure you would like to match with this user?</p>
+    </div>
 </div>
 
 <div id="matched_dialog">

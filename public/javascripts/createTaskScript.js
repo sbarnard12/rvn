@@ -1,36 +1,20 @@
-var host = "https://" +  window.location.host;
 $(function(){
-	$('#submit_button').on('click', submit);
-	$('#clearAll_button').on('click', clearAll);
-	$('#exit_button').on('click', exit);
 	$('#submit_task').on('click', submit);
-	$('#exit_dialog').dialog({
-		resizable: false,
-		height: "auto",
-		width: "auto",
-		modal: true,
-		autoOpen: false,
-		buttons: {
-			"Exit": function(){
-				$(this).dialog("close");
-				window.location = (host + "/home");
+    //$('#upload-file').submit(uploadFile);
+	$('#confirmPost_button').on('click', confirm);
 
-			},
-			Cancel: function(){
-				$(this).dialog("close")
-			}
-		}
-	});
-	$('#clear_dialog').dialog({
+
+	$('#confirm_dialog').dialog({
 		resizable: false,
 		height: "auto",
 		width: "auto",
 		modal: true,
 		autoOpen: false,
 		buttons: {
-			"Clear All": function(){
+			"Confirm": function(){
 				$(this).dialog("close");
-				$('#createTask_form').trigger("reset")
+				submit();
+
 			},
 			Cancel: function(){
 				$(this).dialog("close")
@@ -117,7 +101,7 @@ var submit = function(){
 		type: 'POST',
 		data: $('#createTask_form').serialize(),
 		success: function(result){
-            var redirect = host + "/taskdetails/" + result.task._id;
+            var redirect = "http://localhost:3000/taskdetails/" + result.task._id;
             window.location = (redirect);
 		}
 	})
@@ -130,19 +114,15 @@ var uploadFile = function(){
            status('Error: ' + xhr.status);
        },
         success: function(response){
-            var redirect = host + "/taskdetails/";
+            var redirect = "http://localhost:3000/taskdetails/";
             //window.location.replace(redirect);
         }
     });
     return false;
 }
 
-var clearAll = function(){
-	$('#clear_dialog').dialog("open");
-}
-
-var exit = function(){
-	$('#exit_dialog').dialog("open");
+var confirm = function(){
+	$('#confirm_dialog').dialog("open");
 }
 
 var setColor = function(pagenum){
@@ -169,4 +149,3 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 
 //<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
-
