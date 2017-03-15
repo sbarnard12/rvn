@@ -1,30 +1,80 @@
-<!--<h1>Here are some users who claim they are interested</h1>
-
-<table>
-    <tr>
-        <th>User</th>
-        <th>Description</th>
-    </tr>
-    {{#each potentialMatches}}
-    <tr>
-        <td style="display:none;">{{this.interestedUser.id}}</td>
-        <td>{{this.interestedUser.name}}</td>
-        <td>{{this.description}}</td>
-        <td><button>Match me with this user</button></td>
-    </tr>
-    {{/each}}
-</table>
--->
-
-
-<div id="interestedUsersBanner">
-    <br><br>
-        <div class= "container" style="max-width: 100%; height: 90px; background: #9bd17d">
+<div class="container-fluid" style="background: #c7e6b5;max-width: 100%; font-weight: bold" >
+        <ul class="nav navbar-nav">
+            <li><a href="#" id="reviews_nav" name={{user._id}}>Reviews</a></li>
+            <li><a href="#" id="taskHistory_nav" name={{user._id}}>Task History</a></li>
+            <li><a href="#" id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
+            <li><a href="#" id="profile_nav" name={{user._id}}>Profile</a></li>
+        </ul>
+</div>
+<br>
+<div id="taskName">
+    <div class= "container" style="max-width: 100%; height: 60px;border:2px solid black; background: #9bd17e" >
         <table>
             <tr>
                 
                 <td>
-                    <h3><strong>Here are some users interested in your task:</h3></strong>
+                <br>
+                    <b>Task name:</b>
+                    Sample task name.
+                </td>
+            </tr>
+        </table>
+        </div>
+
+</div>
+<div id="descriptionStatusActionHeading">
+        <div class= "container" style="max-width: 100%; height: 55px;border:2px solid black;background: #FFFFFF">
+        <table >
+        <col width="880">
+        <col width="150">
+            <tr>
+                <td>
+
+                <br>
+                    <b> Description</b>
+                </td>
+                <td>
+                <b> Status </b>
+                </td>
+                <td>
+                <b> Action </b>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+</div>
+<div id="descriptionStatusActionHeading">
+        <div class= "container" style="max-width: 100%; height: 55px;border:2px solid black;background: #e2fbd5">
+        <table >
+        <col width="880">
+        <col width="150">
+            <tr>
+                <td>
+                    <br>
+                    Sample description of the task.
+                </td>
+                <td>
+                    Pending
+                </td>
+                <td>
+                       <button id="match">Delete Task</button>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+</div>
+
+
+<div id="interestedUsersBanner">
+    <br><br>
+        <div class= "container" style="max-width: 100%; height: 70px; background: #9bd17d">
+        <table>
+            <tr>
+                
+                <td>
+                    <h3><strong>Below are users interested in your task.</h3></strong>
                 </td>
             </tr>
 
@@ -33,8 +83,61 @@
 </div>
 <br>
 <br>
-<div>
-   
+<div id="interestedUsers">
+   <!-- THIS IS WHERE THE CODE FOR TESTING BEGINS -->
+   <div class= "container" style="max-width: 100%; height: 350px; background: #9bd17d";>
+        <table>
+        <br>
+        <col width="160">
+        <col width="800">
+            <tr>
+                <td>
+
+                   <https://ibb.co/fed8mF"><img src="https://image.ibb.co/dEkXDv/Elizabeth_Garcia.jpg" style="width:150px;height:150px;">  
+                   
+                </td>
+                <td valign="top";>
+                    <b>Interests:</b> <br>
+                    <p style=background-color:white;">
+                        Interests would go here. 
+                        <br>
+                        &nbsp;
+                     </p>  
+                   
+                    
+                    <b>Message from user:</b> <br>
+                    <p style=background-color:white;">
+                        Hello there. How are you? My name is Emily I was wondering if I could help you with this test task. Please let me know soon. Thanks. This is a test. This is a test. This is a test. End of test message has arrived. 
+                    </p>  
+                </td>      
+                <td>
+
+                    <button id="match">Match me with this user</button>
+                </td>
+           </tr>     
+            <tr>
+                <td>
+                    <b>User:</b>
+                    Emily Brown  
+                </td>         
+            </tr>
+            <tr>
+                <td colspan="2">
+                
+                  <b>Location:</b>
+                  23 Forest Street, Waterloo, Ontario.  
+                  <br>
+                  <button id="profile_page")">View Profile</button>
+                </td> 
+            </tr>     
+        </table>
+          
+        
+    </div>
+        <br><br>
+    
+    
+     <!-- THIS IS THE OLD CODE BUT IT WILL BE USED WHEN CREATE A TASK FUNCTIONALITY IS ADDED -->
     {{#each potentialMatches}}
         <div class= "container" style="max-width: 100%; height: 90px; background: #9bd17d">
         <table>
@@ -62,66 +165,6 @@
         <br><br>
     
     {{/each}}
-</div>
-
-
-
-
-<div class= "container-fluid" style="max-width: 80%;">
-
-    <h2 style="background: #c7e6b5; max-width: 100%;">About</h2>
-
-    <div style= "width: 80% overflow: hidden;">
-        <div id='left_div' style="max-width: 50%; float: left;">
-            <ul class="nav navbar-nav">            
-                <li><a id="navGeneralInformation" onclick="displayGeneralInformation()">General Information</a></li>
-                <br>
-                <li><a id="navWorkEducation" onclick="displayWorkEducation()">Work and Education</a></li>
-                <br>
-                <li><a id="navContactInformation" onclick="displayContactInformation()">Contact Information</a></li>
-                <br>
-                <li><a id="navInterests" onclick="displayInterests()">Interests</a></li>
-
-            </ul>        
-        </div>
-        <br>
-        <div id='right_div' style="margin-left: 50%;">
-            <div id="General_Information" class="hidden">
-                <label>First Name:</label> {{user.firstName}}
-                <br><br>
-                <label>Last Name: </label> {{user.lastName}}
-                <br><br>
-                <label>Gender: </label {{user.gender}}
-                <br><br>
-            </div>
-            <div id="Work_and_Education" class="hidden">
-                <label>Education Level: </label>
-                <br><br>
-                <label>Workplace: </label>
-                <br><br>
-            </div>
-            <div id="Contact_Information" class="hidden">
-                <label>Phone Number: </label> {{user.phoneNumber}}
-                <br><br>
-                <label> Apartment Number: </label> {{user.address.apartmentNumber}}
-                <br><br>
-                <label> Street Address: </label> {{user.address.streetNumber}} {{user.address.streetName}}
-                <br><br>
-                <label>City: </label> {{user.address.city}}
-                <br><br>
-                <label> Postal Code: </label> {{user.address.postalCode}}
-                <br><br>
-                <label>Preferred Mode of Contact: </label> {{user.preferredContact}}
-                <br><br>
-            </div>
-            <div id="Interests" class="hidden">
-                <label>Interests: </label>
-                <br><br>
-                <label>Hobbies: </label>
-                <br><br>
-            </div>
-        </div>
-    </div>
 </div>
 
 
