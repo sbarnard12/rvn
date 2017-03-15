@@ -12,7 +12,7 @@ var taskDetailLink = function(){
 var setPosterLink = function(){
     $(this).on('click', function(){
         var poster_id = $(this).closest('.row3').children().eq(1).text();
-        var redirect = 'http://localhost:3000/user/profile/' + poster_id;
+        var redirect = host + '/user/profile/' + poster_id;
         window.location = (redirect);
     })
 }

@@ -35,7 +35,7 @@ var setLink = function(){
         $('#chat').text('');
 		//get chat history
 		var user_id =  $(this).parent().children()[2].innerHTML;
-		var url = "http://localhost:3000/messenger/" + user_id;
+		var url = host + "/messenger/" + user_id;
         $.ajax({
             url: url,
             type: 'GET',
