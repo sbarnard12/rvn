@@ -67,19 +67,16 @@ var getOne = function(req, res, next){
 var createNewTask = function(req, res, next){
     
 	var task = new taskListModel();
-	task.title = req.body.title;
-	task.category = castCategory(req.body.category);
-	task.requesting = req.body.requesting;
-	task.offering = req.body.offering;
-	task.description = req.body.description;
-	task.address.streetNumber = isNaN(req.body.streetNumber)? 0: req.body.streetNumber;
-	task.address.streetName = req.body.streetName;
-	task.address.city = req.body.city;
-	task.address.postalCode = req.body.postalCode;
-	task.modeofContact  = castModeofContact(req.body.preferredContact);
+	task.title = req.body.taskTitle;
+	task.taskType = req.body.taskType;
+    task.category = req.body.category;
+	task.description = req.body.taskDescription;
+    task.location = req.body.Location;
+    task.duration = req.body.Duration;
+    task.fromDate = new Date(req.body.FromDate);
+    task.toDate = new Date(req.body.ToDate);
 	task.expired = false;
 	task.state = "Available";
-	task.usePosterAddress = false;
 
 	//image upload code
 
