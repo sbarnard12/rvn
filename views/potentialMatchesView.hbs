@@ -58,7 +58,7 @@
                     {{task.state}}
                 </td>
                 <td>
-                       <button id="match">Delete Task</button>
+                       <button id="deleteTask_button">Delete Task</button>
                 </td>
             </tr>
         </table>
@@ -106,8 +106,6 @@
                                 <br>
                                 &nbsp;
                             </p>
-
-
                             <b>Message from user:</b> <br>
                             <p style=background-color:white;">
                                 {{this.description}}
@@ -143,11 +141,16 @@
         <div class="container">
             Sorry, no interested users yet :(
         </div>
-
     {{/if}}
 
     
      <!-- THIS IS THE OLD CODE BUT IT WILL BE USED WHEN CREATE A TASK FUNCTIONALITY IS ADDED -->
+</div>
+
+<div id="match_me_dialog">
+    <div id="confirmMatch_dialog">
+        <p>Are you sure you would like to match with this user?</p>
+    </div>
 </div>
 
 <div id="matched_dialog">
