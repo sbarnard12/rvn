@@ -6179,7 +6179,8 @@ p.padding2 {
 
 .col1 {
   width: 200px;
-  padding: 0; }
+  padding: 0;
+  vertical-align: text-top; }
   .col1 .c1row1 {
     height: 169px; }
   .col1 .c1row2 {
@@ -6189,7 +6190,8 @@ p.padding2 {
 
 .col2 {
   width: 500px;
-  padding: 0; }
+  padding: 0;
+  vertical-align: text-top; }
   .col2 .c2row1 {
     height: 50px; }
   .col2 .c2row2 {

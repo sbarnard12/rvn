@@ -1,43 +1,71 @@
-<h1>Welcome to V-Inverse!</h1> 
-<h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
-
-<div class="container-fluid">
-		<ul class="nav navbar-nav">
-        	<li><a id="reviews_nav" name={{user._id}}>Reviews</a></li>
-        	<li><a id="taskHistory_nav" name={{user._id}}>Task History</a></li>
-        	<li><a id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
-        	<li class="active"><a id="profile_nav" name={{user._id}}>Profile</a></li>
-    	</ul>
+<div class="container-fluid" style="background: #c7e6b5; font-weight: bold" >
+    <ul class="nav navbar-nav">
+          <li><a href="#" id="reviews_nav" name={{user._id}}>Reviews</a></li>
+          <li><a href="#" id="taskHistory_nav" name={{user._id}}>Task History</a></li>
+          <li><a href="#" id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
+          <li><a href="#" id="profile_nav" name={{user._id}}>Profile</a></li>
+      </ul>
 </div>
-<div id="partial_container">
-
+<br>
 <div id="taskHistory" class="taskList_table">
-      <br><br>
-			<h1>Task History</h1>
-
-			<table style="width:100%">
-  				<tr>
-  					<td style="display:none;"></td>
-    				<th>Task</th>
-    				<th>Owner</th> 
-    				<th>Rating</th>
-    				<th>Status</th>
-
-  				</tr>
-  				{{#each tasklist}}
-            	<tr>
-            		<td style="display:none;">{{this._id}}</td>
-            		<td>{{this.title}}</td>
-            		<td>{{this.poster.firstName}} {{this.poster.lastName}}</td>
-            		<td>{{this.state}}</td>
-            		<td>Rating</td><!-- Need to get the review for the task if completed-->
-            	</tr>
-          		{{/each}}
-			</table>
+	<div class= "container-fluid" style=" max-width: 80%; background: #9bd17d">
+    <h1>Task History</h1>
+  </div>
+  <br>
+  <div class= "container-fluid" style=" max-width: 80%;">
+		<table style="width:100%;" border="2">
+      	<tr>
+      		<td style="background: #ececec;">
+            <label id="historyTaskName style= "font-weight: bold">TaskName: </label>
+          </td>
+          <td>
+            Help with Facebook
+          </td>
+        </tr>
+        <tr>
+      		<td style="backgorund: white;">
+            <label id="historyTaskName style= "font-weight: bold"> Description: </label>
+          </td>
+          <td>
+            I don't know how to post or share pictures on Facebook and would like some help learning.
+          </td>
+        </tr>
+        <tr style="background: #ececec;">
+          <td >
+            <label id="historyTaskName style= "font-weight: bold"> Status: </label>
+          </td>
+          <td>
+            Completed
+          </td>
+        </tr>
+        <tr style="background: white;">
+      		<td >
+            <label id="historyTaskName style= "font-weight: bold"> Date posted: </label>
+          </td>
+          <td>
+            January 12, 2017
+          </td>
+        </tr>
+        <tr style= "background: #ececec">
+          <td>
+            <label id="historyTaskName style= "font-weight: bold"> Date completed: </label>
+          </td>
+          <td>
+            January 21, 2017
+          </td>
+        </tr>
+        <tr style="background: white;">
+          <td >
+            <label id="historyTaskName style= "font-weight: bold"> Matched with: </label>
+          </td>
+          <td>
+            John Doe
+          </td>
+      	</tr>
+		</table>
+  </div>
 </div>
 
-</div>
 <br>
 <br>
 <script src="/javascripts/userProfileScript.js"></script>
-
