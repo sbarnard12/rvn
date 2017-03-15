@@ -83,6 +83,7 @@ var submit = function(){
             success: function(result){
                 if(result == "User Already Exists"){
                     $('#email_error').text("This Email is Already in Use");
+                    $('#error_message').text("There is an error");
                 } else if(result == "success") {
                     setTimeout(loginFirstTime(), 1000);
                 }

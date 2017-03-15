@@ -29,7 +29,7 @@ $(function(){
         buttons: {
             "OK": function(){
                 $(this).dialog("close");
-                window.location = (host + "user/currentTasks");
+                window.location = (host + "/user/currentTasks");
             }
         }
     });
