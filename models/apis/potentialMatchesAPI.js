@@ -2,7 +2,7 @@ var db = require('../dbs/potentialMatchesDB'),
     potentialMatchesModel = db.model('PotentialMatches');
 var db2 = require('../dbs/usersDB'),
     usersModel = db2.model('User');
-var db3 = require('../dbs/taskListdb'),
+var db3 = require('../dbs/taskListDB'),
     tasklistModel = db3.model('Tasklist');
 
 
