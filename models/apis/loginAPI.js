@@ -4,7 +4,7 @@ loginModel = db.model('Userlogin');
 var db4 = require('../dbs/usersDB'), 
 usersModel = db4.model('User');
 
-var checkUser = function(req, res, next){
+var checkUser = function(req, res){
     loginModel.findOne({ userName: req.body.userName })
         .then(function(userLogin) {
             if(!userLogin){

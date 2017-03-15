@@ -9,22 +9,15 @@ $(function(){
     $('#taskHistory_nav').on('click', getPartial);
     $('#currentTasks_nav').on('click', getPartial);
     $('#profile_nav').on('click', getPartial);
-    $('td:first-child').each(taskDetailLink);
+    $('.postTaskContent').each(taskDetailLink);
     $('.complete_button').each(completeButton);
 
     //if my profile, do the color things
-    if(window.location.href.split('/')[4] == "Profile") {
+    if(window.location.href.split('/')[4] == "profile") {
         initializeColors();
         displayGeneralInformation();
     }
 });
-
-$(function page_start(){
-    if(window.location.href.split('/')[4] == "Profile"){
-        initializeColors();
-        displayGeneralInformation();
-    }
-})
 
 var initializeColors = function() {
 		General_Information.setAttribute('class', 'visible');
@@ -78,9 +71,10 @@ var getPartial = function(){
 };
 
 var taskDetailLink = function(){
-	$(this).parent().on('click', function(){
-		var id = this.firstElementChild.innerText; 
-		var redirect = host + "/taskDetails/" + id;
+
+	$(this).on('click', function(){
+		var id = $(this).children().first().text();
+        var redirect = host + "/taskDetails/" + id;
 		window.location = (redirect);
 	})
 };

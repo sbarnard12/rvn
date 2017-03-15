@@ -3,8 +3,7 @@ $(function(){
 	$('#submit_button').on('click', submit);
 	$('#clearAll_button').on('click', clearAll);
 	$('#exit_button').on('click', exit);
-	$('#upload-file').on('click', submit);
-    //$('#upload-file').submit(uploadFile); 
+	$('#submit_task').on('click', submit);
 	$('#exit_dialog').dialog({
 		resizable: false,
 		height: "auto",

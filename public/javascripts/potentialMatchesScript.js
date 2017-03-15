@@ -1,7 +1,6 @@
 $(function(){
-    var host = "https://" + window.location.host;
-    $('td:first-child').each(userProfileLink);
-    $('td:last-child').each(setMatchedButton);
+    $('.profile_page').each(userProfileLink);
+    $('.match_me').each(setMatchedButton);
     $('#matched_dialog').dialog({
         resizable: false,
         height: "auto",
@@ -18,27 +17,21 @@ $(function(){
 });
 
 var userProfileLink = function(){
-    $(this).parent().on('click', function(){
-        var id = this.firstElementChild.innerText;
+    $(this).on('click', function(){
+        var id = $(this).closest('.container').children().first().text();
         var redirect = host + "/user/profile/" + id;
         window.location = (redirect);
     })
 };
 
 var setMatchedButton = function(){
-    $(this).children().on('click', function(ev){
+    $(this).on('click', function(ev){
         ev.stopPropagation();
-        var user_id = this.closest('tr').firstElementChild.innerText
-        var split = window.location.href.split("/");
-        var task_id = split[4];
+        var user_id = $(this).closest('.container').children().first().text();
+        var task_id = window.location.href.split("/")[4];
 
-<<<<<<< HEAD
          $.ajax({
             url: host + '/interestedUsers',
-=======
-        $.ajax({
-            url: 'http://localhost:3000/interestedUsers',
->>>>>>> Sam
             type: 'POST',
             data: {task_id: task_id, user_id: user_id},
             success: function(result){
@@ -53,4 +46,7 @@ var setMatchedButton = function(){
             }
         })
     })
-};
+}
+
+
+
