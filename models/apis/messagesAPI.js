@@ -85,33 +85,6 @@ var getOneChatHistory = function(req, res, next){
 
 //helper functions
 
-var checkAndAdd = function(array, newItem, callback) {
-    var user1 = newItem.user1;
-    var user2 = newItem.user2;
-    var push1 = true;
-    var push2 = true;
-
-    for (i = 0; i < array.length; i++ ){
-        if(((array[i]).username == user1.name && array[i].userid == user1.id)){ //user1 is already in the array
-            push1 = false; //don't push user1
-            break;
-        }
-        if(((array[i]).username == user2.name && array[i].userid == user2.id)){ //user 2 is already in the array
-            push2  = false; // dont push user 2
-            break;
-        }
-    }
-    if(push1){
-        array.push(user1);
-    }
-    if(push2){
-        array.push(user2);
-    }
-    callback(array);
-};
-
-
-
 module.exports = {
 	saveMessage: saveMessage,
 	getOneChatHistory: getOneChatHistory,
