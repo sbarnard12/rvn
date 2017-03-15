@@ -1,6 +1,24 @@
 $(function(){
     $('.profile_page').each(userProfileLink);
-    $('.match_me').each(setMatchedButton);
+    $('.match_me').each(confirmMatch);
+
+    $('#confirmMatch_dialog').dialog({
+        resizable: false,
+        height: "auto",
+        width: "auto",
+        modal: true,
+        autoOpen: false,
+        buttons: {
+            "Yes": function(){
+                $(this).dialog("close");
+                setMatched($(this).data('button'));
+
+            },
+            Cancel: function(){
+                $(this).dialog("close")
+            }
+        }
+    });
     $('#matched_dialog').dialog({
         resizable: false,
         height: "auto",
@@ -16,6 +34,12 @@ $(function(){
     });
 });
 
+var confirmMatch = function(){
+    $(this).on('click', function(){
+        $('#confirmMatch_dialog').data('button', this).dialog("open");
+    })
+
+}
 var userProfileLink = function(){
     $(this).on('click', function(){
         var id = $(this).closest('.container').children().first().text();
@@ -24,10 +48,8 @@ var userProfileLink = function(){
     })
 };
 
-var setMatchedButton = function(){
-    $(this).on('click', function(ev){
-        ev.stopPropagation();
-        var user_id = $(this).closest('.container').children().first().text();
+var setMatched = function(button){
+        var user_id = $(button).closest('.container').children().first().text();
         var task_id = window.location.href.split("/")[4];
 
         $.ajax({
@@ -45,8 +67,7 @@ var setMatchedButton = function(){
                 }
             }
         })
-    })
-}
+};
 
 
 

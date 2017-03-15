@@ -77,6 +77,7 @@ var createNewTask = function(req, res, next){
     task.toDate = new Date(req.body.ToDate);
 	task.expired = false;
 	task.state = "Available";
+    task.ageGroup = " ";
 
 	//image upload code
 

@@ -11,6 +11,7 @@ Promise.promisifyAll(mongoose);
 var TaskListSchema = new Schema({
 	title: {type: String, required: true},
     taskType: {type: String, required: true},
+    ageGroup: {type: String, required: true},
 	category: {type: String, required: true},
 	description: {type: String, required: true},
     location: {type: String},
