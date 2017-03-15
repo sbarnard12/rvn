@@ -36,8 +36,8 @@ var search = function(req, res, next){
 
 var defaultPage = function(req, res, next){
 	taskListModel.find(
-        {$and: [{expired: false},
-            {'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
+        {expired: false
+            //{'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
         }
     )
 	.then(function(taskList){
@@ -153,14 +153,15 @@ var searchTasks = function(req, res, next){
 		taskListModel.find(
 			{$and: 
 				[
-					{'poster.id': {'$ne':user._id}},
+					//{'poster.id': {'$ne':user._id}}, //Don't search for your own tasks
 					{expired: false},
                     {state: {'$ne': "Matched"}},
                     {$or:
                         [
-							{title: {$regex: ""}}, //changing this for quick testing, need to figure what is happening here
-							{description: {$regex: ""}}
-						]}
+							{title:  search}, //changing this for quick testing, need to figure what is happening here
+							{description: search}
+						]
+                    }
 				] 
 			}
 		)
