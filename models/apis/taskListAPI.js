@@ -59,6 +59,10 @@ var getOne = function(req, res, next){
             potentialMatchesModel.findOne({$and: [{'interestedUser.id': req.session.user_id}, {taskID: task._id}]})
                 .then(function(match){
                     task.alreadyMatched = (match != null);
+                    //parse date so it looks nicer on the page
+                    task.dateString = task.date.toString().split(" ").slice(0,4).join(" ");
+                    task.fromDateString = task.fromDate.toString().split(" ").slice(0,4).join(" ");
+                    task.toDateString = task.toDate.toString().split(" ").slice(0,4).join(" ");
                     res.render('taskDetailsView', {task: task, helpers: {if_eq: if_eq}});
                 });
 		});
@@ -73,6 +77,7 @@ var createNewTask = function(req, res, next){
 	task.description = req.body.taskDescription;
     task.location = req.body.Location;
     task.duration = req.body.Duration;
+    task.date = new Date(Date.now());
     task.fromDate = new Date(req.body.FromDate);
     task.toDate = new Date(req.body.ToDate);
 	task.expired = false;

@@ -6282,3 +6282,6 @@ p.padding2 {
   padding: 0; }
   .col3 .c3row1 {
     height: 230px; }
+
+.task_details td {
+  padding: 10px; }
