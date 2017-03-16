@@ -651,3 +651,19 @@ p.padding2 {
     padding: 10px;
   }
 }
+
+.taskhistory_table{
+  width:100%;
+  table-layout: fixed;
+  tr {
+    th {
+      width:200px;
+      padding:10px;
+    }
+    td {
+      label {
+        font-weight: bold;
+      }
+    }
+  }
+}

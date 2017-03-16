@@ -6285,3 +6285,12 @@ p.padding2 {
 
 .task_details td {
   padding: 10px; }
+
+.taskhistory_table {
+  width: 100%;
+  table-layout: fixed; }
+  .taskhistory_table tr th {
+    width: 200px;
+    padding: 10px; }
+  .taskhistory_table tr td label {
+    font-weight: bold; }

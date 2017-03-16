@@ -33,6 +33,7 @@ var submitReview = function(req, res, next){
 				.then(function(task){
 					task.state = "Complete";
 					task.expired = true;
+                    task.completeDate = new Date(Date.now());
 					task.saveAsync({})
 						.then(function(task){
 							res.send("success");
