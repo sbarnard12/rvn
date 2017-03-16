@@ -8,7 +8,13 @@
     <ul class="nav navbar-nav">
         <li><a id="reviews_nav" name={{user._id}}>Reviews</a></li>
         <li><a id="taskHistory_nav" name={{user._id}}>Task History</a></li>
-        <li><a id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
+        <li> <!--making the current tasks a drop down maybe -->
+            <a class="dropdown-toggle" data-toggle="dropdown" id="currentTasks_nav" name={{user._id}}>Current Tasks</a>
+            <ul class="dropdown-menu">
+                <li>My Posted Tasks</li>
+                <li>Tasks I'm interested in</li>
+            </ul>
+        </li>
         <li class="active"><a id="profile_nav" name={{user._id}}>Profile</a></li>
     </ul>
     <ul class="nav navbar-nav">
@@ -52,7 +58,7 @@
 </div>-->
 
 <div class="container-fluid">
-    <div class="col-lg-6" style="text-align: right">
+    <!-- <div class="col-lg-6" style="text-align: right">
         Filter by status:
     </div> 
     <div class="col-lg-6">
@@ -61,7 +67,7 @@
             <option value="matched">Matched</option>
             <option value="pending">Pending</option>
         </select>
-    </div>
+    </div> -->
 
     <br>
     <br>
@@ -93,10 +99,16 @@
             <p style="position: relative; top: 10px">{{this.state}}</p>
         </div>
         <div class="col-lg-3">
-            {{#if_eq this.state "Matched"}}
-                <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px">Complete</button>
-            {{/if_eq}}
+            <div class="col-lg-6">
+                <button type="button" class="viewDetails" style="margin: 15px 15px 0 15px">Details</button>
+            </div>
+            <div class="col-lg-6">
+                {{#if_eq this.state "Matched"}}
+                    <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px">Complete</button>
+                {{/if_eq}}
                 <button type="button" class="deleteButton" id="deleteTask" style="margin: 15px">Delete</button>
+            </div>
+
         </div>
     </div>
     {{/each}}

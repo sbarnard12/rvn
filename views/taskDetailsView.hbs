@@ -57,10 +57,11 @@
     <form id="interested_form">
         <input type="text" name="interested_description">
     </form>
-</div> -->
+</div>
 --}}
 
 <div>
+    <span id="poster_id" name={{task._id}} style="display:none;"></span>
     <div class="container-fluid" style="background: #9bd17d;" >
         <h2 style="font-weight: bold;">
             Task Details
@@ -136,10 +137,36 @@
             </div>
         </div>
         <div class="">
-            <button style="position: relative; left:40%" type="button" name="buttonInterested"> I am Interested! </button>
+            {{#if_eq task.state "Matched"}}
+                <label style="position: relative; left:30%">This user is currently under way</label>
+            {{else if_eq task.state "Complete"}}
+                <label style="position: relative; left:30%">This opportunity is Complete!</label>
+            {{else}}
+                {{#if task.sameUser}}
+                    <!--This is your task, so show a button that will navigate to a list of users who showed they are interested-->
+                    <button style="position: relative; left:40%" id="show_interested">Show interested users</button>
+                {{else if task.alreadyMatched}}
+                    <!-- Show no button for being interested-->
+                    <label>You Have Already replied to this!</label>
+                    <label>Send another message?</label>
+                    <button id="interested_button">I'm interested</button>
+                {{else}}
+                    <!--Show the I'm interested button-->
+                    <button style="position: relative; left:40%" id="interested_button">I'm interested</button>
+                {{/if}}
+            {{/if_eq}}
+
         </div>
     </div>
-
 </div>
+
+<div id="interested_dialog">
+    <p>If you would like to show interest for this post, please write a small description of yourself.</p>
+    <p>This may help the user who posted this task to better inform their decision</p>
+    <form id="interested_form">
+        <input type="text" name="interested_description">
+    </form>
+</div>
+
 
 <script src="/javascripts/taskDetailsScript.js"></script>

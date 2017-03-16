@@ -63,6 +63,7 @@ var getOne = function(req, res, next){
                     task.dateString = task.date.toString().split(" ").slice(0,4).join(" ");
                     task.fromDateString = task.fromDate.toString().split(" ").slice(0,4).join(" ");
                     task.toDateString = task.toDate.toString().split(" ").slice(0,4).join(" ");
+
                     res.render('taskDetailsView', {task: task, helpers: {if_eq: if_eq}});
                 });
 		});
