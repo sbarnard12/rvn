@@ -82,6 +82,7 @@ function displayDateandDuration() {
 }
 
 function displayPreviewAd() {
+        setPreviewFields();
 		TaskDetails.setAttribute('class', 'hidden');
 		heading_TaskDetails.setAttribute('class', 'hidden');
 		Location.setAttribute('class', 'hidden');
@@ -139,6 +140,25 @@ var setColor = function(pagenum){
 
 }
 
+var setPreviewFields = function(){
+    if($('#offering_radial').is(':checked')){
+        $('#offerRequestPreview').text('I am offering the following opportunity');
+    }
+    if($('#requesting_radial').is(':checked')){
+        $('#offerRequestPreview').text('I am requesting the following opportunity');
+    }
+    $('#titlePreview').text($('#tbtaskTitle').val());
+    $('#description_preview').text($('#taskDescription').val());
+    var dateNow = new Date(Date.now());
+    dateNow = dateNow.toString().split(" ").slice(0,4).join(" ");
+    $('#datePostedPreview').text(dateNow);
+    var dateFrom = parseDate($('#fromDate').val());
+    $('#fromDatePreview').text(dateFrom);
+    var dateTo = parseDate($('#toDate').val());
+    $('#toDatePreview').text(dateTo);
+
+
+};
 
 function myMap() {
 var mapProp= {
@@ -147,5 +167,17 @@ var mapProp= {
 };
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
+
+var parseDate = function(date){
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    var dateSplit = date.split('-');
+    var month = monthNames[parseInt(dateSplit[1])];
+    month = month.slice(0,3);
+    return month + " " + dateSplit[2] + " " + dateSplit[0];
+
+}
+
 
 //<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>

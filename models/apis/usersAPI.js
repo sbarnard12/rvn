@@ -153,7 +153,7 @@ var getuserTaskHistory = function(req, res, next){
 
 	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
 	.then(function(user){
-		taskListModel.find( //only return old taks
+		taskListModel.find( //only return old tasks
 			{$and:
             	[
                 	{$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
@@ -162,9 +162,14 @@ var getuserTaskHistory = function(req, res, next){
         	}
 		)
 		.then(function(tasklist){
-			user.tasklist = tasklist;
 			user.partial = "TaskHistory";
-			res.render('userTaskHistoryView', {user: user})
+            tasklist.forEach(function(item, index){
+                item.dateString = item.date.toString().split(" ").slice(0,4).join(" ");
+                if(item.completeDate) {
+                    item.completeDateString = item.completeDate.toString().split(" ").slice(0, 4).join(" ");
+                }
+            })
+			res.render('userTaskHistoryView', {user: user, taskList: tasklist})
 		})
 	})
 }
@@ -176,8 +181,14 @@ var getUserReviews = function(req, res, next){
 		var id = req.params.id;
 	}
 
-	reviewModel.find({reviewedUser: id})
+	reviewModel.find({'reviewedUser.id': id})
 	.then(function(reviews){
+        //parse date string
+        reviews.forEach(function(item, index){
+            if(item.date){
+                item.dateString = item.date.toString().split(" ").slice(0,4).join(" ");
+            }
+        });
 		res.render('userReviewsView', {reviews: reviews})
 	})
 

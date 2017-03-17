@@ -5887,6 +5887,21 @@ p.padding2 {
   color: white;
   margin-right: 30px; }
 
+.viewDetails {
+  width: 125px;
+  height: 40px;
+  background-color: #000000;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 10px 32px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: Helvetica;
+  color: white;
+  margin-right: 30px; }
+
 .searchBar {
   margin-left: 150px;
   margin-right: 50px;
@@ -6133,7 +6148,7 @@ p.padding2 {
     border-bottom: solid 1px #000000; }
 
 .completeButton {
-  width: 250px;
+  width: 125px;
   height: 40px;
   background-color: #228B22;
   border: none;
@@ -6147,7 +6162,7 @@ p.padding2 {
   color: white; }
 
 .deleteButton {
-  width: 250px;
+  width: 125px;
   height: 40px;
   background-color: #FF0000;
   border: none;
@@ -6259,7 +6274,8 @@ p.padding2 {
 
 .col1 {
   width: 200px;
-  padding: 0; }
+  padding: 0;
+  vertical-align: text-top; }
   .col1 .c1row1 {
     height: 169px; }
   .col1 .c1row2 {
@@ -6269,7 +6285,8 @@ p.padding2 {
 
 .col2 {
   width: 500px;
-  padding: 0; }
+  padding: 0;
+  vertical-align: text-top; }
   .col2 .c2row1 {
     height: 50px; }
   .col2 .c2row2 {
@@ -6280,3 +6297,17 @@ p.padding2 {
   padding: 0; }
   .col3 .c3row1 {
     height: 230px; }
+
+.task_details td {
+  padding: 10px; }
+
+.taskhistory_table {
+  width: 100%;
+  table-layout: fixed; }
+  .taskhistory_table tr th {
+    width: 200px;
+    padding: 10px; }
+  .taskhistory_table tr td {
+    padding: 10px; }
+    .taskhistory_table tr td label {
+      font-weight: bold; }

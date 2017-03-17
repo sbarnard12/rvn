@@ -9,7 +9,7 @@ $(function(){
     $('#taskHistory_nav').on('click', getPartial);
     $('#currentTasks_nav').on('click', getPartial);
     $('#profile_nav').on('click', getPartial);
-    $('.postTaskContent').each(taskDetailLink);
+    $('.viewDetails').each(taskDetailLink);
     $('.complete_button').each(completeButton);
 
     //if my profile, do the color things

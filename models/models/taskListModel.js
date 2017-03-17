@@ -37,6 +37,7 @@ var TaskListSchema = new Schema({
 	date: {type: Date, default: Date.now},
     fromDate: {type: Date},
     toDate: {type: Date},
+    completeDate: {type: Date},
     duration: {type: Number},
 	expired: {type: Boolean},
 	state: {type: String, required: true}

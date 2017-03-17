@@ -1,9 +1,3 @@
-<div class="container-fluid" style="background: #c7e6b5;" >
-    <ul class="nav navbar-nav">
-          <li><a href="#" id="homepage_nag" name={{user._id}}>Homepage</a></li>
-          <li><a href="#" id="aboutUs_nav" name={{user._id}}>About Us</a></li>
-      </ul>
-</div>
 <div>
   <div class="container-fluid" style="background: #9bd17d;" >
     <h2 style="font-weight: bold;">
@@ -55,12 +49,12 @@
                 <table>
                   <tr>
                     <td>
-                      <input type="radio" name="taskType" value="offering" checked> I am offering the following service<br>
+                      <input id="offering_radial" type="radio" name="taskType" value="offering" checked> I am offering the following service<br>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <input type="radio" name="taskType" value="requesting"> I am requesting someone to help me with the following service<br>
+                      <input id="requesting_radial" type="radio" name="taskType" value="requesting"> I am requesting someone to help me with the following service<br>
                       <br>
                     </td>
                   </tr>
@@ -98,7 +92,8 @@
                 <label for="taskDescription">Description: *</label>
               </td>
               <td class="col2" style="vertical-align: text-top;">
-                <textarea id="taskDescription" rows="10" cols="80" type="text" name="taskDescription" style="height: 100px; width: 100%";></textarea>
+                <input id="taskDescription" type="text" name="taskDescription" align="top" style="height: 100px; width: 100%;">
+                </input>
                 <br><br>
               </td>
             </tr>
@@ -155,7 +150,7 @@
               <label for="FromDate">From: *</label>
             </td>
             <td class="col2" style="vertical-align: top">
-              <input type="date" name="FromDate"/>
+              <input id="fromDate" type="date" name="FromDate"/>
               <br><br>
             </td>
           </tr>
@@ -164,7 +159,7 @@
               <label for="ToDate">To: *</label>
             </td>
             <td class="col2" style="vertical-align: top">
-              <input type="date" name="ToDate"/>
+              <input id="toDate" type="date" name="ToDate"/>
             </td>
           </tr>
         </table>
@@ -180,55 +175,74 @@
         </table>
       </div>
       </form>
+        <!-- Task Preview -->
       <div id="PreviewAd" class= "container-fluid">
-        <div style="overflow: hidden;">
-          <h2 style="font-weight: bold;">
-            TaskTitle
-          </h2>
-          <div style="max-width: 50%; float: left;">
-            <table id="previewInformation1" style="max-width: 50%; height: 200px">
-              <tr>
-                <td>
-                  <img id= "taskImg" style="height: 10%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
-                </td>
-                <td>
-                  <img id="mapImg" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div style="margin-left: 60%;">
-            <table id="previewInformation2">
-              <tr>
-                <td>
-                  Date Posted:
-                </td>
-                <td>
-                  Current Date
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Owner:
-                </td>
-                <td>
-                  {{user.firstName}} {{user.lastName}}
-                </td>       
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div>
           <div>
-            <table id="previewInformation3" style="max-width: 80%;">
-              <tr>
-                <td>
-                  <br>
-                  Description: lkkda lkjfldkaj;s jaf;lksjdlkajkf ja;skjfaljla ksjf;lakjsf; lajsdlkfajs dlkfjads ;lkjfas;dlfk ;jasldkjfa; lksdjfaksjflak sjdf;lk ajs;flasjfl kasjdflkj asdlkfja ;ldskfja ;dsjfk ;lajdsf lka jslkfjas lkdjfal kdsja;ksjfd ;asjfla ksjdfl kajsf; lakjsdf; lasjdfl k;ajsdflkj adslkfj a;fds
-                </td>
-              </tr>
-            </table>
+              <div id="PreviewAd" class= "container-fluid">
+                  <div style="overflow: hidden;">
+                      <h2 id="offerRequestPreview" style="font-weight:bold"></h2>
+                  </div>
+              </div>
+              <div class="container" style="background:none">
+                  <div class="row" style="background:none">
+                      <h2 style="font-weight:bold">
+                          <div id="titlePreview"></div>
+                      </h2>
+                  </div>
+
+                  <div class="row" style="height:200px; background:none">
+                      <div class="col-lg-3" style="height:100%">
+                          <img id= "taskImg" style="height: 100%" src={{task.pictureUrl}}/>
+                      </div>
+                      <div class="col-lg-4" style="height:100%">
+                          <img id="mapImg" style="height:100%" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
+                      </div>
+                      <div class="col-lg5">
+                          <table class="task_details" id="previewInformation2">
+                              <tr>
+                                  <th>
+                                      Date Posted:
+                                  </th>
+                                  <td>
+                                      <div id="datePostedPreview"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>
+                                      Owner:
+                                  </th>
+                                  <td>
+                                      {{user}}
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>
+                                      Available from:
+                                  </th>
+                                  <td>
+                                      <div id="fromDatePreview"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>
+                                      Until:
+                                  </th>
+                                  <td>
+                                      <div id="toDatePreview"></div>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                  </div>
+                  <div class="row" style="background:none; padding:20px">
+                      <div style="position: relative;left: 20%;">
+                          <label> Description: </label>
+                          <div id="description_preview"></div>
+                      </div>
+                  </div>
+              </div>
           </div>
+        <div>
           <div>
             <table id="navButtons" style="max-width: 80%;">
               <tr>
@@ -240,7 +254,7 @@
                 </td>
               </tr>
             </table>
-          </div
+          </div>
         </div>
       </div>
     </div>
