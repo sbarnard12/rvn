@@ -6148,7 +6148,7 @@ p.padding2 {
     border-bottom: solid 1px #000000; }
 
 .completeButton {
-  width: 250px;
+  width: 125px;
   height: 40px;
   background-color: #228B22;
   border: none;
@@ -6307,5 +6307,7 @@ p.padding2 {
   .taskhistory_table tr th {
     width: 200px;
     padding: 10px; }
-  .taskhistory_table tr td label {
-    font-weight: bold; }
+  .taskhistory_table tr td {
+    padding: 10px; }
+    .taskhistory_table tr td label {
+      font-weight: bold; }

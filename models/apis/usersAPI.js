@@ -181,8 +181,14 @@ var getUserReviews = function(req, res, next){
 		var id = req.params.id;
 	}
 
-	reviewModel.find({reviewedUser: id})
+	reviewModel.find({'reviewedUser.id': id})
 	.then(function(reviews){
+        //parse date string
+        reviews.forEach(function(item, index){
+            if(item.date){
+                item.dateString = item.date.toString().split(" ").slice(0,4).join(" ");
+            }
+        });
 		res.render('userReviewsView', {reviews: reviews})
 	})
 
