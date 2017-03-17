@@ -174,7 +174,7 @@ var parseDate = function(date){
         "July", "August", "September", "October", "November", "December"
     ];
     var dateSplit = date.split('-');
-    var month = monthNames[parseInt(dateSplit[1])];
+    var month = monthNames[parseInt(dateSplit[1])-1];
     month = month.slice(0,3);
     return month + " " + dateSplit[2] + " " + dateSplit[0];
 
