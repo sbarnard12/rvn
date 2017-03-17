@@ -1,3 +1,4 @@
+var host = "https://" +  window.location.host;
 $(function(){
 	$('#submit_task').on('click', submit);
     //$('#upload-file').submit(uploadFile);
@@ -102,7 +103,7 @@ var submit = function(){
 		type: 'POST',
 		data: $('#createTask_form').serialize(),
 		success: function(result){
-            var redirect = "http://localhost:3000/taskdetails/" + result.task._id;
+            var redirect = host + "/taskdetails/" + result.task._id;
             window.location = (redirect);
 		}
 	})
@@ -115,7 +116,7 @@ var uploadFile = function(){
            status('Error: ' + xhr.status);
        },
         success: function(response){
-            var redirect = "http://localhost:3000/taskdetails/";
+            var redirect = host + "/taskdetails/";
             //window.location.replace(redirect);
         }
     });

@@ -83,6 +83,7 @@ var submit = function(){
             success: function(result){
                 if(result == "User Already Exists"){
                     $('#email_error').text("This Email is Already in Use");
+                    $('#error_message').text("There is an error");
                 } else if(result == "success") {
                     setTimeout(loginFirstTime(), 1000);
                 }
@@ -114,7 +115,6 @@ var noEmptyFields = function(){
         } else {
             $("#" + required_fields[index] + "_error").text("");
         }
-
     }
     return (i == 0);
 };
@@ -159,7 +159,7 @@ var loginFirstTime = function(){
         type: 'POST',
         data: data,
         success: function(){
-            window.location = ("http://localhost:3000/user/profile");
+            window.location = (host + "/user/profile");
         }
     })
 }

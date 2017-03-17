@@ -24,20 +24,23 @@
 <br><br>
       <!-- Get the user's personal info -->
 
-      <label for="firstName">First Name </label> 
+      <label for="firstName">First Name *</label> 
       <br>
       <input id="firstName" type="text" name="firstName">
       <label class="error" id="firstName_error" for="firstName"></label><br><br>
    
-      <label for="lastName">Last Name</label><br>
+      <label for="lastName">Last Name *</label><br>
       <input id="lastName" type="text" name="lastName">
       <label class="error" id="lastName_error" for="lastName"></label><br><br>
 
 
-      <label for="gender">Gender: </label>
-      <input id=male type="radio" name="gender" value="Male" checked> Male &nbsp;
+      <label for="gender">Gender: *</label>
+      <input id=male type="radio" name="gender" value="Male" > Male &nbsp;
       <input id=female type="radio" name="gender" value="Female"> Female &nbsp;
-      <input id=preferNotToSay type="radio" name="gender" value="Prefer not to say."> Prefer not to say
+      <input id=preferNotToSay type="radio" name="gender" value="Prefer not to say." checked> Prefer not to say <br>
+
+      <label for="age">Age: *</label>
+      <input id="age" type="number" name="age" >
     </div>
 
     <div>
@@ -45,30 +48,30 @@
       <h2>Contact Information</h2>
       <p>This information will not be shown to anyone.</p>
 
-      <label for="phoneNumber">Contact Phone Number</label><br>
+      <label for="phoneNumber">Contact Phone Number *</label><br>
       <input id=phoneNumber type="text" name="phoneNumber">
       <label class="error" id="phoneNumber_error" for="phoneNumber"></label><br><br>
     
       <label for="apartmentNumber">Apartment Number (leave blank if you do not live in an apartment)</label><br>
       <input id="aptNum" type="text" name="apartmentNumber"><br><br>
 
-      <label for="streetAddress">Street Address</label><br>
+      <label for="streetAddress">Street Address *</label><br>
       <input id=streetAddress type="text" name="streetAddress">
       <label class="error" id="streetAddress_error" for="streetAddress"></label><br><br>
 
-      <label for="city">City </label><br>
+      <label for="city">City *</label><br>
       <input id=city type="text" name="city">
       <label class="error" id="city_error" for="city"></label><br><br>
 
-      <label for="province"> Province</label><br>
+      <label for="province">Province *</label><br>
       <input id="province" name="province">
       <label class="error" id="province_error" for="province"></label><br><br>
 
-      <label for="postalCode">Postal Code</label><br>
+      <label for="postalCode">Postal Code *</label><br>
       <input id=postalCode type="text" name="postalCode">
       <label class="error" id="postalCode_error" for="postalCode"></label><br><br>
 
-      <label for="preferredContact">Preferred mode of contact:</label>
+      <label for="preferredContact">Preferred mode of contact: *</label>
 
       <input id=e-mail type="radio" name="preferredContact" value="e-mail" checked> E-mail &nbsp;
       <input id="phone" type="radio" name="preferredContact" value="phone"> Phone &nbsp;
@@ -81,15 +84,15 @@
       The e-mail you entered above will be your username. <br> <br>
 
 
-      <label for="email"> E-mail Address</label><br>
+      <label for="email"> E-mail Address *</label><br>
       <input id="email" type="text" name="email">
       <label class="error" id="email_error" for="email"></label><br><br>
 
-      <label for="password">Password</label><br>
+      <label for="password">Password *</label><br>
       <input id=password type="password" name="Password">
       <label class="error" id="password_error" for="password"></label><br><br>
 
-      <label>Confirm Password</label> <br>
+      <label>Confirm Password *</label> <br>
       <input id="passwordConfirm" type="password">
       <label class="error" id="passwordConfirm_error" for="passwordConfirm"></label><br><br>
     </div>
@@ -223,6 +226,8 @@
       </td>
       </tr>
 </table>
+    </div>
+    <div id="error_message">
     </div>
     <div>
         <button id="submit_button">Submit</button>

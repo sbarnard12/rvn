@@ -1,3 +1,4 @@
+var host = "https://" +  window.location.host;
 $(function(){
     $('#reviews_nav').on('click', getPartial);
     $('#taskHistory_nav').on('click', getPartial);
@@ -5,7 +6,6 @@ $(function(){
     $('#profile_nav').on('click', getPartial);
     $('.profile_page').each(userProfileLink);
     $('.match_me').each(confirmMatch);
-
     $('#confirmMatch_dialog').dialog({
         resizable: false,
         height: "auto",
@@ -16,7 +16,6 @@ $(function(){
             "Yes": function(){
                 $(this).dialog("close");
                 setMatched($(this).data('button'));
-
             },
             Cancel: function(){
                 $(this).dialog("close")
@@ -32,7 +31,7 @@ $(function(){
         buttons: {
             "OK": function(){
                 $(this).dialog("close");
-                window.location = (host + "user/currentTasks");
+                window.location = (host + "/user/currentTasks");
             }
         }
     });
