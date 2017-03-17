@@ -73,7 +73,7 @@ var getPartial = function(){
 var taskDetailLink = function(){
 
 	$(this).on('click', function(){
-		var id = $(this).children().first().text();
+		var id = $(this).closest('.postTaskContent').children().first().text();
         var redirect = host + "/taskDetails/" + id;
 		window.location = (redirect);
 	})
