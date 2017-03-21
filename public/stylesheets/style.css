@@ -6311,3 +6311,7 @@ p.padding2 {
     padding: 10px; }
     .taskhistory_table tr td label {
       font-weight: bold; }
+
+.col-centered {
+  float: none;
+  margin: 0 auto; }

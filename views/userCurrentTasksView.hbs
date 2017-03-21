@@ -104,7 +104,19 @@
             </div>
             <div class="col-lg-6">
                 {{#if_eq this.state "Matched"}}
-                    <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px; width:125px;">Complete</button>
+                    {{#if_eq this.isPoster true}}
+                        {{#if_eq this.poster.hasReviewed true}}
+                            {{!--Don't put the complete button--}}
+                        {{else}}
+                            <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px; width:125px;">Complete</button>
+                        {{/if_eq}}
+                    {{else if_eq this.isMatcher true}}
+                        {{#if_eq this.matchedUser.hasReviewed true}}
+                            {{!--Don't put the review button--}}
+                        {{else}}
+                            <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px; width:125px;">Complete</button>
+                        {{/if_eq}}
+                    {{/if_eq}}
                 {{/if_eq}}
                 <button type="button" class="deleteButton" id="deleteTask" style="margin: 15px">Delete</button>
             </div>

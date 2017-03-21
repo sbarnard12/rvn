@@ -35,10 +35,23 @@ var search = function(req, res, next){
 }
 
 var defaultPage = function(req, res, next){
+    if(req.session.age < 40){
+        var ageSearch = "old";
+    } else {
+        var ageSearch = "young";
+    }
 	taskListModel.find(
-        {expired: false
-            //{'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
-        }
+        {$or: [
+            {$and:
+                [
+                    //{'poster.id': {'$ne':user._id}}, //Don't search for your own task
+                    {ageGroup: ageSearch},
+                    {expired: false},
+                    {state: {'$ne': "Matched"}},
+                ]
+            },
+            {'poster.id': req.session.user_id} //get your own tasks as well
+        ]}
     )
 	.then(function(taskList){
 		res.render('tasklistView', {taskList: taskList});
@@ -75,15 +88,19 @@ var createNewTask = function(req, res, next){
 	task.title = req.body.taskTitle;
 	task.taskType = req.body.taskType;
     task.category = req.body.category;
+    if(req.session.age < 40){
+        task.ageGroup = "young";
+    } else {
+        task.ageGroup = "old";
+    }
 	task.description = req.body.taskDescription;
     task.location = req.body.Location;
     task.duration = req.body.Duration;
     task.date = new Date(Date.now());
-    task.fromDate = new Date(req.body.FromDate);
-    task.toDate = new Date(req.body.ToDate);
+    task.fromDate = new Date(Date.now());
+    task.toDate = new Date(Date.now() + req.body.Duration*86400000);
 	task.expired = false;
 	task.state = "Available";
-    task.ageGroup = " ";
 
 	//image upload code
 
@@ -156,21 +173,30 @@ var searchTasks = function(req, res, next){
 	
 	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){		
-		var search =  new RegExp(req.params.searchterm, "i");
+        var search = createRegex(req.params.searchterm);
+        if(user.age < 40){
+            var ageSearch = "old";
+        } else {
+            var ageSearch = "young";
+        }
 		taskListModel.find(
-			{$and: 
-				[
-					//{'poster.id': {'$ne':user._id}}, //Don't search for your own tasks
-					{expired: false},
-                    {state: {'$ne': "Matched"}},
-                    {$or:
-                        [
-							{title:  search}, //changing this for quick testing, need to figure what is happening here
-							{description: search}
-						]
-                    }
-				] 
-			}
+            {$or: [
+                {$and:
+                    [
+                        //{'poster.id': {'$ne':user._id}}, //Don't search for your own task
+                        {ageGroup: ageSearch},
+                        {expired: false},
+                        {state: {'$ne': "Matched"}},
+                        {$or:
+                            [
+                                {title:  {$regex: search}},
+                                {description: {$regex: search}}
+                            ]
+                        }
+                    ]
+                },
+                {'poster.id': user._id} //get your own tasks as well
+            ]}
 		)
 		.then(function(taskList){
 		    res.render('tasklistView', {taskList: taskList});
@@ -234,6 +260,26 @@ var setMatched = function(req, res, next){
 
 };
 
+var getHome = function(req, res){
+    //get the latest three tasks
+    if(req.session.age < 40){
+        var ageSearch = "old";
+    } else {
+        var ageSearch = "young";
+    }
+    taskListModel.find(
+        {$and:
+        [
+            {'poster.id': {'$ne':req.session.user_id}}, //Don't search for your own task
+            {ageGroup: ageSearch},
+            {expired: false},
+            {state: {'$ne': "Matched"}},
+        ]
+    }).sort({'date': -1}).limit(3)
+        .then(function(tasks){
+            res.render('homeView',{tasks: tasks});
+        })
+}
 
 //helpers
 var if_eq = function(a, b, opts) {
@@ -252,6 +298,16 @@ var castModeofContact = function(mode){
 	return (mode === "email")? 0 : 1;
 };
 
+var createRegex = function(string){
+    var stringList = string.split(" ");
+    var RegString = "";
+    stringList.forEach(function(item){
+        RegString = RegString + item + "|";
+    });
+    RegString = RegString.substring(0,RegString.length-1);
+    return RegString;
+}
+
 module.exports = {
 	getAll: getAll,
 	search: search,
@@ -262,5 +318,6 @@ module.exports = {
 	setInterested: setInterested,
 	uploadPicture: uploadPicture,
     uploadFile: uploadFile,
-    setMatched: setMatched
+    setMatched: setMatched,
+    getHome: getHome,
 }

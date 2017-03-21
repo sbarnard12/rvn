@@ -35,13 +35,25 @@ var submitReview = function(req, res, next){
         .then(function(user){
             review.reviewedUser.id = user._id;
             review.reviewedUser.name = user.firstName + " " + user.lastName;
-            review.saveAsync({})
-                .then(function(review){
-                    taskListModel.findOne({_id: review.taskId})
-                        .then(function(task){
-                            task.state = "Complete";
-                            task.expired = true;
-                            task.completeDate = new Date(Date.now());
+
+            taskListModel.findOne({_id: review.taskId})
+                .then(function(task){
+                    //check if i'm the poster or the matched
+                    if(task.poster.id == req.session.user_id){
+                        //set poster to has Reviewed
+                        task.poster.hasReviewed = true;
+                    } else {
+                        //set matched user to has reviewed
+                        task.matchedUser.hasReviewed = true;
+                    }
+                    if(task.poster.hasReviewed && task.matchedUser.hasReviewed){
+                        //if both users have submitted reviews, complete the task
+                        task.state = "Complete";
+                        task.expired = true;
+                        task.completeDate = new Date(Date.now());
+                    }
+                    review.saveAsync({})
+                        .then(function(review){
                             task.saveAsync({})
                                 .then(function(task){
                                     res.send("success");
@@ -52,13 +64,12 @@ var submitReview = function(req, res, next){
                                 })
                                 .error(console.error);
                         })
-
+                        .catch(function(e){
+                            console.log("fail");
+                            res.json({'status': 'error', 'error': e});
+                        })
+                        .error(console.error);
                 })
-                .catch(function(e){
-                    console.log("fail");
-                    res.json({'status': 'error', 'error': e});
-                })
-                .error(console.error);
             //set task state to completed
             //set task to expired
         })
