@@ -77,7 +77,7 @@ var getPartial = function(){
     var tabString = this.id.split("_")[0];
     var id = this.name;
     var url = 'profile/' + id;
-    var redirect = "http://localhost:3000/user/" + tabString + "/" + id;
+    var redirect = host +"/user/" + tabString + "/" + id;
 
     window.location = (redirect);
 };
