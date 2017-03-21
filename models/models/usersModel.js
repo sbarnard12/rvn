@@ -11,6 +11,7 @@ var usersSchema = new Schema ({
 	title: {type: Number},
 	firstName: {type: String, required: true},
 	lastName: {type: String, required: true},
+    age: {type: Number, required: true},
 	gender: {type: Number, required: true},
 	birthDate: {type: Date, required: true},
 	email: {type: String},

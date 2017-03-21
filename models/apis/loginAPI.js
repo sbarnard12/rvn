@@ -18,6 +18,7 @@ var checkUser = function(req, res){
                             req.session.user_id = userModel._id;
                             req.session.user.password = "";
                             req.session.user_name = userModel.firstName + " " + userModel.lastName;
+                            req.session.age = userModel.age;
 
                             res.send('success');
                         } else {
@@ -36,6 +37,7 @@ var getUser = function(req, res, next){
             if(user){
                 req.user = user;
                 delete req.user.password;
+                req.user.password = "";
                 req.session.user = user;
                 res.locals.user = user;
             }

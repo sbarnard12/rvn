@@ -35,10 +35,23 @@ var search = function(req, res, next){
 }
 
 var defaultPage = function(req, res, next){
+    if(req.session.age < 40){
+        var ageSearch = "old";
+    } else {
+        var ageSearch = "young";
+    }
 	taskListModel.find(
-        {expired: false
-            //{'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
-        }
+        {$or: [
+            {$and:
+                [
+                    //{'poster.id': {'$ne':user._id}}, //Don't search for your own task
+                    {ageGroup: ageSearch},
+                    {expired: false},
+                    {state: {'$ne': "Matched"}},
+                ]
+            },
+            {'poster.id': req.session.user_id} //get your own tasks as well
+        ]}
     )
 	.then(function(taskList){
 		res.render('tasklistView', {taskList: taskList});
@@ -75,6 +88,11 @@ var createNewTask = function(req, res, next){
 	task.title = req.body.taskTitle;
 	task.taskType = req.body.taskType;
     task.category = req.body.category;
+    if(req.session.age < 40){
+        task.ageGroup = "young";
+    } else {
+        task.ageGroup = "old";
+    }
 	task.description = req.body.taskDescription;
     task.location = req.body.Location;
     task.duration = req.body.Duration;
@@ -83,7 +101,6 @@ var createNewTask = function(req, res, next){
     task.toDate = new Date(Date.now() + req.body.Duration*86400000);
 	task.expired = false;
 	task.state = "Available";
-    task.ageGroup = " ";
 
 	//image upload code
 
@@ -157,20 +174,29 @@ var searchTasks = function(req, res, next){
 	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){		
 		var search =  new RegExp(req.params.searchterm, "i");
+        if(user.age < 40){
+            var ageSearch = "old";
+        } else {
+            var ageSearch = "young";
+        }
 		taskListModel.find(
-			{$and: 
-				[
-					//{'poster.id': {'$ne':user._id}}, //Don't search for your own tasks
-					{expired: false},
-                    {state: {'$ne': "Matched"}},
-                    {$or:
-                        [
-							{title:  search}, //changing this for quick testing, need to figure what is happening here
-							{description: search}
-						]
-                    }
-				] 
-			}
+            //{$or: [
+                {$and:
+                    [
+                        //{'poster.id': {'$ne':user._id}}, //Don't search for your own task
+                        {ageGroup: ageSearch},
+                        {expired: false},
+                        {state: {'$ne': "Matched"}},
+                        {$or:
+                            [
+                                {title:  search},
+                                {description: search}
+                            ]
+                        }
+                    ]
+                }//,
+                //{'poster.id': user._id} //get your own tasks as well
+            //]}
 		)
 		.then(function(taskList){
 		    res.render('tasklistView', {taskList: taskList});

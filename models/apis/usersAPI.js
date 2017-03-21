@@ -42,6 +42,7 @@ var createNewUser = function(req, res, next){
                user.title = castTitle(req.body.title);
                user.firstName = req.body.firstName;
                user.lastName = req.body.lastName;
+               user.age = req.body.age;
                user.gender = castGender(req.body.gender);
                user.birthDate = Date.now();
                user.email = req.body.email;
