@@ -6,35 +6,31 @@
           <li><a href="#" id="profile_nav" name={{user._id}}>Profile</a></li>
       </ul>
 </div>
-<div id="partial_container">
-<div id="PageBanner">
-    <br><br>
-    <div class= "container" style="max-width: 80%; background: #9bd17d">
-      <h1>Reviews</h1>
+<div id="reviews" class="tab active">
+    <br>
+    <div class= "container-fluid" style=" max-width: 80%; background: #9bd17d">
+        <h1>Reviews</h1>
     </div>
-  <div id="reviews" class="tab active">
-
-    {{#each reviews}}
-      <table>
-        <tr>
-          <td>
-            <h2 {{this.reviewee.firstName}} {{this.reviewee.lastName}} </h2>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p> Review date: {{this.date}}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p> {{this.description}} </p>
-          </td>
-        </tr>
-      </table>
-      <br>
-    {{/each}}
-  </div>
-
+    <br>
+    <div class= "container-fluid" style=" max-width: 80%;">
+        {{#each reviews}}
+            <table class="taskhistory_table" border="2">
+                <tr style="background-color:#ececec">
+                    <th>Reviewed By: </th>
+                    <td>{{this.reviewer.name}}</td>
+                </tr>
+                <tr>
+                    <th>Review Date</th>
+                    <td>{{this.dateString}}</td>
+                </tr>
+                <tr style="background-color:#ececec">
+                    <th>Comments</th>
+                    <td>{{this.description}}</td>
+                </tr>
+            </table>
+            <br>
+        {{/each}}
+    </div>
 </div>
+
 <script src="/javascripts/userProfileScript.js"></script>

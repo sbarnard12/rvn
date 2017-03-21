@@ -4,6 +4,9 @@ reviewModel = db5.model('Review');
 var db1 = require('../dbs/taskListDB'), 
 taskListModel = db1.model('Tasklist');
 
+var db6 = require('../dbs/usersDB'),
+    usersModel = db6.model('User');
+
 var getAllReviews = function(req, res, next){
 	reviewModel.find({})
 	.then(function(reviews){
@@ -21,37 +24,46 @@ var newReview = function(req, res, next){
 
 var submitReview = function(req, res, next){
 	var review = new reviewModel();
-	review.reviewer = req.session.user_id;
-	review.reviewedUser = req.body.userID;
+	review.reviewer.id = req.session.user_id;
+    review.reviewer.name = req.session.user_name;
 	review.rating = req.body.rating;
 	review.description = req.body.description;
 	review.taskId = req.params.id;
+    review.date = new Date(Date.now());
 
-	review.saveAsync({})
-		.then(function(review){
-            taskListModel.findOne({_id: review.taskId})
-				.then(function(task){
-					task.state = "Complete";
-					task.expired = true;
-					task.saveAsync({})
-						.then(function(task){
-							res.send("success");
-						})
-						.catch(function(e){
-							console.log("fail");
-							res.json({'status': 'error', 'error': e});
-						})
-						.error(console.error);
-				})
+    usersModel.findOne({_id: req.body.userID})
+        .then(function(user){
+            review.reviewedUser.id = user._id;
+            review.reviewedUser.name = user.firstName + " " + user.lastName;
+            review.saveAsync({})
+                .then(function(review){
+                    taskListModel.findOne({_id: review.taskId})
+                        .then(function(task){
+                            task.state = "Complete";
+                            task.expired = true;
+                            task.completeDate = new Date(Date.now());
+                            task.saveAsync({})
+                                .then(function(task){
+                                    res.send("success");
+                                })
+                                .catch(function(e){
+                                    console.log("fail");
+                                    res.json({'status': 'error', 'error': e});
+                                })
+                                .error(console.error);
+                        })
 
-		})
-        .catch(function(e){
-            console.log("fail");
-            res.json({'status': 'error', 'error': e});
+                })
+                .catch(function(e){
+                    console.log("fail");
+                    res.json({'status': 'error', 'error': e});
+                })
+                .error(console.error);
+            //set task state to completed
+            //set task to expired
         })
-        .error(console.error);
-	//set task state to completed
-	//set task to expired 
+
+
 }
 
 var if_eq = function(a, b, opts) {

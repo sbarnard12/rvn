@@ -1,3 +1,4 @@
+{{!--
 <!--<h1> Task Details </h1>
 
 <h1>Offering: {{task.offering}}</h1>
@@ -56,82 +57,96 @@
     <form id="interested_form">
         <input type="text" name="interested_description">
     </form>
-</div> -->
+</div>
+--}}
 
 <div>
-    <div class="container-fluid" style="background: #9bd17d;" >
+    <span id="poster_id" name={{task._id}} style="display:none;"></span>
+  <div class="container-fluid" style="background: #9bd17d;" >
     <h2 style="font-weight: bold;">
       Volunteer Opportunity Details
     </h2>
   </div>
   <br>
-        <div id="PreviewAd" class= "container-fluid">
-        <div style="overflow: hidden;">
-          <h2 style="font-weight: bold;">
-            Volunteer Opportunity Title
-          </h2>
-          <div style="max-width: 50%; float: left;">
-            <table id="previewInformation1" style="max-width: 50%; height: 200px">
-              <tr>
-                <td>
-                  <img id= "taskImg" style="height: 30%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div style="margin-left: 60%;">
-            <table id="previewInformation2">
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Date Posted:
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Current Date:
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Owner:
-                </td>
-                <td>
-                  {{user.firstName}} 
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Location:
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div>
-          <div>
-            <table id="previewInformation3" style="max-width: 80%;">
-              <tr>
-                <td>
-                  <br>
-                  <label style="font-weight: bold"> Description: </label>
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 100px;">
-
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div style="max-width: 80%;">
-            <table id="buttonInterested" align="center">
-              <tr>
-                <td class="col1">
-                  <button type="button" name="buttonInterested" class="createButton"> I want to volunteer! </button>
-                </td>
-              </tr>
-            </table>
-          </div
-        </div>
+  <div id="PreviewAd" class= "container-fluid">
+    <div style="overflow: hidden;">
+      <h2 style="font-weight: bold;">
+        Volunteer Opportunity Title
+      </h2>
+      <div style="max-width: 50%; float: left;">
+        <table id="previewInformation1" style="max-width: 50%; height: 200px">
+          <tr>
+            <td>
+              <img id= "taskImg" style="height: 30%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
+            </td>
+          </tr>
+        </table>
       </div>
+      <div style="margin-left: 60%;">
+        <table id="previewInformation2">
+          <tr>
+            <td style="height: 50px; font-size: 16pt; font-weight: bold">
+              Date Posted:
+            </td>
+          </tr>
+          <tr>
+            <td style="height: 50px; font-size: 16pt; font-weight: bold">
+              Current Date:
+            </td>
+          </tr>
+          <tr>
+            <td style="height: 50px; font-size: 16pt; font-weight: bold">
+              Owner:
+            </td>
+            <td>
+              {{user.firstName}} 
+            </td>
+          </tr>
+          <tr>
+            <td style="height: 50px; font-size: 16pt; font-weight: bold">
+              Location:
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div>
+        <table id="previewInformation3" style="max-width: 80%;">
+          <tr>
+            <td>
+              <br>
+              <label style="font-weight: bold; font-size: 16pt;"> Description: </label>
+            </td>
+          </tr>
+          <tr>
+            <td style="height: 100px;">
+
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div style="max-width: 80%;">
+        <table id="buttonInterested" align="center">
+          <tr>
+            <td class="col1">
+              <button type="button" name="buttonInterested" class="createButton"> I want to volunteer! </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+<div id="interested_dialog">
+    <p>If you would like to show interest for this post, please write a small description of yourself.</p>
+    <p>This may help the user who posted this task to better inform their decision</p>
+    <form id="interested_form">
+        <input type="text" name="interested_description">
+    </form>
+</div>
+
+
 <script src="/javascripts/taskDetailsScript.js"></script>
