@@ -1,13 +1,27 @@
+<div class="container-fluid" style="background: #9bd17d;" >
+ <div class="container-fluid" style="
+    padding-top: 10px; style="
+    padding-bottom: 5px;>
+     <h1 id="title" align="left" style="font-weight: bold">Reciprocal Volunteerism Network</h1>
+  </div>
+  
+</div>
+<div class="container-fluid" style="background: #c7e6b5;">
+  <h1 id="title" align="center" valign="top" style="font-weight: bold">Create a new Account</h1>
+</div>
 
 
-<h1>Create a new account
-  </h1> 
 
   <!-- Display a message with the phone line number in case the user wants to talk to a real operator instead -->
-  <h3>If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h3>
+  <h2>If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
+  <br>
 
   <!-- Create a form that will be used to enter the user information -->
   <form name="signUp" id="signUp_form">
+
+<img src="https://i.imgsafe.org/0bb9f17efb.jpg" alt="Volunteer" style="width:304px;height:228px;">
+
+
     <div>
     <h2>Personal Information</h2>
     
@@ -110,17 +124,7 @@
       </td>
     </tr>
     <tr>
-      <td>
-        <input id="SportsHobby" type="checkbox" name="Hobbies" value="Sports"> Sports
-      </td>
-      <td>
-        <input id="DanceHobby" type="checkbox" name="Hobbies" value="Dance"> Dance
-      </td>
-      <td>
-        <input id="PotteryHobby" type="checkbox" name="Hobbies" value="Pottery"> Pottery
-      </td>
-    </tr>
-    <tr>
+      
       <td>
         <input id="PhotographyHobby" type="checkbox" name="Hobbies" value="Photography"> Photography
       </td>
@@ -130,35 +134,53 @@
       <td>
         <input id="KnittingHobby" type="checkbox" name="Hobbies" value="Knitting"> Knitting
       </td>
-      
+    </tr>
+    <tr>
+      <td>
+        <input id="PotteryHobby" type="checkbox" name="Hobbies" value="Pottery"> Pottery
+      </td>
+    </tr>
       </table> 
 
 <table  style="border-collapse: separate; border-spacing: 10px;">
       <tr>
       <td>
      
-        <input id="cbMusicHobby" type="checkbox" value="Music"> Music.
-      
-        Specify which instruments:
-      
+        <input id="cbMusicHobby" type="checkbox" value="Music"> Music. Specify which instruments:
+      </td>
+      <td>
         <input id="tbMusicHobby" type="text" name="Hobbies">
      
       </td>
       </tr>
-</table>
-<table  style="border-collapse: separate; border-spacing: 10px;">
       <tr>
-      <td>
-     
-        <input id="cbOtherHobby" type="checkbox" value="Other"> Other.
-      
-        Specify:
-      
-        <input id="tbOtherHobby" type="text" name="Hobbies">
-     
+        <td>
+        <input id="SportsHobby" type="checkbox" name="Hobbies" value="Sports"> Sports
+        Specify which sport:
+        </td>
+        <td>
+          <input id="tbSportsHobby" type="text" name="Hobbies">
+        </td>
+      </tr>
+      <tr>
+       <td>
+        <input id="DanceHobby" type="checkbox" name="Hobbies" value="Dance"> Dance. Specify which type
       </td>
+      <td>
+          <input id="tbDanceHobby" type="text" name="Hobbies">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input id="cbOtherHobby" type="checkbox" value="Other"> Other.
+            Specify:
+        </td>
+        <td>      
+          <input id="tbOtherHobby" type="text" name="Hobbies">
+        </td>
       </tr>
 </table>
+
 <br>
 <b>What are you interested in learning more about? These will help us to better match you with the right person.</b> <br>
    <table style="border-collapse: separate; border-spacing: 10px;">
@@ -175,17 +197,6 @@
     </tr>
     <tr>
       <td>
-        <input id="SportsInterest" type="checkbox" name="Interests" value="Sports"> Sports
-      </td>
-      <td>
-        <input id="DanceInterest" type="checkbox" name="Interests" value="Dance"> Dance
-      </td>
-      <td>
-        <input id="PotteryInterest" type="checkbox" name="Interests" value="Pottery"> Pottery
-      </td>
-    </tr>
-    <tr>
-      <td>
         <input id="PhotographyInterest" type="checkbox" name="Interests" value="Photography"> Photography
       </td>
       <td>
@@ -194,38 +205,49 @@
       <td>
         <input id="KnittingInterest" type="checkbox" name="Interests" value="Knitting"> Knitting
       </td>
-      
+    <tr>
+      <td>
+        <input id="PotteryInterest" type="checkbox" name="Interests" value="Pottery"> Pottery
+      </td>
+    </tr>  
       </table> 
 
 <table  style="border-collapse: separate; border-spacing: 10px;">
       <tr>
-      <td>
-     
-        <input id="cbMusicInterest" type="checkbox" value="Music"> Music.
-      
-        Specify which instruments:
-      
-        <input id="tbMusicInterest" type="text" name="Interests">
-     
-      </td>
+        <td>
+          <input id="cbMusicInterest" type="checkbox" value="Music"> Music. Specify which instruments:
+        </td>
+          <td>
+            <input id="tbMusicInterest" type="text" name="Interests">
+          </td>
       </tr>
-</table>
-<table  style="border-collapse: separate; border-spacing: 10px;">
       <tr>
-      <td>
-     
-        <input id="cbOtherInterest" type="checkbox"  value="Other"> Other.
-      
-        Specify:
-      
-        <input id="tbOtherInterest" type="text" name="Interests">
-     
-      </td>
+        <td>
+          <input id="SportsInterest" type="checkbox" name="Interests" value="Sports"> Sports. Specify which kind:
+        </td>
+        <td>
+          <input id="tbSportsInterest" type="text" name="Interests">
+        </td>
+      </tr>
+      <tr>  
+        <td>
+          <input id="DanceInterest" type="checkbox" name="Interests" value="Dance"> Dance. Specify which kind:
+        </td>
+        <td>
+          <input id="tbDanceInterest" type="text" name="Interests">
+        </td>
+      <tr>
+        <td>
+         <input id="cbOtherInterest" type="checkbox"  value="Other"> Other. Specify:
+        </td>
+        <td>
+          <input id="tbOtherInterest" type="text" name="Interests">
+        </td>
       </tr>
 </table>
     </div>
     <div>
-        <button id="submit_button">Submit</button>
+        <button id="submit_button" >Submit</button>
         <button id="clearall_button">Clear All</button>
         <button id="exit_button">Exit</button>
         <p>* Required Fields</p>
@@ -237,15 +259,12 @@
     <div id="clear_dialog">
         <p>Are you sure you would like to Clear all information?</p>
     </div>
-<<<<<<< HEAD
     
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 <script src="https://malsup.github.com/jquery.form.js"></script>
-=======
 
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
->>>>>>> 36f69d8e88dd1be84b3ea026410ec24dcdf09234
 <script src="/javascripts/signupScript.js"></script>
