@@ -1,4 +1,4 @@
-<h1>Please review your experience with the completed task </h1>
+<h1>Please review your experience with the completed Volunteer Opportunity </h1>
 
 <span id="task_id" name={{task._id}} style="display:none;"></span>
 {{#if_eq task.currentUser task.matchedUser.id}}
@@ -7,136 +7,139 @@
 	<span id="other_user" name={{task.matchedUser.id}} style="display:none;"></span>
 {{/if_eq}}
 
-<form id="review_form" name="review_form">
-	<table>
-		<tr>
-			<td>
-		<label for="userName">Task Performed By: </label>
-		<!-- Need to check which user gets put here -->
-		{{#if_eq task.currentUser task.matchedUser.id}}
-			<input type="text" value="{{task.poster.firstName}} {{task.poster.lastName}}" readonly="readonly"></input>
-		{{else}}
-			<input type="text" value="{{task.matchedUser.firstName}} {{task.matchedUser.lastName}}" readonly="readonly"></input>
-		{{/if_eq}}
-			</td>
-			</tr>
+<div class="container well" style="background:#e6ffe6">
+    <form id="review_form" name="review_form">
 
-		<tr>
-			<td>
-				<label for="rating"><br><br> How was your experience completing this volunteer opportunity with 
-					{{#if_eq task.currentUser task.matchedUser.id}}
-						{{task.poster.firstName}} {{task.poster.lastName}}?
-					{{else}}
-						{{task.matchedUser.firstName}} {{task.matchedUser.lastName}}?
-					{{/if_eq}}
-				</label>
-			</td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-			<td>
-			
-				<input type="radio" name="experienceWithUser" value="1">1 </input>&nbsp;&nbsp;&nbsp;
-			</td>
-			<td>	
-				<input type="radio" name="experienceWithUser" value="2">2</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>
-			<td>	
-				<input type="radio" name="experienceWithUser" value="3" checked>3</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>	
-			<td>
-				<input type="radio" name="experienceWithUser" value="4">4</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>
+        <div class="row col-lg-6 col-centered">
+            <label for="userName">Task Performed By: </label>
+            <!-- Need to check which user gets put here -->
+            {{#if_eq task.currentUser task.matchedUser.id}}
+                <label> {{task.poster.firstName}} {{task.poster.lastName}}</label>
+            {{else}}
+                <label>{{task.matchedUser.firstName}} {{task.matchedUser.lastName}}</label>
+                {{!--<input type="text" value="{{task.matchedUser.firstName}} {{task.matchedUser.lastName}}" readonly="readonly"></input>--}}
+            {{/if_eq}}
+        </div>
+        <div class="row col-lg-6 col-centered">
+            <label for="rating"><br><br> How was your experience completing this volunteer opportunity with
+                {{#if_eq task.currentUser task.matchedUser.id}}
+                    {{task.poster.firstName}} {{task.poster.lastName}}?
+                {{else}}
+                    {{task.matchedUser.firstName}} {{task.matchedUser.lastName}}?
+                {{/if_eq}}
+            </label>
+        </div>
+        <div class="row col-lg-6 col-centered">
+            <table>
+                <tr>
+                    <td>
 
-			<td>	
-				<input type="radio" name="experienceWithUser" value="5">5</input>
-			</td>	
-		</tr>
-	</table>
-	(1 = Very Bad, 5 = Very Good)
+                        <input type="radio" name="experienceWithUser" value="1">1 </input>&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="experienceWithUser" value="2">2</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="experienceWithUser" value="3" checked>3</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="experienceWithUser" value="4">4</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
 
-	<table>
-		<tr>
-			<td>
-				<label for="rating"><br><br> How likely are you to keep contact with 
-				{{#if_eq task.currentUser task.matchedUser.id}}
-					{{task.poster.firstName}} {{task.poster.lastName}}?
-				{{else}}
-					{{task.matchedUser.firstName}} {{task.matchedUser.lastName}}?
-				{{/if_eq}}
-				
-			</td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-			<td>
-			
-				<input type="radio" name="keepInContactLikelihood" value="1">1 </input>&nbsp;&nbsp;&nbsp;
-			</td>
-			<td>	
-				<input type="radio" name="keepInContactLikelihood" value="2">2</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>
-			<td>	
-				<input type="radio" name="keepInContactLikelihood" value="3" checked>3</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>	
-			<td>
-				<input type="radio" name="keepInContactLikelihood" value="4">4</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>
+                    <td>
+                        <input type="radio" name="experienceWithUser" value="5">5</input>
+                    </td>
+                </tr>
+            </table>
+            (1 = Very Bad, 5 = Very Good)
+        </div>
+        <div class="row col-lg-6 col-centered">
+            <table>
+                <tr>
+                    <td>
+                        <label for="rating"><br><br> How likely are you to keep contact with
+                            {{#if_eq task.currentUser task.matchedUser.id}}
+                                {{task.poster.firstName}} {{task.poster.lastName}}?
+                            {{else}}
+                                {{task.matchedUser.firstName}} {{task.matchedUser.lastName}}?
+                            {{/if_eq}}></label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row col-lg-6 col-centered">
+            <table>
+                <tr>
+                    <td>
 
-			<td>	
-				<input type="radio" name="keepInContactLikelihood" value="5">5</input>
-			</td>	
-		</tr>
-	</table>
-	(1 = Not Likely, 5 = Very Likely)
+                        <input type="radio" name="keepInContactLikelihood" value="1">1 </input>&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="keepInContactLikelihood" value="2">2</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="keepInContactLikelihood" value="3" checked>3</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="keepInContactLikelihood" value="4">4</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
 
-	<table>
-		<tr>
-			<td>
-				<label for="rating"><br><br> How was your experience using this service? </label>
-			</td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-			<td>
-			
-				<input type="radio" name="usingServiceExperience" value="1">1 </input>&nbsp;&nbsp;&nbsp;
-			</td>
-			<td>	
-				<input type="radio" name="usingServiceExperience" value="2">2</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>
-			<td>	
-				<input type="radio" name="usingServiceExperience" value="3" checked>3</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>	
-			<td>
-				<input type="radio" name="usingServiceExperience" value="4">4</input>&nbsp;&nbsp;&nbsp;&nbsp;
-			</td>
+                    <td>
+                        <input type="radio" name="keepInContactLikelihood" value="5">5</input>
+                    </td>
+                </tr>
+            </table>
+            (1 = Not Likely, 5 = Very Likely)
+        </div>
+        <div class="row col-lg-6 col-centered">
+            <table>
+                <tr>
+                    <td>
+                        <label for="rating"><br><br> How was your experience using this service? </label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row col-lg-6 col-centered">
+            <table>
+                <tr>
+                    <td>
 
-			<td>	
-				<input type="radio" name="usingServiceExperience" value="5">5</input>
-			</td>	
-		</tr>
-	</table>
-	(1 = Very Bad, 5 = Very Good)
-<!--
-	<table>	
-		<tr>
-			<td>	
-				<label for="description"><br><br>Describe your experience: </label>
-				<input id="description" name="description"></input>
-			</td>
-		</tr>	
-	</table>	
--->	
-</form>
-<br>
-<br>
+                        <input type="radio" name="usingServiceExperience" value="1">1 </input>&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="usingServiceExperience" value="2">2</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="usingServiceExperience" value="3" checked>3</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="radio" name="usingServiceExperience" value="4">4</input>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
 
+                    <td>
+                        <input type="radio" name="usingServiceExperience" value="5">5</input>
+                    </td>
+                </tr>
+            </table>
+            (1 = Very Bad, 5 = Very Good)
+        </div>
+        <div class="row col-lg-6 col-centered">
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <label for="description"><br><br>Describe your experience: </label>
+                        <textarea id="description" type="text" name="description" align="top" style="height: 100px; width: 100%; resize=0"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+        <div class=" col-lg-6 col-centered">
+            <button id="submit_review">Submit Review</button>
+        </div>
+</div>
 
-<button id="submit_review">Submit Review</button>
 <div id="submit_dialog">
 	<p>Thank you for submitting this review!</p>
     <p>You will now be returned to your profile</p>
