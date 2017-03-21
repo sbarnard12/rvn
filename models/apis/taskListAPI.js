@@ -173,14 +173,14 @@ var searchTasks = function(req, res, next){
 	
 	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){		
-		var search =  new RegExp(req.params.searchterm, "i");
+        var search = createRegex(req.params.searchterm);
         if(user.age < 40){
             var ageSearch = "old";
         } else {
             var ageSearch = "young";
         }
 		taskListModel.find(
-            //{$or: [
+            {$or: [
                 {$and:
                     [
                         //{'poster.id': {'$ne':user._id}}, //Don't search for your own task
@@ -189,14 +189,14 @@ var searchTasks = function(req, res, next){
                         {state: {'$ne': "Matched"}},
                         {$or:
                             [
-                                {title:  search},
-                                {description: search}
+                                {title:  {$regex: search}},
+                                {description: {$regex: search}}
                             ]
                         }
                     ]
-                }//,
-                //{'poster.id': user._id} //get your own tasks as well
-            //]}
+                },
+                {'poster.id': user._id} //get your own tasks as well
+            ]}
 		)
 		.then(function(taskList){
 		    res.render('tasklistView', {taskList: taskList});
@@ -277,6 +277,16 @@ var castCategory = function(category){
 var castModeofContact = function(mode){
 	return (mode === "email")? 0 : 1;
 };
+
+var createRegex = function(string){
+    var stringList = string.split(" ");
+    var RegString = "";
+    stringList.forEach(function(item){
+        RegString = RegString + item + "|";
+    });
+    RegString = RegString.substring(0,RegString.length-1);
+    return RegString;
+}
 
 module.exports = {
 	getAll: getAll,
