@@ -50,13 +50,13 @@
                 <table>
                   <tr>
                     <td>
-                      <input type="radio" name="taskType" value="offering" checked> I am offering the following volunteer opportunity<br>
+                      <input id="offering_radial" type="radio" name="taskType" value="offering" checked> I am offering the following volunteer opportunity<br>
                       <br>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <input type="radio" name="taskType" value="requesting"> I am requesting someone to help me with the volunteer opportunity<br>
+                      <input id="requesting_radial" type="radio" name="taskType" value="requesting"> I am requesting someone to help me with the volunteer opportunity<br>
                       <br>
                     </td>
                   </tr>
@@ -124,7 +124,7 @@
               <label for="Location">Location: *</label>
             </td>
             <td class="col2" style="vertical-align: text-top;">
-              <input id="Location" type="text" name="Location" style="width: 100%" placeholder="Enter the city name here">
+              <input id="location_input" type="text" name="Location" style="width: 100%" placeholder="Enter the city name here">
             </td>
           </tr>
         </table>
@@ -165,65 +165,74 @@
         </table>
       </div>
       </form>
-      <div id="PreviewAd" class= "container-fluid">
-        <div style="overflow: hidden;">
-          <h2 style="font-weight: bold;">
-            Volunteer Opportunity Title
-          </h2>
-          <div style="max-width: 50%; float: left;">
-            <table id="previewInformation1" style="max-width: 50%; height: 200px">
-              <tr>
-                <td>
-                  <img id= "taskImg" style="height: 30%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div style="margin-left: 60%;">
-            <table id="previewInformation2">
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Date Posted:
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Current Date:
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Owner:
-                </td>
-                <td>
-                  {{user.firstName}} 
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 50px; font-weight: bold">
-                  Location:
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div>
-          <div>
-            <table id="previewInformation3" style="max-width: 80%;">
-              <tr>
-                <td>
-                  <br>
-                  <label style="font-weight: bold"> Description: </label>
-                </td>
-              </tr>
-              <tr>
-                <td style="height: 100px;">
+      <div id="PreviewAd" class= "container-fluid well">
+          <h2 id="offerRequestPreview" style="font-weight:bold"></h2>
+          <div class="well" style="background-color: #e6ffe6">
+              <div style="overflow: hidden;">
+                  <h2 style="font-weight: bold;">
+                      <div id="titlePreview"></div>
+                  </h2>
 
-                </td>
-              </tr>
-            </table>
+                  <div class="row">
+                      <div class="col-lg-3" >
+                          <table id="previewInformation1" style="max-width: 50%; height: 200px">
+                              <tr>
+                                  <td>
+                                      <img id= "taskImg" style="height: 30%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                      <div class="col-lg-4" style="height:100%">
+                          <img id="mapImg" style="height:100%" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
+                      </div>
+                      <div class="col-lg-5" >
+                          <table id="previewInformation2">
+                              <tr>
+                                  <th style="height: 50px">
+                                      Date Posted:
+                                  </th>
+                                  <td>
+                                      <div id="datePostedPreview"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th style="height: 50px;">
+                                      Owner:
+                                  </th>
+                                  <td>
+                                      {{user}}
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th style="height: 50px">
+                                      Location:
+                                  </th>
+                                  <td>
+                                      <div id="locationPreview"></div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th style="height: 50px">
+                                      Available Until:
+                                  </th>
+                                  <td>
+                                      <div id="availableUntilPreview"></div>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="row" style="background:none; padding:20px">
+                  <div style="position: relative;left: 20%;">
+                      <label style="float:left"> Description:  </label>
+                      <p id="description_preview"></p>
+                  </div>
+              </div>
           </div>
-        </div>
+
           <div>
             <table id="navButtons" style="max-width: 80%;">
               <tr>
@@ -235,7 +244,7 @@
                 </td>
               </tr>
             </table>
-        </div
+        </div>
           </div>
         </div>
       </div>

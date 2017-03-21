@@ -82,7 +82,7 @@ function displayDateandDuration() {
 }
 
 function displayPreviewAd() {
-
+        setPreviewFields()
 		TaskDetails.setAttribute('class', 'hidden');
 		heading_TaskDetails.setAttribute('class', 'hidden');
 		Location.setAttribute('class', 'hidden');
@@ -152,10 +152,15 @@ var setPreviewFields = function(){
     var dateNow = new Date(Date.now());
     dateNow = dateNow.toString().split(" ").slice(0,4).join(" ");
     $('#datePostedPreview').text(dateNow);
-    var dateFrom = parseDate($('#fromDate').val());
-    $('#fromDatePreview').text(dateFrom);
-    var dateTo = parseDate($('#toDate').val());
-    $('#toDatePreview').text(dateTo);
+    $('#locationPreview').text($('#location_input').val());
+    var duration = $('#DaysRequestingService').val();
+    var DateTo = new Date(Date.now() + duration*86400000);
+    DateTo = DateTo.toString().split(" ").slice(0,4).join(" ");
+    $('#availableUntilPreview').text(DateTo);
+    //var dateFrom = parseDate($('#fromDate').val());
+    //$('#fromDatePreview').text(dateFrom);
+    //var dateTo = parseDate($('#toDate').val());
+    //$('#toDatePreview').text(dateTo);
 
 
 };
