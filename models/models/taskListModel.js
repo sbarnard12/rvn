@@ -27,12 +27,14 @@ var TaskListSchema = new Schema({
 		firstName: {type: String},
 		lastName: {type: String},
 		rating: {type: Number},
+        hasReviewed: {type: Boolean}
 	},
 	matchedUser: {
 		id: {type: String},
 		firstName: {type: String},
 		lastName: {type: String},
 		rating: {type: Number},
+        hasReviewed: {type: Boolean}
 	},
 	date: {type: Date, default: Date.now},
     fromDate: {type: Date},

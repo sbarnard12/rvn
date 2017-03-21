@@ -128,9 +128,17 @@ var  checkHobby = function(){
     if($('#cbMusicHobby').is(':checked')){
         HobbyArray.push($('#tbMusicHobby').val());
     }
+     if($('#cbSportsHobby').is(':checked')){
+        HobbyArray.push($('#tbSportsHobby').val());
+    }
+    
+     if($('#cbDanceHobby').is(':checked')){
+        HobbyArray.push($('#tbDanceHobby').val());
+    }
     if($('#cbOtherHobby').is(':checked')){
         HobbyArray.push($('#tbOtherHobby').val());
     }
+    
     return(JSON.stringify(HobbyArray));
 }
 
@@ -144,6 +152,12 @@ var  checkInterest = function(){
     });
     if($('#cbMusicInterest').is(':checked')){
         InterestArray.push($('#tbMusicInterest').val());
+    }
+    if($('#cbSportsInterest').is(':checked')){
+        InterestArray.push($('#tbSportsInterest').val());
+    }
+    if($('#cbDanceInterest').is(':checked')){
+        InterestArray.push($('#tbDanceInterest').val());
     }
     if($('#cbOtherInterest').is(':checked')){
         InterestArray.push($('#tbOtherInterest').val());

@@ -42,6 +42,7 @@ var createNewUser = function(req, res, next){
                user.title = castTitle(req.body.title);
                user.firstName = req.body.firstName;
                user.lastName = req.body.lastName;
+               user.age = req.body.age;
                user.gender = castGender(req.body.gender);
                user.birthDate = Date.now();
                user.email = req.body.email;
@@ -132,9 +133,23 @@ var getUserCurrentTasks = function(req, res, next){
                     )
                         .then(function(tasklist){
                             //also get tasks that user is interested in
-                            potentialMatchesModel.find()
+                            //potentialMatchesModel.find()
+
+                            tasklist.forEach(function(item, index){
+                                //if user is the poster, set item.isposter
+                                //if user is the matcher, set item.ismatcher
+                                if(item.poster.id == user._id){
+                                    item.isPoster = true;
+                                    item.isMatcher = false;
+                                } else {
+                                    item.isMatcher = true;
+                                    item.isPoster = false;
+                                }
+                            })
+
                             user.tasklist = tasklist;
                             user.partial = "CurrentTasks";
+
                             res.render('userCurrentTasksView', {user: user, helpers: {if_eq: if_eq}})
                         })
                 })

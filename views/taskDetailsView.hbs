@@ -1,85 +1,23 @@
-{{!--
-<!--<h1> Task Details </h1>
-
-<h1>Offering: {{task.offering}}</h1>
-<h1>Wanted: {{task.requesting}}</h1>
-
-<span id="poster_id" name={{task._id}} style="display:none;"></span>
-
-<table width="50%">
-    <tr>
-        <div class="container-fluid">
-            <div class="row">
-            	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            	   {{task.pictureUrl}}
-                    Picture Here
-            	</div>
-            	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            		<p>Post Date: {{task.date}}</p>
-            		<p>Posted By: 
-            		<a id="posterName" name={{task.poster.id}}>{{task.poster.firstName}} {{task.poster.lastName}} </a></p>
-            		<p>Owner Rating: {{task.poster.rating}}</p>
-            		<p>Location: {{task.address.streetNumber}} {{task.address.streetName}}, {{task.address.city}}</p>
-            	</div>
-            	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        		  <p>Map here of the location</p>
-                </div>
-            </div>
-        </div>    	
-    </tr>
-    <div class="col-md-4 col-md-offset-4">
-    	{{task.description}}
-    </div>
-</table>
-
-<div class="col-md-4 col-md-offset-4">
-	<!--{{#unless task.sameUser }}
-        <button id="interested_button">I'm interested</button>
-	{{/unless}} -->
-
-    {{#if task.sameUser}}
-        <!--This is your task, so show a button that will navigate to a list of users who showed they are interested-->
-        <button id="show_interested">Show interested users</button>
-    {{else if task.alreadyMatched}}
-        <!-- Show no button for being interested-->
-        <label>You Have Already replied to this!</label>
-        <label>Send another message?</label>
-        <button id="interested_button">I'm interested</button>
-    {{else}}
-        <!--Show the I'm interested button-->
-        <button id="interested_button">I'm interested</button>
-    {{/if}}
-</div>
-
-<div id="interested_dialog">
-    <p>If you would like to show interest for this post, please write a small description of yourself.</p>
-    <p>This may help the user who posted this task to better inform their decision</p>
-    <form id="interested_form">
-        <input type="text" name="interested_description">
-    </form>
-</div>
---}}
-
 <div>
     <span id="poster_id" name={{task._id}} style="display:none;"></span>
-    <div class="container-fluid" style="background: #9bd17d;" >
-        <h2 style="font-weight: bold;">
-            Task Details
-        </h2>
-    </div>
-    <br>
+  <div class="container-fluid" style="background: #9bd17d;" >
+    <h2 style="font-weight: bold;">
+      Volunteer Opportunity Details
+    </h2>
+  </div>
+  <br>
     <div id="PreviewAd" class= "container-fluid">
         <div style="overflow: hidden;">
             <h2 style="font-weight:bold">
-                {{#if_eq task.taskType requesting}}
-                     I am requesting the following opportunity:
+                {{#if_eq task.taskType "requesting"}}
+                    I am requesting the following opportunity:
                 {{else}}
-                     I am offering the following opportunity:
+                    I am offering the following opportunity:
                 {{/if_eq}}
             </h2>
         </div>
     </div>
-    <div class="container" style="background:none">
+    <div class="container well" style="background-color: #e6ffe6">
         <div class="row" style="background:none">
             <h2 style="font-weight:bold">
                 {{task.title}}
@@ -88,7 +26,8 @@
 
         <div class="row" style="height:200px; background:none">
             <div class="col-lg-3" style="height:100%">
-                <img id= "taskImg" style="height: 100%" src={{task.pictureUrl}}/>
+                {{!-- <img id= "taskImg" style="height: 100%" src={{task.pictureUrl}}/>--}}
+                <img id= "taskImg" style="height: 100%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
             </div>
             <div class="col-lg-4" style="height:100%">
                 <img id="mapImg" style="height:100%" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
@@ -113,15 +52,15 @@
                     </tr>
                     <tr>
                         <th>
-                            Available from:
+                            Location:
                         </th>
                         <td>
-                            {{task.fromDateString}}
+                            {{task.location}}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            Until:
+                            Available Until:
                         </th>
                         <td>
                             {{task.toDateString}}
@@ -158,6 +97,7 @@
 
         </div>
     </div>
+  <br>
 </div>
 
 <div id="interested_dialog">
