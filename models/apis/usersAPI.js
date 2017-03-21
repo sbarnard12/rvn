@@ -133,9 +133,23 @@ var getUserCurrentTasks = function(req, res, next){
                     )
                         .then(function(tasklist){
                             //also get tasks that user is interested in
-                            potentialMatchesModel.find()
+                            //potentialMatchesModel.find()
+
+                            tasklist.forEach(function(item, index){
+                                //if user is the poster, set item.isposter
+                                //if user is the matcher, set item.ismatcher
+                                if(item.poster.id == user._id){
+                                    item.isPoster = true;
+                                    item.isMatcher = false;
+                                } else {
+                                    item.isMatcher = true;
+                                    item.isPoster = false;
+                                }
+                            })
+
                             user.tasklist = tasklist;
                             user.partial = "CurrentTasks";
+
                             res.render('userCurrentTasksView', {user: user, helpers: {if_eq: if_eq}})
                         })
                 })
