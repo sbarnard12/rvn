@@ -260,6 +260,26 @@ var setMatched = function(req, res, next){
 
 };
 
+var getHome = function(req, res){
+    //get the latest three tasks
+    if(req.session.age < 40){
+        var ageSearch = "old";
+    } else {
+        var ageSearch = "young";
+    }
+    taskListModel.find(
+        {$and:
+        [
+            {'poster.id': {'$ne':req.session.user_id}}, //Don't search for your own task
+            {ageGroup: ageSearch},
+            {expired: false},
+            {state: {'$ne': "Matched"}},
+        ]
+    }).sort({'date': -1}).limit(3)
+        .then(function(tasks){
+            res.render('homeView',{tasks: tasks});
+        })
+}
 
 //helpers
 var if_eq = function(a, b, opts) {
@@ -298,5 +318,6 @@ module.exports = {
 	setInterested: setInterested,
 	uploadPicture: uploadPicture,
     uploadFile: uploadFile,
-    setMatched: setMatched
+    setMatched: setMatched,
+    getHome: getHome,
 }
