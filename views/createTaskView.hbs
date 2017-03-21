@@ -7,13 +7,13 @@
 <div>
   <div class="container-fluid" style="background: #9bd17d;" >
     <h2 style="font-weight: bold;">
-      Create a Task
+      Create a Volunteer Opportunity
     </h2>
   </div>
   <br>
   <div id="progressBar">
     <ul class="arrows">
-      <li id="navTaskDetails" style="font-weight: bold; color: grey">1. Task Details</li>
+      <li id="navTaskDetails" style="font-weight: bold; color: grey">1. Volunteer Opportunity Details</li>
       <li id="navLocation" style="font-weight: bold; color: grey">2. Location</li>
       <li id="navDateandDuration" style="font-weight: bold; color: grey">3. Date and Duration</li>
       <li id="navPreviewAd" style="font-weight: bold; color: grey">4. Preview Ad</li>
@@ -23,7 +23,7 @@
     <div style="width: 100%;">
       <div id="headingTaskDetails" class="container-fluid" style="background: #9bd17d;">
         <h3 align="left" style="font-weight: bold;">
-          1. Task Details
+          1. Volunteer Opportunity Details
         </h3>
       </div>
       <div id="headingLocation" class="container-fluid" style="background: #9bd17d;" >
@@ -45,34 +45,37 @@
     <div class="container-fluid" style="width: 80%">
       <form id = "createTask_form">
       <div id="TaskDetails" class= "container-fluid">
-
           <table style="max-width: 80%; height: 300px">
-            <tr>
-              <td class="col1" style="vertical-align: text-top;">
-              <label for="taskType">Task Type: *</label>
+            <tr height="70px">
+              <td class="col1" style="vertical-align: top;">
+              <label for="taskType">Volunteer Opportunity Type: </label>
               </td>
-              <td class="col2" style="vertical-align: text-top;">
+              <td width=30px>
+              </td>
+              <td class="col2" style="vertical-align: top;">
                 <table>
                   <tr>
                     <td>
-                      <input type="radio" name="taskType" value="offering" checked> I am offering the following service<br>
+                      <input type="radio" name="taskType" value="offering" checked> I am offering the following volunteer opportunity<br>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <input type="radio" name="taskType" value="requesting"> I am requesting someone to help me with the following service<br>
+                      <input type="radio" name="taskType" value="requesting"> I am requesting someone to help me with the volunteer opportunity<br>
                       <br>
                     </td>
                   </tr>
                 </table>
               </td>
             </tr>
-            <tr>
-              <td style="vertical-align: text-top;">
-                <label for="taskCategory">Task Category: *</label>
+            <tr height="70px">
+              <td style="vertical-align: top;">
+                <label for="taskCategory">Volunteer Opportunity Category: </label>
                 <br><br>
               </td>
-              <td class="col2" style="vertical-align: text-top;">
+              <td width=30px>
+              </td>
+              <td class="col2" style="vertical-align: top;">
                 <select name="category" id="category">
                   <option value="technical">Technical</option>
                   <option value="basicLabor">Basic Labor</option>
@@ -84,22 +87,26 @@
                 <br><br>
               </td>
             </tr>
-            <tr>
-              <td class="col1" style="vertical-align: text-top;">
-                <label for="taskTitle">Task Title: *</label>
+            <tr height="70px">
+              <td class="col1" style="vertical-align: top;">
+                <label for="taskTitle">Volunteer Opportunity Title: </label>
               </td>
-              <td class="col2" style="vertical-align: text-top;">
-                <input id="tbtaskTitle" type="text" name="taskTitle" style="width: 100%">
+              <td width=30px>
+              </td>
+              <td class="col2" style="vertical-align: top;">
+                <input id="tbtaskTitle" type="text" name="taskTitle" style="width: 80%">
                 <br><br>
               </td>
             </tr>
-            <tr>
-              <td class="col1" style="vertical-align: text-top;">
-                <label for="taskDescription">Description: *</label>
+            <tr height="70px">
+              <td class="col1" style="vertical-align: top;">
+                <label for="taskDescription">Description: </label>
               </td>
-              <td class="col2" style="vertical-align: text-top;">
-                <input id="taskDescription" type="text" name="taskDescription" align="top" style="height: 100px; width: 100%;">
-                </input>
+              <td width=30px>
+              </td>
+              <td class="col2" style="vertical-align: top;">
+                <textarea id="taskDescription" type="text" name="taskDescription" align="top" style="height: 100px; width: 80%; resize=0">
+                </textarea>
                 <br><br>
               </td>
             </tr>
@@ -114,7 +121,6 @@
               </td>
             </tr>
           </table>
-
       </div>
       <div id="Location" class= "container-fluid">
         <table style="max-width: 80%; height: 300px">
@@ -123,7 +129,7 @@
               <label for="Location">Location: *</label>
             </td>
             <td class="col2" style="vertical-align: text-top;">
-              <input id="Location" type="text" name="Location" style="width: 100%";>
+              <input id="Location" type="text" name="Location" style="width: 100%" placeholder="Enter the city name here">
             </td>
           </tr>
         </table>
@@ -139,10 +145,12 @@
         </table>
       </div>
       <div id="DateandDuration" class= "container-fluid">
-        <table style="max-width: 80%; height: 20px">
+        <table style="max-width: 80%; height: 300px">
           <tr>
             <td style="vertical-align: text-top;">
-              How many days are you requesting the service?
+              For how many days would you like to post this volunteer opportunity?
+            </td>
+            <td width=30px>
             </td>
             <td style="vertical-align: text-top;">
               <input id="DaysRequestingService" type="number" name="Duration" min="1" max="30" step="1" value="1"/>
@@ -150,25 +158,6 @@
           </tr>
         </table>
         <br>
-        <table style="max-width: 80%; height: 260px">
-          <tr>
-            <td class="col1" style="vertical-align: top">
-              <label for="FromDate">From: *</label>
-            </td>
-            <td class="col2" style="vertical-align: top">
-              <input type="date" name="FromDate"/>
-              <br><br>
-            </td>
-          </tr>
-          <tr>
-            <td class="col1" style="vertical-align: top">
-              <label for="ToDate">To: *</label>
-            </td>
-            <td class="col2" style="vertical-align: top">
-              <input type="date" name="ToDate"/>
-            </td>
-          </tr>
-        </table>
         <table style="max-width: 80%;">
           <tr>
             <td class="col1" style="vertical-align: text-top">
@@ -184,16 +173,13 @@
       <div id="PreviewAd" class= "container-fluid">
         <div style="overflow: hidden;">
           <h2 style="font-weight: bold;">
-            TaskTitle
+            Volunteer Opportunity Title
           </h2>
           <div style="max-width: 50%; float: left;">
             <table id="previewInformation1" style="max-width: 50%; height: 200px">
               <tr>
                 <td>
-                  <img id= "taskImg" style="height: 10%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
-                </td>
-                <td>
-                  <img id="mapImg" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
+                  <img id= "taskImg" style="height: 30%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
                 </td>
               </tr>
             </table>
@@ -201,20 +187,27 @@
           <div style="margin-left: 60%;">
             <table id="previewInformation2">
               <tr>
-                <td>
+                <td style="height: 50px; font-weight: bold">
                   Date Posted:
-                </td>
-                <td>
-                  Current Date
                 </td>
               </tr>
               <tr>
-                <td>
+                <td style="height: 50px; font-weight: bold">
+                  Current Date:
+                </td>
+              </tr>
+              <tr>
+                <td style="height: 50px; font-weight: bold">
                   Owner:
                 </td>
                 <td>
                   {{user.firstName}} 
-                </td>     
+                </td>
+              </tr>
+              <tr>
+                <td style="height: 50px; font-weight: bold">
+                  Location:
+                </td>
               </tr>
             </table>
           </div>
@@ -225,12 +218,18 @@
               <tr>
                 <td>
                   <br>
-                  <label> Description: </label>
+                  <label style="font-weight: bold"> Description: </label>
+                </td>
+              </tr>
+              <tr>
+                <td style="height: 100px;">
+
                 </td>
               </tr>
             </table>
           </div>
-          <div>
+        </div>
+        <div>
             <table id="navButtons" style="max-width: 80%;">
               <tr>
                 <td class="col1">
@@ -241,8 +240,7 @@
                 </td>
               </tr>
             </table>
-          </div
-        </div>
+        </div
       </div>
     </div>
   <div>

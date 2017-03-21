@@ -61,23 +61,20 @@
 <div>
     <div class="container-fluid" style="background: #9bd17d;" >
     <h2 style="font-weight: bold;">
-      Create a Task
+      Volunteer Opportunity Details
     </h2>
   </div>
   <br>
         <div id="PreviewAd" class= "container-fluid">
         <div style="overflow: hidden;">
           <h2 style="font-weight: bold;">
-            TaskTitle
+            Volunteer Opportunity Title
           </h2>
           <div style="max-width: 50%; float: left;">
             <table id="previewInformation1" style="max-width: 50%; height: 200px">
               <tr>
                 <td>
-                  <img id= "taskImg" style="height: 10%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
-                </td>
-                <td>
-                  <img id="mapImg" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
+                  <img id= "taskImg" style="height: 30%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
                 </td>
               </tr>
             </table>
@@ -85,20 +82,27 @@
           <div style="margin-left: 60%;">
             <table id="previewInformation2">
               <tr>
-                <td>
+                <td style="height: 50px; font-weight: bold">
                   Date Posted:
-                </td>
-                <td>
-                  Current Date
                 </td>
               </tr>
               <tr>
-                <td>
+                <td style="height: 50px; font-weight: bold">
+                  Current Date:
+                </td>
+              </tr>
+              <tr>
+                <td style="height: 50px; font-weight: bold">
                   Owner:
                 </td>
                 <td>
                   {{user.firstName}} 
-                </td>     
+                </td>
+              </tr>
+              <tr>
+                <td style="height: 50px; font-weight: bold">
+                  Location:
+                </td>
               </tr>
             </table>
           </div>
@@ -109,16 +113,21 @@
               <tr>
                 <td>
                   <br>
-                  <label> Description: </label>
+                  <label style="font-weight: bold"> Description: </label>
+                </td>
+              </tr>
+              <tr>
+                <td style="height: 100px;">
+
                 </td>
               </tr>
             </table>
           </div>
-          <div>
-            <table id="buttonInterested" style="max-width: 80%;">
+          <div style="max-width: 80%;">
+            <table id="buttonInterested" align="center">
               <tr>
-                <td class="col1" style="align: center">
-                  <button type="button" name="buttonInterested"> I am Interested! </button>
+                <td class="col1">
+                  <button type="button" name="buttonInterested" class="createButton"> I want to volunteer! </button>
                 </td>
               </tr>
             </table>
