@@ -35,10 +35,23 @@ var search = function(req, res, next){
 }
 
 var defaultPage = function(req, res, next){
+    if(req.session.age < 40){
+        var ageSearch = "old";
+    } else {
+        var ageSearch = "young";
+    }
 	taskListModel.find(
-        {$and: [{expired: false},
-            {'poster.id': {$ne: req.session.user_id} }] //don't return your own tasks
-        }
+        {$or: [
+            {$and:
+                [
+                    //{'poster.id': {'$ne':user._id}}, //Don't search for your own task
+                    {ageGroup: ageSearch},
+                    {expired: false},
+                    {state: {'$ne': "Matched"}},
+                ]
+            },
+            {'poster.id': req.session.user_id} //get your own tasks as well
+        ]}
     )
 	.then(function(taskList){
 		res.render('tasklistView', {taskList: taskList});
@@ -59,6 +72,11 @@ var getOne = function(req, res, next){
             potentialMatchesModel.findOne({$and: [{'interestedUser.id': req.session.user_id}, {taskID: task._id}]})
                 .then(function(match){
                     task.alreadyMatched = (match != null);
+                    //parse date so it looks nicer on the page
+                    task.dateString = task.date.toString().split(" ").slice(0,4).join(" ");
+                    task.fromDateString = task.fromDate.toString().split(" ").slice(0,4).join(" ");
+                    task.toDateString = task.toDate.toString().split(" ").slice(0,4).join(" ");
+
                     res.render('taskDetailsView', {task: task, helpers: {if_eq: if_eq}});
                 });
 		});
@@ -67,19 +85,22 @@ var getOne = function(req, res, next){
 var createNewTask = function(req, res, next){
     
 	var task = new taskListModel();
-	task.title = req.body.title;
-	task.category = castCategory(req.body.category);
-	task.requesting = req.body.requesting;
-	task.offering = req.body.offering;
-	task.description = req.body.description;
-	task.address.streetNumber = isNaN(req.body.streetNumber)? 0: req.body.streetNumber;
-	task.address.streetName = req.body.streetName;
-	task.address.city = req.body.city;
-	task.address.postalCode = req.body.postalCode;
-	task.modeofContact  = castModeofContact(req.body.preferredContact);
+	task.title = req.body.taskTitle;
+	task.taskType = req.body.taskType;
+    task.category = req.body.category;
+    if(req.session.age < 40){
+        task.ageGroup = "young";
+    } else {
+        task.ageGroup = "old";
+    }
+	task.description = req.body.taskDescription;
+    task.location = req.body.Location;
+    task.duration = req.body.Duration;
+    task.date = new Date(Date.now());
+    task.fromDate = new Date(Date.now());
+    task.toDate = new Date(Date.now() + req.body.Duration*86400000);
 	task.expired = false;
 	task.state = "Available";
-	task.usePosterAddress = false;
 
 	//image upload code
 
@@ -152,20 +173,30 @@ var searchTasks = function(req, res, next){
 	
 	usersModel.findOne({userLoginID: req.session.user._id})
 	.then(function(user){		
-		var search = new RegExp(req.params.searchterm, "i");
+        var search = createRegex(req.params.searchterm);
+        if(user.age < 40){
+            var ageSearch = "old";
+        } else {
+            var ageSearch = "young";
+        }
 		taskListModel.find(
-			{$and: 
-				[
-					{'poster.id': {'$ne':user._id}},
-					{expired: false},
-                    {state: {'$ne': "Matched"}},
-                    {$or:
-                        [
-							{title: search},
-							{description: search}
-						]}
-				] 
-			}
+            {$or: [
+                {$and:
+                    [
+                        //{'poster.id': {'$ne':user._id}}, //Don't search for your own task
+                        {ageGroup: ageSearch},
+                        {expired: false},
+                        {state: {'$ne': "Matched"}},
+                        {$or:
+                            [
+                                {title:  {$regex: search}},
+                                {description: {$regex: search}}
+                            ]
+                        }
+                    ]
+                },
+                {'poster.id': user._id} //get your own tasks as well
+            ]}
 		)
 		.then(function(taskList){
 		    res.render('tasklistView', {taskList: taskList});
@@ -179,19 +210,16 @@ var setInterested = function(req, res, next){
 	.then(function(task){
 		usersModel.findOne({_id: req.session.user_id})
 		.then(function(user){
-            //this automatically matches
-			/*task.matchedUser.id = user._id;
-			task.matchedUser.firstName = user.firstName;
-			task.matchedUser.lastName = user.lastName;
-			task.matchedUser.rating = user.rating;
-			task.state = "Matched"; */
+
             var potentialMatch = new potentialMatchesModel();
             potentialMatch.taskID = task._id;
             potentialMatch.ownerID = task.poster.id;
             potentialMatch.interestedUser.id = user._id;
             potentialMatch.interestedUser.name = user.firstName + " " + user.lastName;
             potentialMatch.description = req.body.interested_description;
-
+            potentialMatch.interests = user.interests;
+            potentialMatch.location = user.address.city;
+            
             potentialMatch.saveAsync()
 			.then(function(task){
 				console.log("success");
@@ -216,12 +244,42 @@ var setMatched = function(req, res, next){
                     task.matchedUser.lastName = user.lastName;
                     task.state = "Matched";
 
-                    res.send("success");
+                    task.saveAsync()
+                    .then(function(){
+                        //Should clear out the interested users for that task
+                        console.log("success");
+                        res.json({'status': 'success'});
+                    })
+                        .catch(function(e){
+                            console.log("fail");
+                            res.json({'status': 'error', 'error': e})
+                        })
+                        .error(console.error);
                 })
         })
 
 };
 
+var getHome = function(req, res){
+    //get the latest three tasks
+    if(req.session.age < 40){
+        var ageSearch = "old";
+    } else {
+        var ageSearch = "young";
+    }
+    taskListModel.find(
+        {$and:
+        [
+            {'poster.id': {'$ne':req.session.user_id}}, //Don't search for your own task
+            {ageGroup: ageSearch},
+            {expired: false},
+            {state: {'$ne': "Matched"}},
+        ]
+    }).sort({'date': -1}).limit(3)
+        .then(function(tasks){
+            res.render('homeView',{tasks: tasks});
+        })
+}
 
 //helpers
 var if_eq = function(a, b, opts) {
@@ -240,6 +298,16 @@ var castModeofContact = function(mode){
 	return (mode === "email")? 0 : 1;
 };
 
+var createRegex = function(string){
+    var stringList = string.split(" ");
+    var RegString = "";
+    stringList.forEach(function(item){
+        RegString = RegString + item + "|";
+    });
+    RegString = RegString.substring(0,RegString.length-1);
+    return RegString;
+}
+
 module.exports = {
 	getAll: getAll,
 	search: search,
@@ -250,5 +318,6 @@ module.exports = {
 	setInterested: setInterested,
 	uploadPicture: uploadPicture,
     uploadFile: uploadFile,
-    setMatched: setMatched
+    setMatched: setMatched,
+    getHome: getHome,
 }

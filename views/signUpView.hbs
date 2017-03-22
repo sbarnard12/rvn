@@ -1,91 +1,259 @@
-<h1>Create a new account
-  </h1> 
+<div class="container-fluid" style="background: #9bd17d;" >
+ <div class="container-fluid" style="
+    padding-top: 10px; style="
+    padding-bottom: 5px;>
+     <h1 id="title" align="left" style="font-weight: bold">Reciprocal Volunteerism Network</h1>
+  </div>
+  
+</div>
+<div class="container-fluid" style="background: #c7e6b5;">
+  <h1 id="title" align="center" valign="top" style="font-weight: bold">Create a new Account</h1>
+</div>
+
+
 
   <!-- Display a message with the phone line number in case the user wants to talk to a real operator instead -->
-  <h3>If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h3>
+  <h2>If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
+  <br>
 
   <!-- Create a form that will be used to enter the user information -->
   <form name="signUp" id="signUp_form">
+
+<img src="https://i.imgsafe.org/0bb9f17efb.jpg" alt="Volunteer" style="width:304px;height:228px;">
+
+
     <div>
     <h2>Personal Information</h2>
     
       <!-- Get the user's title -->
-      <label for="title">Title: *</label>
+      <label for="title">Title *</label>
+      <br>
       <select id="title" name="title">
+
        <option id=Mr. value="Mr.">Mr.</option>
        <option id=Mrs. value="Mrs.">Mrs.</option>
        <option id=Miss value="Miss">Miss</option>
        <option id=Dr. value="Dr.">Dr.</option>
       </select>
-
+<br><br>
       <!-- Get the user's personal info -->
-      <label for="firstName">First Name: *</label>
-      <input id="firstName" type="text" name="firstName">
-      <label class="error" id="firstName_error" for="firstName"></label><br>
-   
-      <label for="lastName">Last Name: *</label>
-      <input id="lastName" type="text" name="lastName">
-      <label class="error" id="lastName_error" for="lastName"></label><br>
 
-      <label for="gender">Gender: *</label>
-      <input id=male type="radio" name="gender" value="Male" checked> Male
-      <input id=female type="radio" name="gender" value="Female"> Female
+      <label for="firstName">First Name * </label>
+      <br>
+      <input id="firstName" type="text" name="firstName">
+      <label class="error" id="firstName_error" for="firstName"></label><br><br>
+   
+      <label for="lastName">Last Name *</label><br>
+      <input id="lastName" type="text" name="lastName">
+      <label class="error" id="lastName_error" for="lastName"></label><br><br>
+
+      <label for="age">Age: * </label>
+      <input id="age" type="number" name="age" min="18" max="110" step="1" value="18"/><br><br>
+
+      <label for="gender">Gender: * </label>
+      <input id=male type="radio" name="gender" value="Male" checked> Male &nbsp;
+      <input id=female type="radio" name="gender" value="Female"> Female &nbsp;
       <input id=preferNotToSay type="radio" name="gender" value="Prefer not to say."> Prefer not to say
     </div>
 
     <div>
       <!-- Get the user's contact info -->
       <h2>Contact Information</h2>
-      <p>*This information will not be made visible unless requested</p>
+      <p>This information will not be shown to anyone.</p>
 
-      <label for="phoneNumber">Contact Phone Number: *</label>
+      <label for="phoneNumber">Contact Phone Number *</label><br>
       <input id=phoneNumber type="text" name="phoneNumber">
-      <label class="error" id="phoneNumber_error" for="phoneNumber"></label>
+      <label class="error" id="phoneNumber_error" for="phoneNumber"></label><br><br>
     
-      <label for="apartmentNumber">Apartment Number: *</label>
-      <input id="aptNum" type="text" name="apartmentNumber">
+      <label for="apartmentNumber">Apartment Number (leave blank if you do not live in an apartment)</label><br>
+      <input id="aptNum" type="text" name="apartmentNumber"><br><br>
 
-      <label for="streetAddress">Street Address: *</label>
+      <label for="streetAddress">Street Address *</label><br>
       <input id=streetAddress type="text" name="streetAddress">
-      <label class="error" id="streetAddress_error" for="streetAddress"></label>
+      <label class="error" id="streetAddress_error" for="streetAddress"></label><br><br>
 
-      <label for="city">City: *</label>
+      <label for="city">City * </label><br>
       <input id=city type="text" name="city">
-      <label class="error" id="city_error" for="city"></label>
+      <label class="error" id="city_error" for="city"></label><br><br>
 
-      <label for="province"> Province: *</label>
+      <label for="province"> Province *</label><br>
       <input id="province" name="province">
-      <label class="error" id="province_error" for="province"></label>
+      <label class="error" id="province_error" for="province"></label><br><br>
 
-      <label for="postalCode">Postal Code: *</label>
+      <label for="postalCode">Postal Code *</label><br>
       <input id=postalCode type="text" name="postalCode">
-      <label class="error" id="postalCode_error" for="postalCode"></label>
+      <label class="error" id="postalCode_error" for="postalCode"></label><br><br>
 
-      <label for="preferredContact: ">Preferred mode of contact: *</label>
-      <input id=e-mail type="radio" name="preferredContact" value="e-mail" checked> E-mail
-      <input id="phone" type="radio" name="preferredContact" value="phone"> Phone
+      <label for="preferredContact">Preferred mode of contact: *</label>
+
+      <input id=e-mail type="radio" name="preferredContact" value="e-mail" checked> E-mail &nbsp;
+      <input id="phone" type="radio" name="preferredContact" value="phone"> Phone &nbsp;
       <input id=mail type="radio" name="preferredContact" value="mail"> Mail<br>
     </div>
     <div>
       <!-- Get the user's login info -->
       <h2>Login Information</h2>
       
-      <label for="email"> E-mail Address: *</label>
+      The e-mail you enter here will be your username. <br> <br>
+
+
+      <label for="email"> E-mail Address *</label><br>
       <input id="email" type="text" name="email">
-      <label class="error" id="email_error" for="email"></label>
+      <label class="error" id="email_error" for="email"></label><br><br>
 
-      <label for="password">Password: *</label>
+      <label>Confirm E-mail Address *</label><br>
+      <input id="emailConfirm" type="text">
+      <label class="error" id="emailConfirm_error" for="emailConfirm"></label><br><br>
+
+      <label for="password">Password *</label><br>
       <input id=password type="password" name="Password">
-      <label class="error" id="password_error" for="password"></label>
+      <label class="error" id="password_error" for="password"></label><br><br>
 
-        <label>Confirm Password: *</label>
+      <label>Confirm Password *</label> <br>
       <input id="passwordConfirm" type="password">
-      <label class="error" id="passwordConfirm_error" for="passwordConfirm"></label>
+      <label class="error" id="passwordConfirm_error" for="passwordConfirm"></label><br><br>
     </div>
-
 </form>
     <div>
-        <button id="submit_button">Submit</button>
+    <h2>Hobbies and Interests</h2>
+<b>What are your hobbies? These will help us to better match you with the right person.</b> <br>
+  <table style="border-collapse: separate; border-spacing: 10px;">
+    <tr>
+      <td>
+        <input id="GardeningHobby" type="checkbox" name="Hobbies" value="Gardening"> Gardening
+      </td>
+      <td>
+        <input id="PaintingHobby" type="checkbox" name="Hobbies" value="Painting"> Painting
+      </td>
+      <td>
+        <input id="CookingHobby" type="checkbox" name="Hobbies" value="Cooking"> Cooking
+      </td>
+    </tr>
+    <tr>
+      
+      <td>
+        <input id="PhotographyHobby" type="checkbox" name="Hobbies" value="Photography"> Photography
+      </td>
+      <td>
+        <input id="VideoGamesHobby" type="checkbox" name="Hobbies" value="Video Games"> Video Games
+      </td>
+      <td>
+        <input id="KnittingHobby" type="checkbox" name="Hobbies" value="Knitting"> Knitting
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input id="PotteryHobby" type="checkbox" name="Hobbies" value="Pottery"> Pottery
+      </td>
+    </tr>
+      </table> 
+
+<table  style="border-collapse: separate; border-spacing: 10px;">
+      <tr>
+      <td>
+     
+        <input id="cbMusicHobby" type="checkbox" value="Music"> Music. Specify which instruments:
+      </td>
+      <td>
+        <input id="tbMusicHobby" type="text" name="Hobbies">
+     
+      </td>
+      </tr>
+      <tr>
+        <td>
+        <input id="SportsHobby" type="checkbox" name="Hobbies" value="Sports"> Sports
+        Specify which sport:
+        </td>
+        <td>
+          <input id="tbSportsHobby" type="text" name="Hobbies">
+        </td>
+      </tr>
+      <tr>
+       <td>
+        <input id="DanceHobby" type="checkbox" name="Hobbies" value="Dance"> Dance. Specify which type
+      </td>
+      <td>
+          <input id="tbDanceHobby" type="text" name="Hobbies">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input id="cbOtherHobby" type="checkbox" value="Other"> Other.
+            Specify:
+        </td>
+        <td>      
+          <input id="tbOtherHobby" type="text" name="Hobbies">
+        </td>
+      </tr>
+</table>
+
+<br>
+<b>What are you interested in learning more about? These will help us to better match you with the right person.</b> <br>
+   <table style="border-collapse: separate; border-spacing: 10px;">
+    <tr>
+      <td>
+        <input id="GardeningInterest" type="checkbox" name="Interests" value="Gardening"> Gardening
+      </td>
+      <td>
+        <input id="PaintingInterest" type="checkbox" name="Interests" value="Painting"> Painting
+      </td>
+      <td>
+        <input id="CookingInterest" type="checkbox" name="Interests" value="Cooking"> Cooking
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input id="PhotographyInterest" type="checkbox" name="Interests" value="Photography"> Photography
+      </td>
+      <td>
+        <input id="VideoGamesInterest" type="checkbox" name="Interests" value="Video Games"> Video Games
+      </td>
+      <td>
+        <input id="KnittingInterest" type="checkbox" name="Interests" value="Knitting"> Knitting
+      </td>
+    <tr>
+      <td>
+        <input id="PotteryInterest" type="checkbox" name="Interests" value="Pottery"> Pottery
+      </td>
+    </tr>  
+      </table> 
+
+<table  style="border-collapse: separate; border-spacing: 10px;">
+      <tr>
+        <td>
+          <input id="cbMusicInterest" type="checkbox" value="Music"> Music. Specify which instruments:
+        </td>
+          <td>
+            <input id="tbMusicInterest" type="text" name="Interests">
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <input id="SportsInterest" type="checkbox" name="Interests" value="Sports"> Sports. Specify which kind:
+        </td>
+        <td>
+          <input id="tbSportsInterest" type="text" name="Interests">
+        </td>
+      </tr>
+      <tr>  
+        <td>
+          <input id="DanceInterest" type="checkbox" name="Interests" value="Dance"> Dance. Specify which kind:
+        </td>
+        <td>
+          <input id="tbDanceInterest" type="text" name="Interests">
+        </td>
+      <tr>
+        <td>
+         <input id="cbOtherInterest" type="checkbox"  value="Other"> Other. Specify:
+        </td>
+        <td>
+          <input id="tbOtherInterest" type="text" name="Interests">
+        </td>
+      </tr>
+</table>
+    </div>
+    <div>
+        <button id="submit_button" >Submit</button>
         <button id="clearall_button">Clear All</button>
         <button id="exit_button">Exit</button>
         <p>* Required Fields</p>
@@ -97,4 +265,12 @@
     <div id="clear_dialog">
         <p>Are you sure you would like to Clear all information?</p>
     </div>
+    
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<script src="https://malsup.github.com/jquery.form.js"></script>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
 <script src="/javascripts/signupScript.js"></script>

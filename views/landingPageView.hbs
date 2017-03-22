@@ -1,40 +1,91 @@
-<div class="container-fluid" style="background: #D5EDB6;" >
- <h1 id="title">Welcome to V-Inverse!</h1>
+<!--Banner1-->
+<div class="container-fluid" style="background: #9bd17d;" >
+ <div class="container-fluid" style=" padding-top: 10px; padding-bottom: 5px;">
+ 	<form name="login" id="login">
+ 		<table cellspacing="0" role="presentation" align="right" >
+ 			<tbody>
+ 				<tr>
+ 					<td class= "loginUser">
+ 						<label for= "userName"> E-mail:</label>
+ 					</td>
+ 					<td class= "loginUser">
+ 						<label for= "password">Password:</label>
+ 					</td>
+ 				</tr>
+ 				<tr>
+ 					<td>
+ 						<input id="userName" type="text" name="userName" tabindex="1">
+ 					</td>
+ 					<td>
+ 						<input id="password" type="password" name="password" tabindex="2">
+ 					</td>
+ 					<td>
+ 						<button id="login_button" type="button" action="login">Log In</button><br>
+ 					</td>
+ 				</tr>
+                <tr id="login_Error">
+                </tr>
+ 			</tbody>
+ 		</table>
+ 	</form>
+  </div>
+</div>
+
+<!--Banner2-->
+<div class="container-fluid" style="background: #c7e6b5;">
+ <h1 id="title" align="center" style="font-weight: bold">Reciprocal Volunteerism Network</h1>
  </div>
- 
+
 <!-- Display a message with the phone line number in case the user wants to talk to a real operator instead -->
-
-<h2> If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
-
-
-<!-- Create a form that will be used to enter the username and password of the user -->
-<form name="login" id="login">
-	
-    
-  
-    <!-- Username text box -->
-    <p class="padding2">
-
-	<label for="userName">Username: </label>  
-	
-	<input id="userName" type="text" name="userName"> <br>
-
-    <!--Password text box -->
-    <label for="password">Password</label> 
-    <input id="password" type="password" name="password"><br>
-    <label class="error" id="login_Error" for="password"></label><br>
-
-	<!-- The login and create a new account buttons will each point to a different page once clicked on-->
-	<button id="login_button" type="button">Login</button><br> <br>
-	<button id="createNewAccount" type="button">Create a New Account</button><br>
+<div id="mainBody" class="container" align="center">
+	<div>
+		<h2 style="color: red; font-weight: bold">
+			Questions? Call us 416-689-2144
+        </h2>
+	</div>
 	<br>
-	<img id=handsImage src="https://scontent.xx.fbcdn.net/t31.0-8/15129414_10206849785117217_2284293189350513066_o.jpg" style="width:304px;height:228px;" />
-	</p>
-	
-</form>
+	<div>
+		<table>			
+ 				<tr>
+ 					<td>
+ 						<img id=handsImage src="http://c4228740.r40.cf2.rackcdn.com/large-group-of-happy-people.jpg" style="width:304px;height:228px;" />
+ 					</td>
+ 					<td width=30px>
+ 					</td>
+ 					<td>
+ 						<table>
+ 							<tr>
+ 								<td align="center">
+ 									<h3 style="font-weight: bold;">
+ 										New to us? <br>
+ 										Register today by <br>
+ 										clicking below <br>
+ 									</h3>
+ 								</td>
+ 							</tr>
+ 							<tr>
+ 								<td align="center" style="vertical-align: bottom; height: 100px">
+ 									<button id="createNewAccount" type="button" style="height: 50px; width: 200px; background: black; color: white; font-weight: bold; font-size: 20pt">Register</button>
+ 								</td>
+ 							</tr>
+ 						</table>
+ 					</td>
+ 				</tr> 				
+ 		</table>
+ 	</div>
+ 	<br>
+ 	<br>
+ 	<div>
+ 		<h3 align="center"> 
+ 		Our mission is to bridge the gap between youth and older adults <br>
+ 		through the idea of volunteerism. Why not help each other out? <br>
+ 		Sign up today and make a difference.
+ 		</h3>
+ 	</div>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
 <script src="/javascripts/loginScript.js"></script>

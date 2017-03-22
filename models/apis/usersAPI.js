@@ -13,6 +13,9 @@ reviewModel = db5.model('Review');
 var db6 = require('../dbs/potentialMatchesDB'),
     potentialMatchesModel = db6.model('PotentialMatches');
 
+var db7 = require('../dbs/messagesDB'),
+  messagesModel = db7.model('Message');
+
 var ObjectID = require('mongodb').ObjectID;
 
 var getAllUsers = function(req, res, next){
@@ -31,6 +34,7 @@ var createNewUser = function(req, res, next){
     usersModel.findOne({email: req.body.email})
         .then(function(user){
            if(user){ //user already exists, don't make another
+
                res.send("User Already Exists");
            } else {
                //create new user
@@ -38,6 +42,7 @@ var createNewUser = function(req, res, next){
                user.title = castTitle(req.body.title);
                user.firstName = req.body.firstName;
                user.lastName = req.body.lastName;
+               user.age = req.body.age;
                user.gender = castGender(req.body.gender);
                user.birthDate = Date.now();
                user.email = req.body.email;
@@ -48,6 +53,12 @@ var createNewUser = function(req, res, next){
                user.address.city = req.body.city;
                user.address.province = req.body.province;
                user.address.postalCode = req.body.postalCode;
+
+               //Need to parse Hobbies and Interests first
+               var Hobbies = JSON.parse(req.body.Hobbies);
+               var Interests = JSON.parse(req.body.Interests);
+               user.hobbies = Hobbies;
+               user.interests = Interests;
 
                var login = new loginModel();
                login.userName = req.body.email;
@@ -122,9 +133,23 @@ var getUserCurrentTasks = function(req, res, next){
                     )
                         .then(function(tasklist){
                             //also get tasks that user is interested in
-                            potentialMatchesModel.find()
+                            //potentialMatchesModel.find()
+
+                            tasklist.forEach(function(item, index){
+                                //if user is the poster, set item.isposter
+                                //if user is the matcher, set item.ismatcher
+                                if(item.poster.id == user._id){
+                                    item.isPoster = true;
+                                    item.isMatcher = false;
+                                } else {
+                                    item.isMatcher = true;
+                                    item.isPoster = false;
+                                }
+                            })
+
                             user.tasklist = tasklist;
                             user.partial = "CurrentTasks";
+
                             res.render('userCurrentTasksView', {user: user, helpers: {if_eq: if_eq}})
                         })
                 })
@@ -143,7 +168,7 @@ var getuserTaskHistory = function(req, res, next){
 
 	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
 	.then(function(user){
-		taskListModel.find( //only return old taks
+		taskListModel.find( //only return old tasks
 			{$and:
             	[
                 	{$or: [{'poster.id': user._id}, {'matchedUser.id': user._id}]},
@@ -152,9 +177,14 @@ var getuserTaskHistory = function(req, res, next){
         	}
 		)
 		.then(function(tasklist){
-			user.tasklist = tasklist;
 			user.partial = "TaskHistory";
-			res.render('userTaskHistoryView', {user: user})
+            tasklist.forEach(function(item, index){
+                item.dateString = item.date.toString().split(" ").slice(0,4).join(" ");
+                if(item.completeDate) {
+                    item.completeDateString = item.completeDate.toString().split(" ").slice(0, 4).join(" ");
+                }
+            })
+			res.render('userTaskHistoryView', {user: user, taskList: tasklist})
 		})
 	})
 }
@@ -166,8 +196,14 @@ var getUserReviews = function(req, res, next){
 		var id = req.params.id;
 	}
 
-	reviewModel.find({reviewedUser: id})
+	reviewModel.find({'reviewedUser.id': id})
 	.then(function(reviews){
+        //parse date string
+        reviews.forEach(function(item, index){
+            if(item.date){
+                item.dateString = item.date.toString().split(" ").slice(0,4).join(" ");
+            }
+        });
 		res.render('userReviewsView', {reviews: reviews})
 	})
 

@@ -1,53 +1,64 @@
+<!--Posted Task-->
 
-<!--<h1>Welcome to V-Inverse!</h1> 
-<h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>
-
-<div class="container-fluid">
-		<ul class="nav navbar-nav">
-        	<li><a id="reviews_nav" name={{user._id}}>Reviews</a></li>
-        	<li><a id="taskHistory_nav" name={{user._id}}>Task History</a></li>
-        	<li><a id="currentTasks_nav" name={{user._id}}>Current Tasks</a></li>
-        	<li class="active"><a id="profile_nav" name={{user._id}}>Profile</a></li>
-    	</ul>
-</div>
-<div id="partial_container">
-
-<div id="currentTasks" class="taskList_table">
-    <br><br>
-	<h1>Current Tasks</h1>
-
-	<table style="width:100%">
-  		<tr>
-  			<th style="display:none;"></th>
-    		<th>Task</th>
-    		<th>Owner</th> 
-    		<th>Status</th>
-    		<th>Rating</th>
+<!--<h1>Welcome to V-Inverse!</h1>
+<h2 >If you prefer, you may call 416-689-2144 to speak to a real human operator instead.</h2>-->
 
 
-  		</tr>
-  		{{#each user.tasklist}}
-        <tr>
-        	<td style="display:none;">{{this._id}}</td>
-            <td>{{this.title}}</td>
-            <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>                    
-            <td>{{this.state}}</td>
-            <td>Rating</td>       --><!-- Need to get the review for the task if completed
-            <td>
-            	{{#if_eq this.state "Matched"}}
-            	<button class="complete_button" id={{this._id}}>Complete</button>
-            	{{/if_eq}}
-            	<button>Delete</button>
-            </td>
-        </tr>
-        {{/each}}
-	</table>
+<div class="container-fluid"  style="background: #c7e6b5; font-weight: bold" >
+    <ul class="nav navbar-nav">
+        <li><a id="reviews_nav" name={{user._id}}>Reviews</a></li>
+        <li><a id="taskHistory_nav" name={{user._id}}>Task History</a></li>
+        <li> <!--making the current tasks a drop down maybe -->
+            <a class="dropdown-toggle" data-toggle="dropdown" id="currentTasks_nav" name={{user._id}}>Current Tasks</a>
+            <ul class="dropdown-menu">
+                <li>My Posted Tasks</li>
+                <li>Tasks I'm interested in</li>
+            </ul>
+        </li>
+        <li class="active"><a id="profile_nav" name={{user._id}}>Profile</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+        <li><a id="interestedTask_nav" name={{user._id}}>Interested Tasks</a></li>
+        <li><a id="postedTask_nav" name={{user._id}}>Posted Task</a></li>
+    </ul>
 </div>
 
+<!--<div id="partial_container">
+
+    <div id="currentTasks" class="taskList_table">
+        <br>
+        <br>
+        <h1>Current Tasks</h1>
+
+        <table style="width:100%">
+            <tr>
+                <th style="display:none;"></th>
+                <th>Task</th>
+                <th>Owner</th> 
+                <th>Status</th>
+                <th>Rating</th>
+            </tr>
+            {{#each user.tasklist}}
+                <tr>
+                    <td style="display:none;">{{this._id}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>                    
+                    <td>{{this.state}}</td>
+                    <td>Rating</td>       --><!-- Need to get the review for the task if completed
+                    <td>
+                        {{#if_eq this.state "Matched"}}
+                        <button class="complete_button" id={{this._id}}>Complete</button>
+                        {{/if_eq}}
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            {{/each}}
+       </table>
+    </div>
 </div>-->
 
 <div class="container-fluid">
-    <div class="col-lg-6" style="text-align: right">
+    <!-- <div class="col-lg-6" style="text-align: right">
         Filter by status:
     </div> 
     <div class="col-lg-6">
@@ -56,49 +67,63 @@
             <option value="matched">Matched</option>
             <option value="pending">Pending</option>
         </select>
-    </div>
+    </div> -->
 
     <br>
     <br>
 
-    <div class="currentTaskHeader">
-        <div class="col-lg-6">
-            Task Name
+    <div class="postTaskHeader">
+        <div class="col-lg-4">
+            <p style="position: absolute; left: 10px; top: 10px">Task Name</p>
         </div>
         <div class="col-lg-3">
-            Status
+            <p style="position: relative; top: 10px">Interested Users</p>
+        </div>
+        <div class="col-lg-2">
+            <p style="position: relative; top: 10px">Status</p>
         </div>
         <div class="col-lg-3">
-            Action
+            <p style="position: relative; top: 10px">Action</p>
         </div>
     </div>
+    {{#each user.tasklist}}
+    <div class="postTaskContent">
+        <span style="display:none">{{this._id}}</span>
+        <div class="col-lg-4">
+            <p style="position: relative; left: 10px; top: 10px">{{this.title}}</p>
+        </div>
+        <div class="col-lg-3">
+            <p style="position: relative; top: 10px">put number of interested users here</p>
+        </div>
+        <div class="col-lg-2">
+            <p style="position: relative; top: 10px">{{this.state}}</p>
+        </div>
+        <div class="col-lg-3">
+            <div class="col-lg-6">
+                <button type="button" class="viewDetails" style="margin: 15px 15px 0 15px">Details</button>
+            </div>
+            <div class="col-lg-6">
+                {{#if_eq this.state "Matched"}}
+                    {{#if_eq this.isPoster true}}
+                        {{#if_eq this.poster.hasReviewed true}}
+                            {{!--Don't put the complete button--}}
+                        {{else}}
+                            <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px; width:125px;">Complete</button>
+                        {{/if_eq}}
+                    {{else if_eq this.isMatcher true}}
+                        {{#if_eq this.matchedUser.hasReviewed true}}
+                            {{!--Don't put the review button--}}
+                        {{else}}
+                            <button type="button" class="createButton complete_button" id="{{this._id}}" style="margin: 15px 15px 0 15px; width:125px;">Complete</button>
+                        {{/if_eq}}
+                    {{/if_eq}}
+                {{/if_eq}}
+                <button type="button" class="deleteButton" id="deleteTask" style="margin: 15px">Delete</button>
+            </div>
 
-    <div class="currentTaskContent">
-        <div class="col-lg-6">
-            Task Name
-        </div>
-        <div class="col-lg-3">
-            Status
-        </div>
-        <div class="col-lg-3">
-            <button type="button" class="createButton" id="complete">Complete</button>
-            <br>
-            <br>
-            <button type="button" class="createButton" id="deleteTask">Delete</button>
         </div>
     </div>
+    {{/each}}
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="/javascripts/userProfileScript.js"></script>
 

@@ -1,7 +1,7 @@
   @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
   $font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
-  $primary-link-color: #00B7FF;
+  $primary-link-color: black;
   
 
 
@@ -105,6 +105,21 @@ p.padding2 {
                 color: white;
                 margin-right: 30px;
               }
+  .viewDetails {
+    width: 125px;
+    height: 40px;
+    background-color: #000000;
+    border: none;
+    border-radius: 6px;
+    padding: 15px 10px 32px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-style: Helvetica;
+    color: white;
+    margin-right: 30px;
+  }
 
 
 .searchBar {
@@ -420,38 +435,255 @@ p.padding2 {
       }
                   
 
-.currentTaskHeader {  
+.interestTaskHeader {  
                       height: 50px;
                       background-color: #9bd17d;
+                      font-size: 24px;
+                      font-weight: bold;
+
+
                       
                       .col-lg-6 {
+
+                                  height: 50px;
                                   text-decoration: underline;
+                                  border: solid 1px #000000;
+
+
                                   
                                       
                       }
 
                       .col-lg-3 {
+                                  height: 50px;
                                   text-align: center;
+                                  border: solid 1px #000000;
+
                       }
 }
 
-.currentTaskContent {
+.interestTaskContent {
                       height: 150px;
                       background-color: #c7e6b5;
                       
                       .col-lg-6 {
-                                  text-align: justify;
-                                  background-color: #c7e6b5;
+                                  height: 150px;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;
                                       
                       }
 
                       .col-lg-3 {
+                                  height: 150px;
                                   text-align: center;
-                                  background-color: #c7e6b5;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                      
                       }
 }
 
+.completeButton {
+                width: 125px;
+                height: 40px;
+                background-color: #228B22;
+                border: none;
+                border-radius: 6px;
+                padding: 15px 10px 32px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                font-style: Helvetica;
+                color: white;
+              }
+
+.deleteButton {
+                width: 125px;
+                height: 40px;
+                background-color: #FF0000;
+                border: none;
+                border-radius: 6px;
+                padding: 15px 10px 32px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                font-style: Helvetica;
+                color: white;
+}
+
+.postTaskHeader {  
+                      height: 50px;
+                      background-color: #9bd17d;
+                      font-size: 24px;
+                      font-weight: bold;
+
+                      .col-lg-4 {
+
+                                  height: 50px;
+                                  text-decoration: underline;
+                                  border: solid 1px #000000;               
+                      }
+
+                      .col-lg-3 {
+                                  height: 50px;
+                                  text-align: center;
+                                  border: solid 1px #000000;
+                      }
+                      
+                      .col-lg-2 {
+                                  background-color: #9bd17d;
+                                  height: 50px;
+                                  text-align: center;
+                                  border: solid 1px #000000;
+                      }
+}
+.taskList_table {
+  td {
+    padding: 15px;
+    text-align: left;
+  }
+  tr:hover{
+    background-color: #f5f5f4
+  }
+}
+.arrows { white-space: nowrap; }
+.arrows li {
+    display: inline-block;
+    line-height: 26px;
+    margin: 0 9px 0 -10px;
+    padding: 0 20px;
+    position: relative;
+}
+.arrows li::before,
+.arrows li::after {
+    border-right: 1px solid #666666;
+    content: '';
+    display: block;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transform: skewX(45deg);   
+}
+.arrows li::after {
+    bottom: 0;
+    top: auto;
+    transform: skewX(-45deg);
+}
+
+.arrows li:last-of-type::before, 
+.arrows li:last-of-type::after {
+  display: none;
+}
+.postTaskContent {
+                      height: 150px;
+                      background-color: #c7e6b5;
+                      
+                      .col-lg-4 {
+                                  height: 100%;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                                      
+                      }
+
+                      .col-lg-3 {
+                                  height: 100%;
+                                  text-align: center;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                      
+                      }
+
+                      .col-lg-2 {
+                                  height: 100%;
+                                  background-color: #c7e6b5;
+                                  text-align: center;
+                                  border-left: solid 1px #000000;
+                                  border-right: solid 1px #000000;
+                                  border-bottom: solid 1px #000000;                      
+                      }
+}
+
+.arrows li a { 
+   font: bold 24px Sans-Serif;  
+   letter-spacing: -1px; 
+   text-decoration: none;
+}
+
+.arrows li:nth-of-type(1) a { color: hsl(0, 0%, 70%); } 
+.arrows li:nth-of-type(2) a { color: hsl(0, 0%, 65%); } 
+.arrows li:nth-of-type(3) a { color: hsl(0, 0%, 50%); } 
+.arrows li:nth-of-type(4) a { color: hsl(0, 0%, 45%); } 
+
+.col1 {
+    width: 200px;
+    padding: 0;
+    vertical-align: text-top;
 
 
+    .c1row1 {
+              height: 169px;
+            }
 
+    .c1row2 {
+              height:29px;
+            }
+    
+    .c1row3 {
+              height:28px;
+            }
+  }
 
+.col2 {
+    width: 500px;
+    padding: 0;
+    vertical-align: text-top;
+
+    .c2row1 {
+              height: 50px;
+            }
+
+    .c2row2 {
+              height: 180px;
+            }
+  }
+
+.col3 {
+    width: 200px;
+    padding: 0;
+
+    .c3row1 {
+              height: 230px;
+            }
+  }
+
+.task_details {
+  td {
+    padding: 10px;
+  }
+}
+
+.taskhistory_table{
+  width:100%;
+  table-layout: fixed;
+  tr {
+    th {
+      width:200px;
+      padding:10px;
+    }
+    td {
+      padding:10px;
+      label {
+        font-weight: bold;
+      }
+    }
+  }
+}
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
