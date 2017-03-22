@@ -10,11 +10,11 @@ Promise.promisifyAll(mongoose);
 //set the schema based on the database types
 var TaskListSchema = new Schema({
 	title: {type: String, required: true},
-	category: {type: Number, required: true},
-	requesting: {type: String, required: true},
-	offering: {type: String, required: true},
+    taskType: {type: String, required: true},
+    ageGroup: {type: String, required: true},
+	category: {type: String, required: true},
 	description: {type: String, required: true},
-	usePosterAddress: {type: Boolean, required: true},
+    location: {type: String},
 	address: {
 		streetNumber: {type: Number},
 		streetName: {type: String},
@@ -22,22 +22,25 @@ var TaskListSchema = new Schema({
 		province: {type: String},
 		postalCode: {type: String},
 	},
-	modeofContact: {type: Number, required: true},
-	pictureUrl: {type: String},
 	poster: {
 		id: {type: String, required: true},
 		firstName: {type: String},
 		lastName: {type: String},
 		rating: {type: Number},
+        hasReviewed: {type: Boolean}
 	},
 	matchedUser: {
 		id: {type: String},
 		firstName: {type: String},
 		lastName: {type: String},
 		rating: {type: Number},
+        hasReviewed: {type: Boolean}
 	},
 	date: {type: Date, default: Date.now},
-	daterange: {type: Date},
+    fromDate: {type: Date},
+    toDate: {type: Date},
+    completeDate: {type: Date},
+    duration: {type: Number},
 	expired: {type: Boolean},
 	state: {type: String, required: true}
 

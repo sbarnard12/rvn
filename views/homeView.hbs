@@ -1,5 +1,6 @@
 <!--Recommended Tasks-->
 <div class="container-fluid">
+
     <table class="recommendTask">
 
         <thead>
@@ -9,145 +10,57 @@
         </thead>
 
         <tbody>
-        <tr style="border-style: solid; background: #c7e6b5; border-color: #000000">
-            <td>
-                <table class="col1">
-                    <tr>
-                        <td class="c1row1 col1">
-                            <p><img src="profilePic.jpg" alt="Profile Picture"></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c1row2 col1">
-                            <p><a href="taskOwner">Owner</a></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c1row3 col1">
-                            <p><a href="taskLocation">Location</a></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-
-            <td>
-                <table class="col2">
-                    <tr>
-                        <td class="c2row1 col2">
-                            <p><a href="taskName">Task Name</a></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c2row2 col2">
-                            <p>Description goes here...</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table class="col3">
-                    <tr>
-                        <td class="c3row1 col3">
-                            <p><button type="button" class="viewDetails col3" id="viewDetails">View Details</button></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        <tr style="border-style: solid; background: #c7e6b5; border-color: #000000">
-            <td>
-                <table class="col1">
-                    <tr>
-                        <td class="c1row1 col1">
-                            <p><img src="profilePic.jpg" alt="Profile Picture"></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c1row2 col1">
-                            <p><a href="taskOwner">Owner</a></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c1row3 col1">
-                            <p><a href="taskLocation">Location</a></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-
-            <td>
-                <table class="col2">
-                    <tr>
-                        <td class="c2row1 col2">
-                            <p><a href="taskName">Task Name</a></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c2row2 col2">
-                            <p>Description goes here...</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table class="col3">
-                    <tr>
-                        <td class="c3row1 col3">
-                            <p><button type="button" class="viewDetails c3row1 col3" id="viewDetails">View Details</button></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        <tr style="border-style: solid; background: #c7e6b5; border-color: #000000">
-            <td>
-                <table class="col1">
-                    <tr>
-                        <td class="c1row1 col1">
-                            <p><img src="profilePic.jpg" alt="Profile Picture"></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c1row2 col1">
-                            <p><a href="taskOwner">Owner</a></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c1row3 col1">
-                            <p><a href="taskLocation">Location</a></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-
-            <td>
-                <table class="col2">
-                    <tr>
-                        <td class="c2row1 col2">
-                            <p><a href="taskName">Task Name</a></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="c2row2 col2">
-                            <p>Description goes here...</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table class="col3">
-                    <tr>
-                        <td class="c3row1 col3">
-                            <p><button type="button" class="viewDetails c3row1 col3" id="viewDetails">View Details</button></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+        {{#each tasks}}
+            <tr class="row3" style="border-style: solid;background: #c7e6b5;border-color: #000000;">
+                <td style="display:none">{{this._id}}</td>
+                <td style="display:none">{{this.poster.id}}</td>
+                <td class="col1">
+                    <table>
+                        <tr class="r3c1row1">
+                            <td>
+                                <p><img src="{{this.pictureUrl}}" alt="Profile Picture"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="r3c1row2">
+                                <p><a class="poster_link">{{this.poster.firstName}} {{this.poster.lastName}}</a></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="r3c1row3">
+                                <p>{{this.address.city}}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="col2">
+                    <table>
+                        <tr class="r3c2row1">
+                            <td >
+                                <p><a href="taskName">{{this.title}}</a></p>
+                            </td>
+                        </tr>
+                        <tr class="r3c2row2">
+                            <td>
+                                <p>{{this.description}}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="col3">
+                    <table>
+                        <tr class="r3c3row1">
+                            <td>
+                                <p><button type="button" class="viewDetails col3" >View Details</button></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        {{/each}}
         </tbody>
     </table>
 </div>
 
+<script src="/javascripts/taskListScript.js"></script>
 <script src="/javascripts/searchScript.js"></script>

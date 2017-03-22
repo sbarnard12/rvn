@@ -1,37 +1,20 @@
 $(function(){
-	$('#submit_button').on('click', submit);
-	$('#clearAll_button').on('click', clearAll);
-	$('#exit_button').on('click', exit);
-	$('#upload-file').on('click', submit);
+	$('#submit_task').on('click', submit);
     //$('#upload-file').submit(uploadFile);
+	$('#confirmPost_button').on('click', confirm);
 
-	$('#exit_dialog').dialog({
+
+	$('#confirm_dialog').dialog({
 		resizable: false,
 		height: "auto",
 		width: "auto",
 		modal: true,
 		autoOpen: false,
 		buttons: {
-			"Exit": function(){
+			"Confirm": function(){
 				$(this).dialog("close");
-				window.location = ("http://localhost:3000/home");
+				submit();
 
-			},
-			Cancel: function(){
-				$(this).dialog("close")
-			}
-		}
-	});
-	$('#clear_dialog').dialog({
-		resizable: false,
-		height: "auto",
-		width: "auto",
-		modal: true,
-		autoOpen: false,
-		buttons: {
-			"Clear All": function(){
-				$(this).dialog("close");
-				$('#createTask_form').trigger("reset")
 			},
 			Cancel: function(){
 				$(this).dialog("close")
@@ -99,6 +82,7 @@ function displayDateandDuration() {
 }
 
 function displayPreviewAd() {
+        setPreviewFields()
 		TaskDetails.setAttribute('class', 'hidden');
 		heading_TaskDetails.setAttribute('class', 'hidden');
 		Location.setAttribute('class', 'hidden');
@@ -138,12 +122,8 @@ var uploadFile = function(){
     return false;
 }
 
-var clearAll = function(){
-	$('#clear_dialog').dialog("open");
-}
-
-var exit = function(){
-	$('#exit_dialog').dialog("open");
+var confirm = function(){
+	$('#confirm_dialog').dialog("open");
 }
 
 var setColor = function(pagenum){
@@ -160,6 +140,30 @@ var setColor = function(pagenum){
 
 }
 
+var setPreviewFields = function(){
+    if($('#offering_radial').is(':checked')){
+        $('#offerRequestPreview').text('I am offering the following opportunity');
+    }
+    if($('#requesting_radial').is(':checked')){
+        $('#offerRequestPreview').text('I am requesting the following opportunity');
+    }
+    $('#titlePreview').text($('#tbtaskTitle').val());
+    $('#description_preview').text($('#taskDescription').val());
+    var dateNow = new Date(Date.now());
+    dateNow = dateNow.toString().split(" ").slice(0,4).join(" ");
+    $('#datePostedPreview').text(dateNow);
+    $('#locationPreview').text($('#location_input').val());
+    var duration = $('#DaysRequestingService').val();
+    var DateTo = new Date(Date.now() + duration*86400000);
+    DateTo = DateTo.toString().split(" ").slice(0,4).join(" ");
+    $('#availableUntilPreview').text(DateTo);
+    //var dateFrom = parseDate($('#fromDate').val());
+    //$('#fromDatePreview').text(dateFrom);
+    //var dateTo = parseDate($('#toDate').val());
+    //$('#toDatePreview').text(dateTo);
+
+
+};
 
 function myMap() {
 var mapProp= {
@@ -168,6 +172,18 @@ var mapProp= {
 };
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
+
+var parseDate = function(date){
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    var dateSplit = date.split('-');
+    var month = monthNames[parseInt(dateSplit[1])];
+    month = month.slice(0,3);
+    return month + " " + dateSplit[2] + " " + dateSplit[0];
+
+}
+
 
 //<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 
