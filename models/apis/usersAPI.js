@@ -39,17 +39,16 @@ var createNewUser = function(req, res, next){
            } else {
                //create new user
                var user = new usersModel();
-               user.title = castTitle(req.body.title);
+               user.title = req.body.title;
                user.firstName = req.body.firstName;
                user.lastName = req.body.lastName;
                user.age = req.body.age;
-               user.gender = castGender(req.body.gender);
+               user.gender = req.body.gender;
                user.birthDate = Date.now();
                user.email = req.body.email;
-               user.contactNumber = req.body.contactNumber;
-               user.preferredContact = castPreferredContact(req.body.preferredContact);
-               user.address.streetNumber = req.body.streetNumber;
-               user.address.streetName = req.body.streetName;
+               user.contactNumber = req.body.phoneNumber;
+               user.preferredContact = req.body.preferredContact;
+               user.address.streetAddress = req.body.streetAddress;
                user.address.city = req.body.city;
                user.address.province = req.body.province;
                user.address.postalCode = req.body.postalCode;
@@ -99,7 +98,7 @@ var getUserProfile = function(req, res, next){
 	usersModel.findOne({$or: [{userLoginID: id}, {_id: id}]})
 	.then(function(user){
 		user.partial = "Profile";
-		res.render('userProfileView', {user: user})
+		res.render('userProfileView', {user: user, helpers: {if_eq: if_eq}})
 	})
 }
 
@@ -138,6 +137,11 @@ var getUserCurrentTasks = function(req, res, next){
                             tasklist.forEach(function(item, index){
                                 //if user is the poster, set item.isposter
                                 //if user is the matcher, set item.ismatcher
+                                //get count of how many users are interested
+                                potentialMatchesModel.count({taskID: item._id})
+                                    .then(function(count){
+                                        item.numInterestedUsers = count.toString();
+                                    })
                                 if(item.poster.id == user._id){
                                     item.isPoster = true;
                                     item.isMatcher = false;

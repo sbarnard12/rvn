@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav">            
                 <li><a id="navGeneralInformation" style="color: black;" onclick="displayGeneralInformation()">General Information</a></li>
                 <br>
-                <li><a id="navWorkEducation" style="color: black;" onclick="displayWorkEducation()">Work and Education</a></li>
+                <!--<li><a id="navWorkEducation" style="color: black;" onclick="displayWorkEducation()">Work and Education</a></li> -->
                 <br>
                 <li><a id="navContactInformation" style="color: black;" onclick="displayContactInformation()">Contact Information</a></li>
                 <br>
@@ -48,7 +48,14 @@
                 <br><br>
                 <label>Last Name: </label> {{user.lastName}}
                 <br><br>
-                <label>Gender: </label {{user.gender}}
+                <label>Gender: </label>
+                {{#if_eq user.gender 0}}
+                    Male
+                    {{else if_eq user.gender 1}}
+                    Female
+                    {{else if_eq user.gender 2}}
+                    Prefer Not to Say
+                {{/if_eq}}
                 <br><br>
             </div>
             <div id="Work_and_Education" class="hidden">
@@ -58,11 +65,11 @@
                 <br><br>
             </div>
             <div id="Contact_Information" class="hidden">
-                <label>Phone Number: </label> {{user.phoneNumber}}
+                <label>Phone Number: </label> {{user.contactNumber}}
                 <br><br>
                 <label> Apartment Number: </label> {{user.address.apartmentNumber}}
                 <br><br>
-                <label> Street Address: </label> {{user.address.streetNumber}} {{user.address.streetName}}
+                <label> Street Address: </label> {{user.address.streetAddress}}
                 <br><br>
                 <label>City: </label> {{user.address.city}}
                 <br><br>
@@ -72,9 +79,9 @@
                 <br><br>
             </div>
             <div id="Interests" class="hidden">
-                <label>Interests: </label>
+                <label>Interests: </label> {{user.interests}}
                 <br><br>
-                <label>Hobbies: </label>
+                <label>Hobbies: </label> {{user.hobbies}}
                 <br><br>
             </div>
         </div>

@@ -10,48 +10,7 @@
       </th>
     </thead>
     <tbody>
-       <!-- <table class="searchResults">
-        <tr class="row1">
-          <td class="r1col1">
-            Display:
-          </td>
-          <td class="r1col2">
-            <select class="filterDropdown">
-              <option value="five">05</option>
-              <option value="ten">10</option>
-              <option value="fifteen">15</option>
-              <option value="twenty">20</option>
-            </select>
-          </td>
-          <td class="r1col3">
-            Sort by:
-          </td>
-          <td class="r1col4">
-            <select class="sortByDropdown">
-              <option value="all">All</option>
-              <option value="type">Type</option>
-              <option value="location">Location</option>
-              <option value="date">Date</option>
-            </select>
-          </td>
-        </tr>
-      </table>
-      <table class="searchResults">
-        <tr class="row2">
-          <td class="r2col1">First Page</td>
-          <td class="r2col2">Prev</td>
-          <td class="r2col3">1</td>
-          <td class="r2col4">2</td>
-          <td class="r2col5">3</td>
-          <td class="r2col6">4</td>
-          <td class="r2col7">5</td>
-          <td class="r2col8">Next</td>
-          <td class="r2col9">Last Page</td>
-        </tr>
-      </table> -->
-      
-
-      <table class="searchResults">
+    <table class="searchResults">
       {{#each taskList}}
           <tr class="row3" style="border-style: solid;border-width:1px;background: #c7e6b5;border-color: #000000;">
               <td style="display:none">{{this._id}}</td>
@@ -79,7 +38,7 @@
             <table>
               <tr class="r3c2row1">
                 <td >
-                  <p><a href="taskName">{{this.title}}</a></p>
+                  <p><label>{{this.title}}</label></p>
                 </td>
               </tr>
               <tr class="r3c2row2">
