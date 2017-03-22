@@ -20,8 +20,8 @@
         <li class="active"><a id="profile_nav" name={{user._id}}>Profile</a></li>
     </ul>
     <ul class="nav navbar-nav">
-        <li><a id="interestedTask_nav" name={{user._id}}>Interested Tasks</a></li>
-        <li><a id="postedTask_nav" name={{user._id}}>Posted Task</a></li>
+        <li><a id="interestedTask_nav" name={{user._id}}>Interested</a></li>
+        <li><a id="postedTask_nav" name={{user._id}}>Posted</a></li>
     </ul>
 </div>
 
@@ -58,47 +58,6 @@
        </table>
     </div>
 </div>-->
-<<<<<<< HEAD
-
-{{!--
-<!--
-<div id="partial_container">
-
-<div id="currentTasks" class="taskList_table">
-    <br><br>
-	<h1>Current Tasks</h1>
-
-	<table style="width:100%">
-  		<tr>
-  			<th style="display:none;"></th>
-    		<th>Task</th>
-    		<th>Owner</th> 
-    		<th>Status</th>
-    		<th>Rating</th>
-
-
-  		</tr>
-  		{{#each user.tasklist}}
-        <tr>
-        	<td style="display:none;">{{this._id}}</td>
-            <td>{{this.title}}</td>
-            <td>{{this.poster.firstName}} {{this.poster.lastName}}</td>                    
-            <td>{{this.state}}</td>
-            <td>Rating</td> <!-- Need to get the review for the task if completed -->
-            <td>
-            	{{#if_eq this.state "Matched"}}
-            	<button class="complete_button" id={{this._id}}>Complete</button>
-            	{{/if_eq}}
-            	<button class="delete_button">Delete</button>
-            </td>
-        </tr>
-	</table>
-</div>
-
-</div> -->
---}}
-=======
->>>>>>> master
 
 <div class="container-fluid">
     <!-- <div class="col-lg-6" style="text-align: right">
@@ -117,7 +76,7 @@
 
     <div class="postTaskHeader">
         <div class="col-lg-4">
-            <p style="position: absolute; left: 10px; top: 10px">Task Name</p>
+            <p style="position: absolute; left: 10px; top: 10px">Post Name</p>
         </div>
         <div class="col-lg-3">
             <p style="position: relative; top: 10px">Interested Users</p>
@@ -129,11 +88,8 @@
             <p style="position: relative; top: 10px">Action</p>
         </div>
     </div>
-<<<<<<< HEAD
 
-=======
     {{#each user.tasklist}}
->>>>>>> master
     <div class="postTaskContent">
         <span style="display:none">{{this._id}}</span>
         <div class="col-lg-4">
@@ -146,11 +102,6 @@
             <p style="position: relative; top: 10px">{{this.state}}</p>
         </div>
         <div class="col-lg-3">
-<<<<<<< HEAD
-            <br>
-            <br>
-            <button type="button" class="deleteButton" id="deleteTask">Delete</button>
-=======
             <div class="col-lg-6">
                 <button type="button" class="viewDetails" style="margin: 15px 15px 0 15px">Details</button>
             </div>
@@ -172,14 +123,10 @@
                 {{/if_eq}}
                 <button type="button" class="deleteButton" id="deleteTask" style="margin: 15px">Delete</button>
             </div>
-
->>>>>>> master
         </div>
     </div>
+    {{/each}}
 </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 <script src="/javascripts/userProfileScript.js"></script>
 

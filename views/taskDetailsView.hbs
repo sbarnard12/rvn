@@ -83,15 +83,15 @@
             {{else}}
                 {{#if task.sameUser}}
                     <!--This is your task, so show a button that will navigate to a list of users who showed they are interested-->
-                    <button style="position: relative; left:40%" id="show_interested">Show interested users</button>
+                    <button class="createButton" style="position: relative; left:40%" id="show_interested">Show interested users</button>
                 {{else if task.alreadyMatched}}
                     <!-- Show no button for being interested-->
                     <label>You Have Already replied to this!</label>
                     <label>Send another message?</label>
-                    <button id="interested_button">I'm interested</button>
+                    <button class="createButton" id="interested_button">Send another message!</button>
                 {{else}}
                     <!--Show the I'm interested button-->
-                    <button style="position: relative; left:40%" id="interested_button">I'm interested</button>
+                    <button class="createButton" style="position: relative; left:40%" id="interested_button">I want to volunteer!</button>
                 {{/if}}
             {{/if_eq}}
 

@@ -576,7 +576,7 @@ p.padding2 {
                                   border-right: solid 1px #000000;
                                   border-bottom: solid 1px #000000;                      
                       }
-
+}
 .arrows { white-space: nowrap; }
 .arrows li {
     display: inline-block;
@@ -603,8 +603,6 @@ p.padding2 {
     top: auto;
     transform: skewX(-45deg);
 }
-
-.arrows li:last-of-type::before, 
 
 .arrows li:last-of-type::after { 
     display: none; 
@@ -691,4 +689,5 @@ p.padding2 {
   float: none;
   margin: 0 auto;
 }
+
 
