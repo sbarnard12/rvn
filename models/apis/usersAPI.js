@@ -37,7 +37,9 @@ var createNewUser = function(req, res, next){
 
                res.send("User Already Exists");
            } else {
-               //create new user
+               //create new user\
+               try{
+
                var user = new usersModel();
                user.title = req.body.title;
                user.firstName = req.body.firstName;
@@ -62,6 +64,9 @@ var createNewUser = function(req, res, next){
                var login = new loginModel();
                login.userName = req.body.email;
                login.password = req.body.Password;
+             } catch(e) {
+              res.send(e);
+             }
 
                login.saveAsync()
                    .then(function(login){
