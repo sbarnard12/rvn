@@ -20,8 +20,7 @@ var usersSchema = new Schema ({
 	userLoginID: {type: String, required: true},
 	rating: {type: Number},
 	address: {
-		streetNumber: {type: Number},
-		streetName: {type: String},
+		streetAddress: {type: String},
 		city: {type: String},
 		province: {type: String},
 		postalCode: {type: String},
