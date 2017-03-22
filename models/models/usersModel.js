@@ -21,7 +21,6 @@ var usersSchema = new Schema ({
 	rating: {type: Number},
 	address: {
 		streetAddress: {type: String},
-		apartmentNumber: {type: String},
 		city: {type: String},
 		province: {type: String},
 		postalCode: {type: String},

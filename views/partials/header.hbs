@@ -3,21 +3,32 @@
   <div class="container-fluid">
     <div class="row">
       <div class="titleBanner">
+      
         <p class="titleText">Reciprocal Volunteerism Network</p>
       </div>
-      <div class="menuBanner titleBanner">
-        <p class="menuBar">
-          <a style="text-decoration: underline; color: inherit" href="/home/">Home</a>          |
-          <a style="text-decoration: underline; color: inherit" href="/user/Profile/">My Profile</a>         |
-        </p>
+      <div class="container-fluid" style="background: #c7e6b5; font-weight: bold" >
+          <div class="row">
+              <div class="col-md-10">
+                  <ul class="nav navbar-nav">
+                      <li><a href="/home" id="home_nav">Home</a></li>
+                      <li><a href="#" id="reviews_nav" name={{user._id}}>Reviews</a></li>
+                      <li><a href="#" id="taskHistory_nav" name={{user._id}}>Volunteer History</a></li>
+                      <li><a href="#" id="currentTasks_nav" name={{user._id}}>Current Opportunities</a></li>
+                      <li><a href="/user" id="profile_nav" name={{user._id}}>My Profile</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-2">
+                  <ul class="nav navbar-nav">
+                      <li><a href="/logout">Log Out</a></li>
+                  </ul>
+              </div>
+          </div>
+
       </div>
-      <div class="logOutBtn">
-        <a style="text-decoration: underline; color: inherit" href="/logout">Log Out</a>
-      </div>
-      <div style = "text-center">
+      <div>
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="text-center" style="background: #c7e6b5">If you prefer, you may call <u>416-689-2144</u> to speak to a customer service representative to assist you.</h3>
+            <h3 class="text-center" style="background: #c7e6b5">If you prefer, you may call <u>416-689-2144</u> to speak to a phone operator.</h3>
           </div>
         </div>
       </div>
@@ -29,10 +40,10 @@
 
 <!-- Create a form that will be used search for a task or create a new task -->
 <div class="form-actions">
-  <button type="submit" class="createButton" id="createNewTask">Create New Task</button>
+  <button type="submit" class="createButton" id="createNewTask">Post New Volunteer Opportunity</button>
   <style>
     .form-actions {
-                    text-align: right;
+                    text-align: center;
                   }
   </style>
 </div>  
@@ -44,13 +55,13 @@
   <div class="row">
     <div class="input-group">
       <div class="searchBar">
-        <input type="text" class="searchBox searchBar" id="searchTerm" name="searchTerm" placeholder="Search for a task..."
-        ><select class="typeDropdown">
+        <input type="text" class="searchBox searchBar" id="searchTerm" name="searchTerm" placeholder="Search for a volunteer opportunity...">
+          <select class="typeDropdown">
             <option value="allType">All Type</option>
             <option value="offerType">Offering</option>
             <option value="requestType">Requesting</option>
-          </select
-        ><select class="catDropdown">
+          </select>
+        <select class="catDropdown">
             <option value="allCategories">All Categories</option>
             <option value="academicCat">Academic</option>
             <option value="artisticCat">Artistic</option>
