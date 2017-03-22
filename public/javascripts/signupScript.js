@@ -36,7 +36,7 @@ $(function(){
 			}
 		}
 	})
-	$("#cbMusicHobby").on("change", function()
+	/*$("#cbMusicHobby").on("change", function()
 	{
     	if($('#cbMusicHobby').is(":checked"))   
         	$("#tbMusicHobby").show();
@@ -67,7 +67,7 @@ $(function(){
 	$("#tbMusicHobby").hide();
 	$("#tbMusicInterest").hide();
 	$("#tbOtherInterest").hide();
-	$("#tbOtherHobby").hide();
+	$("#tbOtherHobby").hide(); */
 });
 
 var submit = function(){
