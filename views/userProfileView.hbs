@@ -41,7 +41,9 @@
             <ul class="nav navbar-nav">            
                 <li><a id="navGeneralInformation" style="color: black;" onclick="displayGeneralInformation()">General Information</a></li>
                 <br>
-                <li><a id="navWorkEducation" style="color: black;" onclick="displayWorkEducation()">Work and Education</a></li>
+                <!-- 
+                <li><a id="navWorkEducation" style="color: black;" onclick="displayWorkEducation()">Work and Education</a></li> 
+                -->
                 <br>
                 <li><a id="navContactInformation" style="color: black;" onclick="displayContactInformation()">Contact Information</a></li>
                 <br>
@@ -59,12 +61,12 @@
                 <label>Gender: </label {{user.gender}}
                 <br><br>
             </div>
-            <div id="Work_and_Education" class="hidden">
+            <!-- <div id="Work_and_Education" class="hidden">
                 <label>Education Level: </label>
                 <br><br>
                 <label>Workplace: </label>
                 <br><br>
-            </div>
+            </div> -->
             <div id="Contact_Information" class="hidden">
                 <label>Phone Number: </label> {{user.phoneNumber}}
                 <br><br>
@@ -81,8 +83,10 @@
             </div>
             <div id="Interests" class="hidden">
                 <label>Interests: </label>
+                {{user.interests}}
                 <br><br>
                 <label>Hobbies: </label>
+                {{user.hobbies}}
                 <br><br>
             </div>
         </div>
