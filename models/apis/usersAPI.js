@@ -40,26 +40,26 @@ var createNewUser = function(req, res, next){
                //create new user\
                try{
 
-               var user = new usersModel();
-               user.title = req.body.title;
-               user.firstName = req.body.firstName;
-               user.lastName = req.body.lastName;
-               user.age = req.body.age;
-               user.gender = req.body.gender;
-               user.birthDate = Date.now();
-               user.email = req.body.email;
-               user.contactNumber = req.body.phoneNumber;
-               user.preferredContact = req.body.preferredContact;
-               user.address.streetAddress = req.body.streetAddress;
-               user.address.city = req.body.city;
-               user.address.province = req.body.province;
-               user.address.postalCode = req.body.postalCode;
+               var usermodel = new usersModel();
+               usermodel.title = req.body.title;
+               usermodel.firstName = req.body.firstName;
+               usermodel.lastName = req.body.lastName;
+               usermodel.age = req.body.age;
+               usermodel.gender = req.body.gender;
+               usermodel.birthDate = Date.now();
+               usermodel.email = req.body.email;
+               usermodel.contactNumber = req.body.phoneNumber;
+               usermodel.preferredContact = req.body.preferredContact;
+               usermodel.address.streetAddress = req.body.streetAddress;
+               usermodel.address.city = req.body.city;
+               usermodel.address.province = req.body.province;
+               usermodel.address.postalCode = req.body.postalCode;
 
                //Need to parse Hobbies and Interests first
                var Hobbies = JSON.parse(req.body.Hobbies);
                var Interests = JSON.parse(req.body.Interests);
-               user.hobbies = Hobbies;
-               user.interests = Interests;
+               usermodel.hobbies = Hobbies;
+               usermodel.interests = Interests;
 
                var login = new loginModel();
                login.userName = req.body.email;
@@ -70,10 +70,14 @@ var createNewUser = function(req, res, next){
 
                login.saveAsync()
                    .then(function(login){
-                       user.userLoginID = login._id;
-                       user.save()
+                       usermodel.userLoginID = login._id;
+                       usermodel.save()
                            .then(function(user){
                                res.send("success");
+                           })
+                           .catch(function(e){
+                               console.log('fail');
+                               res.send(e);
                            })
                    })
                    .catch(function(e){
@@ -200,7 +204,7 @@ var getuserTaskHistory = function(req, res, next){
 
 var getUserReviews = function(req, res, next){
 	if(typeof req.params.id === "undefined"){
-		var id = req.session.user._id;
+		var id = req.session.user_id;
 	} else {
 		var id = req.params.id;
 	}

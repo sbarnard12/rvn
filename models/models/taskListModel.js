@@ -42,7 +42,8 @@ var TaskListSchema = new Schema({
     completeDate: {type: Date},
     duration: {type: Number},
 	expired: {type: Boolean},
-	state: {type: String, required: true}
+	state: {type: String, required: true},
+    pictureUrl: {type: String}
 
 });
 

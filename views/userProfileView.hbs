@@ -1,6 +1,7 @@
 <div id="PageBanner">
     <br><br>
     <div class= "container" style="max-width: 80%; height: 150px; background: #9bd17d">
+        <span id="gender_hidden" style="display:none">{{user.gender}}</span>
         <table>
             <tr>
                 <td>
@@ -57,6 +58,8 @@
                     Female
                     {{else if_eq user.gender 2}}
                     Prefer Not to Say
+                    {{else}}
+                    {{user.gender}}
                 {{/if_eq}}
                 <br><br>
             </div>

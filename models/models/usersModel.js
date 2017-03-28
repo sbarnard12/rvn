@@ -12,7 +12,7 @@ var usersSchema = new Schema ({
 	firstName: {type: String, required: true},
 	lastName: {type: String, required: true},
     age: {type: Number, required: true},
-	gender: {type: Number, required: true},
+	gender: {type: String, required: true},
 	birthDate: {type: Date, required: true},
 	email: {type: String},
 	contactNumber: {type: String},

@@ -22,11 +22,10 @@ var checkUser = function(req, res){
 
                             res.send('success');
                         } else {
-                            res.render('landingPageView', { error: 'Invalid email or password.' });
+                            res.render('landingPageView', { error: 'Invalid email or password.'});
                         }
                     })
             }
-
         });
 };
 

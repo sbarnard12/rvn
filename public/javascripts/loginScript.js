@@ -1,4 +1,4 @@
-var host = "https://" +  window.location.host;
+var host = "http://" +  window.location.host;
 $(function(){
 	$('#login_button').on('click',login);
 	$('#createNewAccount').on('click', signup);

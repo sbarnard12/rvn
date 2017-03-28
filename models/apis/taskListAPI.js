@@ -52,7 +52,7 @@ var defaultPage = function(req, res, next){
             },
             {'poster.id': req.session.user_id} //get your own tasks as well
         ]}
-    )
+    ).sort({'date': 'descending'}).limit(20)
 	.then(function(taskList){
 		res.render('tasklistView', {taskList: taskList});
 	})
@@ -93,6 +93,7 @@ var createNewTask = function(req, res, next){
     } else {
         task.ageGroup = "old";
     }
+    task.pictureUrl = urlArray[req.body.category];
 	task.description = req.body.taskDescription;
     task.location = req.body.Location;
     task.duration = req.body.Duration;
@@ -197,7 +198,7 @@ var searchTasks = function(req, res, next){
                 },
                 {'poster.id': user._id} //get your own tasks as well
             ]}
-		)
+		).sort({'date': 'descending'}).limit(20)
 		.then(function(taskList){
 		    res.render('tasklistView', {taskList: taskList});
 		})
@@ -277,7 +278,7 @@ var getHome = function(req, res){
         ]
     }).sort({'date': -1}).limit(3)
         .then(function(tasks){
-            res.render('homeView',{tasks: tasks});
+            res.render('homeView',{tasks: tasks, user:req.session.user});
         })
 }
 
@@ -298,6 +299,14 @@ var castModeofContact = function(mode){
 	return (mode === "email")? 0 : 1;
 };
 
+var urlArray = {
+    technical: "http://leverhawk.com/wp-content/uploads/2013/04/row-of-personal-computers-iStock_000018237896Medium.jpg",
+    basicLabor: "http://c7.alamy.com/comp/CR6F2Y/young-men-doing-a-carpentry-apprenticeship-vocational-training-center-CR6F2Y.jpg",
+    mechanical: "https://previews.123rf.com/images/ikonoklast/ikonoklast1303/ikonoklast130300094/18691775-Mechanic-repairing-the-motor-or-electric-parts-of-a-car-in-a-garage-Stock-Photo.jpg",
+    academic: "https://thumb9.shutterstock.com/display_pic_with_logo/1860644/398919886/stock-photo-academic-398919886.jpg",
+    artistic: "https://thumb9.shutterstock.com/display_pic_with_logo/201175/389834032/stock-photo-artistic-paintbrushes-on-artist-canvas-covered-with-oil-paints-389834032.jpg",
+    other: "http://www.giaging.org/images/uploads/images/sstock_441648310_mentor_aa_knit.jpg"
+}
 var createRegex = function(string){
     var stringList = string.split(" ");
     var RegString = "";

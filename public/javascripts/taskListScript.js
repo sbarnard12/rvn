@@ -1,4 +1,4 @@
-var host = "https://" +  window.location.host;
+var host = "http://" +  window.location.host;
 $(function(){
     $(".viewDetails").on('click', taskDetailLink);
     $('.poster_link').each(setPosterLink)

@@ -1,4 +1,4 @@
-var host = "https://" +  window.location.host;
+var host = "http://" +  window.location.host;
 $(function(){
 	$('#submit_review').on('click', submitReview);
 	$('#submit_dialog').dialog({

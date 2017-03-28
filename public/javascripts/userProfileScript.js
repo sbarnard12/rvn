@@ -1,10 +1,11 @@
-var host = "https://" +  window.location.host;
+var host = "http://" +  window.location.host;
 var General_Information = document.getElementById('General_Information');
 var Work_and_Education = document.getElementById('Work_and_Education');
 var Contact_Information = document.getElementById('Contact_Information');
 var Interests = document.getElementById('Interests');
 
 $(function(){
+    setProfilePic();
     $('#reviews_nav').on('click', getPartial);
     $('#taskHistory_nav').on('click', getPartial);
     $('#currentTasks_nav').on('click', getPartial);
@@ -21,7 +22,7 @@ $(function(){
 
 var initializeColors = function() {
 		General_Information.setAttribute('class', 'visible');
-		Work_and_Education.setAttribute('class', 'hidden');
+		//Work_and_Education.setAttribute('class', 'hidden');
 		Contact_Information.setAttribute('class', 'hidden');
 		Interests.setAttribute('class', 'hidden');
 		setColor(0);
@@ -29,7 +30,7 @@ var initializeColors = function() {
 
 function displayGeneralInformation() {
         General_Information.setAttribute('class', 'visible');
-        Work_and_Education.setAttribute('class', 'hidden');
+        //Work_and_Education.setAttribute('class', 'hidden');
         Contact_Information.setAttribute('class', 'hidden');
         Interests.setAttribute('class', 'hidden');
         setColor(0);
@@ -37,7 +38,7 @@ function displayGeneralInformation() {
 
 function displayWorkEducation() {
         General_Information.setAttribute('class', 'hidden');
-        Work_and_Education.setAttribute('class', 'visible');
+        //Work_and_Education.setAttribute('class', 'visible');
         Contact_Information.setAttribute('class', 'hidden');
         Interests.setAttribute('class', 'hidden');
         setColor(1);
@@ -45,7 +46,7 @@ function displayWorkEducation() {
 
 function displayContactInformation() {
         General_Information.setAttribute('class', 'hidden');
-        Work_and_Education.setAttribute('class', 'hidden');
+        //Work_and_Education.setAttribute('class', 'hidden');
         Contact_Information.setAttribute('class', 'visible');
         Interests.setAttribute('class', 'hidden');
         setColor(2);
@@ -53,7 +54,7 @@ function displayContactInformation() {
 
 function displayInterests() {
         General_Information.setAttribute('class', 'hidden');
-        Work_and_Education.setAttribute('class', 'hidden');
+        //Work_and_Education.setAttribute('class', 'hidden');
         Contact_Information.setAttribute('class', 'hidden');
         Interests.setAttribute('class', 'visible');
         setColor(3);
@@ -88,6 +89,28 @@ var completeButton = function(){
 	})
 };
 
+var setProfilePic = function(){
+    var gender = $("#gender_hidden").text();
+
+    switch (gender){
+        case "0":
+            gender = "Male";
+            break;
+        case "1":
+            gender = "Female";
+            break;
+        case "2":
+            gender = "prefernot";
+            break;
+        case "Prefer not to say.":
+            gender = "prefernot";
+            break;
+        default:
+            break;
+    }
+
+    $('#profilePicture').attr('src', genderUrlArray[gender]);
+}
 
 var setColor = function(pagenum) {
     var nav = [$('#navGeneralInformation'), $('#navWorkEducation'), $('#navContactInformation'), $('#navInterests')];
@@ -99,5 +122,10 @@ var setColor = function(pagenum) {
             nav[i].css('color', 'grey');
         }
     }
+};
 
+var genderUrlArray = {
+    Male: "https://image.shutterstock.com/z/stock-vector-man-silhouette-profile-picture-vector-151265393.jpg",
+    Female: "https://image.shutterstock.com/z/stock-vector-woman-avatar-profile-picture-vector-151265954.jpg",
+    prefernot: "https://image.shutterstock.com/z/stock-vector-male-avatar-profile-picture-vector-148661750.jpg"
 }

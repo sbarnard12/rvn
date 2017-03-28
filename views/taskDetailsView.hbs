@@ -1,5 +1,6 @@
 <div>
     <span id="poster_id" name={{task._id}} style="display:none;"></span>
+    <span id="taskCategory" style="display:none">{{task.category}}</span>
   <div class="container-fluid" style="background: #9bd17d;" >
     <h2 style="font-weight: bold;">
       Volunteer Opportunity Details
@@ -27,7 +28,11 @@
         <div class="row" style="height:200px; background:none">
             <div class="col-lg-3" style="height:100%">
                 {{!-- <img id= "taskImg" style="height: 100%" src={{task.pictureUrl}}/>--}}
-                <img id= "taskImg" style="height: 100%" src="https://pbs.twimg.com/profile_images/675002642196729857/A0OpcJpA.png"/>
+                {{#if task.pictureUrl}}
+                    <img id= "taskImg" style="height: 100%" src="{{task.pictureUrl}}"/>
+                {{else}}
+                    <img id= "taskImg" style="height: 100%" src=""/>
+                {{/if}}
             </div>
             <div class="col-lg-4" style="height:100%">
                 <img id="mapImg" style="height:100%" src="https://www.freemaptools.com/images/screen-shots/radius-around-point.jpg"/>
